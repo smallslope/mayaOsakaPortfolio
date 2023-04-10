@@ -244,9 +244,6 @@ body {
   align-items: center;
 }
 .projectPicsSection{
-  max-height:50vw;
-  padding-right:1vw;
-  padding-left: 1vw;
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -265,6 +262,7 @@ body {
 }
 .projectPics{
   display: flex;
+  flex-direction: center;
   /* flex-direction: column; */
   justify-content:center;
   align-items: center;
