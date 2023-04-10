@@ -517,24 +517,34 @@ body{
 /** footer */
 .footer{
   width:100%;
-  height:1.8rem;
   display: flex;
+  flex-direction:row;
   align-items: center;
   justify-content:center;
   bottom:0;
   position:fixed;
-  margin-top:2vh;
   background-color: white;
 }
-.email{
-  font-size: 20px;
+.footerdivs{
+  height:2.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.footerText{
+  display: flex;
+  align-items: center;
+  font-size:18px;
   color:#6F6F6F;
-  text-decoration: none;
   text-align: center;
 }
-.email:hover{
+.footerLink{
+  color:#6F6F6F;
+  text-decoration: none;
+}
+.footerLink:hover{
   color:#E3B16D;
 }
+
 
 
 
