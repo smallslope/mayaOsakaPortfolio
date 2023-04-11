@@ -121,7 +121,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:92vh;
 }
 .project-slideshows{
   display: flex;
@@ -150,7 +149,7 @@ body {
 .projectImgs:hover{opacity:0.7;}
 .landingTitles{
   font-family: 'avenir', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight:lighter;
   color: #6F6F6F;
   margin-top:0.5vw;
@@ -159,6 +158,7 @@ body {
 .landingTitles:hover{
   color:#E69321;
 }
+
  @media screen and (max-width: 500px){
   .tile{
     max-width: 21rem;
@@ -255,6 +255,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.projectVid{
+  width: auto;
+  height: auto;
+  max-width: 70vw;
+  max-height: 90vh;
 }
 .projectDescriptionSection{
   display: flex;
