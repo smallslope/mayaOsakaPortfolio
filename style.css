@@ -13,7 +13,7 @@ body {
   padding:0.5vw;
 }
 .menuItem {
-  color: grey;
+  color: black;
   padding: 0.625rem 0.625rem;
   text-decoration: none;
   font-size: 1.5rem;
@@ -24,6 +24,11 @@ body {
 }
 #menuBlank{
   flex: 0.5;
+}
+#title{
+  font-family: "Avenir", Helvetica, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
 }
 #websiteTitle{
   flex: 2;
@@ -51,12 +56,12 @@ body {
  padding-right: 1vw;
 }
 .fa{
-  color: #6F6F6F;
+  color:black;
 }
 #backButton{
   width:auto;
   height: auto;
-  max-height: 2vw;
+  max-height: 1.5vw;
   padding-left: 3vw;
 }
 /* Media Queries for Top Bar*/
@@ -106,6 +111,11 @@ body {
   #backButton{
     max-height: 4vw;
   }
+  #title{
+    flex:2;
+    font-size: 1rem;
+    text-align: center;
+  }
 }
 @media screen and (max-width: 500px){
 
@@ -150,8 +160,9 @@ body {
 .landingTitles{
   font-family: 'avenir', sans-serif;
   font-size: 1.2rem;
+  letter-spacing: 0.1rem;
   font-weight:lighter;
-  color: #6F6F6F;
+  color:black;
   margin-top:0.5vw;
   margin-bottom: 0.5vw;
 }
@@ -210,13 +221,13 @@ body {
 .description{
   font-family: 'avenir', sans-serif;
   font-size: 16px;
-  color: #6F6F6F;
+  color: black;
   padding: 5px;
 }
 .hi{
   font-family: "avenir";
   font-weight:600;
-  color:#6F6F6F;
+  color:black;
 } 
 @media screen and (max-width: 480px){
   #aboutPage{
@@ -296,7 +307,7 @@ body {
   font-weight:lighter;
   font-style:italic;
   font-size: 1rem;
-  color:#6F6F6F;
+  color:black;
   text-align: center;
   width:50vw;
   margin: auto;
@@ -305,14 +316,16 @@ body {
 .projectTitle{
   font-family: 'avenir', sans-serif;
   font-size: 2rem;
-  color:#6F6F6F;
+  letter-spacing: 0.2rem;
+  color:black;
   text-align: center;
 }
 .projectTags{
   font-family: 'avenir', sans-serif;
   font-weight:lighter;
   font-size: 1.25rem;
-  color:#6F6F6F;
+  letter-spacing: 0.1rem;
+  color:black;
   text-align:center
 }
 .descriptionLink{
@@ -390,7 +403,7 @@ body{
 .photographyProjectTitle{
   font-family: 'avenir', sans-serif;
   font-size: 20px;
-  color:#6F6F6F;
+  color:black;
 }
 .photographyPics{
   width: auto;
@@ -498,7 +511,7 @@ body{
 .illustrationProjectTitle{
   font-family: 'avenir', sans-serif;
   font-size: 20px;
-  color:#6F6F6F;
+  color:black;
 }
 .illustrationProjectDescriptionSection{
   flex: 1;
@@ -563,11 +576,11 @@ body{
   display: flex;
   align-items: center;
   font-size:18px;
-  color:#6F6F6F;
+  color:black;
   text-align: center;
 }
 .footerLink{
-  color:#6F6F6F;
+  color:black;
   text-decoration: none;
 }
 .footerLink:hover{
