@@ -80,7 +80,7 @@ body {
     max-height: 30vw;
   }
   i.fa-bars{
-    padding: 2px;
+    padding: 0.5rem;
   }
   .topnav .menuItem {display: none;}
   .topnav a.icon {
