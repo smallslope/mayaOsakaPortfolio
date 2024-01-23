@@ -15,7 +15,12 @@ body{
    margin-left: 4rem;
 }
 .project-link{
-    font-size: 2rem;
+    font-size: 1.75rem;
     padding: 0.25rem;
     margin-left: 4rem;  
+}
+.project-description{
+    font-size: 1.2rem;
+    padding:0.25rem;
+    margin-left: 4rem;
 }
