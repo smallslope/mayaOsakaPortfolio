@@ -37,11 +37,30 @@
     from, to {border-color: transparent}
     50% {border-color: red}
 }
+#playgroundDescription{
+    font-family: monospace;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0.1rem;
+    margin-bottom: 2rem;
+}
+.project{
+    margin: 2rem
+}
 .projectTile{
-    padding: 0.5rem;
+    padding: 0.2rem;
     margin: 0.25rem;
+    margin-left: 4rem;
 }
 .projectLink{
     font-family: monospace;
-    font-size: 2rem;
+    font-size: 1.5rem;
+}
+.projectDescription{
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 0.2rem;
+    margin: 0.25rem;
+    margin-left: 4rem;
+
 }
