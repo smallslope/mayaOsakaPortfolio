@@ -1,3 +1,13 @@
+/*
+var drink_configuration = {
+  drink_logo: './imgs/cola_logo.png',
+  drink_size: 500,
+  contactless_price: 1.50,
+  point_price: 10,
+  currency: 'GBP'
+}
+*/
+
 //Burger Menu 
 function myFunction(){
   console.log('x');
@@ -14,7 +24,7 @@ window.onload = function(){
 // Get the modal
 var modal = document.getElementById("myModal");
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = Array.from(document.getElementsByClassName("illustrationPics"));
+var img = Array.from(document.getElementsByClassName("modalPic"));
 console.log(img)
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Maya Osaka</title>
+    <link rel="stylesheet" href="/Playground/vend/vend.css">
+    <script src="/Playground/vend/vend.js"></script>
+    <script src="https://kit.fontawesome.com/d3fc69292a.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  </head> 
+  <body>
+    <section id="emptySpace">
+        <section id="canvas1" class="sizeSelectionPage">
+          <section class="containers1">
+            <div class="half_litre_container">
+              <div class="drink_size">500ml</div>
+              <div class="half_litre_content">
+                <div class="priceContainer">
+                  <div class="cash">£1.50</div>
+                  <div class="or">or</div>
+                  <div class="points">10 points</div>
+                </div>
+              </div>
+              <button class="halfLitre_goButton" onClick="selectSize(event,'500ml')">
+                <div class="go">GO</div>
+              </button>
+            </div>
+            <div class="litre_container">
+              <div class="drink_size">1000ml</div>
+              <div class="litre_content">
+                <div class="priceContainer">
+                  <div class="cash">£2.50</div>
+                  <div class="or">or</div>
+                  <div class="points">15 points</div>
+                </div>
+              </div>
+              <button class="litre_goButton" onClick="selectSize(event, '1000ml')">
+                <div class="go">GO</div>
+              </button>
+            </div>
+          </section>
+          <div class="vendLogo">VEND</div>
+        </section>
+        <section id="canvas2" class="paymentPage">
+          <div class="brandImgContainer">
+            <img class="brandImg" src="/Playground/vend/imgs/coca_cola.png">
+          </div>
+          <div class="infoContainer">
+            <div class="containerTop">
+              <button class="back_button_container" onClick="backTo_sizeSelectionPage()">
+                <img class ="backButton" src="/Playground/vend/imgs/backButton.png">
+              </button>
+              <div class="drink_size_container">
+                <div class="drinkSize">500ml</div>
+              </div>
+            </div>
+            <div class="payment_info_container">
+              <div class="contactlessContainer">
+                <div class="payment_options">Contactless</div>
+                <div class="cashCost">£1.50</div>
+                <button class="payButton" onClick="selectPaymentMethod('cash')">
+                  <div class="pay">PAY</div>
+                </button>
+            </div>
+            <div class="pointsContainer">
+              <div class="payment_options">Points</div>
+              <div class="pointsCost">10</div>
+              <button class="payButton" onClick="selectPaymentMethod('points')">
+                <div class="pay">PAY</div>
+              </button>
+            </div>
+          </div>
+          <div class="vendLogo_blue">VEND</div>
+        </section>
+        <section id="canvas3" class="dispenserInfoPage">
+          <div class="mainContentContainer">
+            <div class="instructionsLayout">
+              <div class="instructionsType">Place your bottle in the dispenser</div>
+            </div>
+            <img class="dispenserGif" src="/Playground/vend/imgs/dispenserInfo.gif">
+            <button class="nextButton" onClick="displayPaymentPage()">
+              <div class="nextText">NEXT</div>
+            </button>
+          </div>
+          <div class="bottomSection">
+            <div class="vendLogo_blue">VEND</div>
+          </div>
+        </section>
+        <section class="pointsPaymentPage">
+          <div class="payment_text_container">
+            <div class="payment_text">Scan the QR code to pay with points</div>
+          </div>
+          <img class="qr_code" src="/Playground/vend/imgs/payment_qr_code.png" onClick="displayThankYouPage('pointsPaymentPage')">
+          <div class="vendLogo_blue">VEND</div>
+        </section>
+        <section class="cashPaymentPage">
+          <div class="payment_text_container tap_to_pay">
+            <div class="payment_text">Please tap to pay</div>
+          </div>
+          <img class="contactlessIcon" src="/Playground/vend/imgs/contactless_icon.png" onClick="displayThankYouPage('cashPaymentPage')">
+          <div class="vendLogo_blue cash_payment_vend_logo">VEND</div>
+        </section>
+        <section class="thankYouPage">
+          <div class="thank_you_container">
+            <div class="thank_you_text">Thank you for choosing <div style="font-family:'LeagueSpartan-SemiBold';">VEND</div></div>
+          </div>
+          <div class ="thank_you_page_vend_logo">
+            <div class="vendLogo_blue">VEND</div>
+          </div>
+        </section>
+      </section>
+  </body>
+</html>

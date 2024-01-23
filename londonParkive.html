@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,26 +13,24 @@
   </head> 
   <body>
     <div class="topnav" id="myTopnav">
-      <div id="menuBlank">
-        <a href="./index.html">
-          <img id="backButton" src="./Buttons/slideshow-Left.png">
-        </a>
-      </div> 
-      <div id="websiteTitle">
-        <h1 id="title">MAYA OSAKA</h1>
-        <!-- <a href="index.html">
-            <img id="titleImg" src="./Title/mayaOsaka.png">
-        </a> -->
-      </div>
-      <div id="topMenu">
-        <div id="menuItems">
-          <a class= "menuItem" href="./index.html">Work</a>
-          <a class= "menuItem" href="./about.html">About</a>
+         <div id="menuBlank">
+             <a href="./index.html">
+                <img id="backButton" src="./Buttons/slideshow-Left.png">
+            </a>
+            </div> 
+        <div id="websiteTitle">
+             <h1 id="title">MAYA OSAKA</h1>
         </div>
-        <a href="javascript:void(0);" class ="icon" onclick="myFunction()">
-        <i class="fa fa-bars" style="font-size:24px;"></i>
-        </a>
-      </div>
+        <div id="topMenu">
+            <div id="menuItems">
+                <a class= "menuItem" href="./index.html">Work</a>
+                <a class="menuItem" href="./Playground/playground.html">Play</a>
+                <a class= "menuItem" href="./about.html">About</a>
+            </div>
+            <a href="javascript:void(0);" class ="icon" onclick="myFunction()">
+                <i class="fa fa-bars" style="font-size:24px;"></i>
+            </a>
+        </div>
     </div>
     <main class ="projectSection">
       <div class ="projectPicsSection">
@@ -58,9 +57,33 @@
           This was my BA 1st Year final project. I proposed the brief and did extensive research into the history of parks and open spaces in the Borough of Southwark in London and compiled all of this research into a prototype for a website using Adobe Illustrator and XD over a 7 week period. 
         </p>
       </div>
-      <div class ="projectPicsTiled">
-        <img class="tiledPics" src=""
+      <div class="tab">
+        <button  id="outcomesButton" class="tablinks active" onClick="openTab(event,'outcomes')">OUTCOMES</button>
+        <button id="processButton" class="tablinks" onClick="openTab(event,'process')">PROCESS</button>
       </div>
+      <div id="outcomes" class="tabcontent" style="display:block;" >
+        <div class="projectPicsSectionTiled">
+          <img class="tiledProjectPic modalPic" src="Img/London Parkive/Outcomes/1_londonParkive.jpg">
+          <img class="tiledProjectPic modalPic" src="Img/London Parkive/Outcomes/2_londonParkive.jpg">
+          <img class="tiledProjectPic modalPic" src="Img/London Parkive/Outcomes/3_londonParkive.jpg">
+          <img class="tiledProjectPic modalPic" src="Img/London Parkive/Outcomes/4_londonParkive.jpg">
+          <img class="tiledProjectPic modalPic" src="Img/London Parkive/Outcomes/5_londonParkive.jpg">
+          <img class="tiledProjectPic modalPic" src="Img/London Parkive/Outcomes/6_londonParkive.jpg">
+          <img class="tiledProjectPic modalPic" src="Img/London Parkive/Outcomes/7_londonParkive.jpg">
+          <img class="tiledProjectPic modalPic" src="Img/London Parkive/Outcomes/8_londonParkive.jpg">
+          <img class="tiledProjectPic modalPic" src="Img/London Parkive/Outcomes/9_londonParkive.jpg">
+        </div>
+      </div>
+      <div id="process" class="tabcontent">
+
+      </div>
+      <section>
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+          </div>
+      </section>
     </main>
     <section class="footer">
       <div class="footerdivs footerText">
