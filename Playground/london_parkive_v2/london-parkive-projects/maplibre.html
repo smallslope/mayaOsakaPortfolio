@@ -18,9 +18,212 @@
         const map = new maplibregl.Map({
             container: 'map', // container id
             style: 'https://tiles.stadiamaps.com/styles/stamen_toner_lite.json', // style URL
-            center: [0, 0], // starting position [lng, lat]
-            zoom: 1 // starting zoom
+            center: [-0.13067, 51.5068], // starting position [lng, lat]
+            zoom: 12
+             // starting zoom
         });
+
+        let marker = new maplibregl.Marker({
+            color: "#89a223",
+        })
+        .setLngLat([ -0.11918734126308667, 51.51130170228106])
+            .addTo(map);
+
+
+        map.on('load',() => {
+            map.addSource("our-source", {
+                type : "geojson",
+                data : {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "properties": {},
+                        "geometry": {
+                            "coordinates": [ -0.11670759763777028, 51.508539456556434],
+                            "type": "Point"
+                        }
+                    }]
+                }
+            })
+            map.addLayer({
+                id : "circle-layer",
+                type : "circle",
+                source : "our-source"
+            })
+            map.addSource("bridge-route", {
+                'type' : 'geojson',
+                'data' : {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "properties": {},
+                        "geometry": {
+                            "coordinates": [
+                            [
+                                -0.11811994391320013,
+                                51.50992013349028
+                            ],
+                            [
+                                -0.11481380565919608,
+                                51.51070937049471
+                            ],
+                            [
+                                -0.11116799566758573,
+                                51.51108989059364
+                            ],
+                            [
+                                -0.1043292713331141,
+                                51.51096305091383
+                            ],
+                            [
+                                -0.10435191611591677,
+                                51.50858121801582
+                            ]
+                            ],
+                            "type": "LineString"
+                        }
+                    }]
+                }
+                
+            });
+            map.addLayer({
+                'id' : 'route',
+                'type' : 'line',
+                'source' : "bridge-route",
+                'layout' : {
+                    'line-join' : 'round',
+                    'line-cap' : 'round'
+                },
+                'paint' : { 
+                    'line-color' : '#cc0000',
+                    'line-width' : 7
+                }
+            });
+
+            map.addSource("victoria-embankment", {
+                'type' : 'geojson',
+                'data' :    {
+                    "type": "Feature",
+                    "properties": {},
+                    "geometry": {
+                        "coordinates": [[
+                            [
+                            -0.11883606253027779,
+                            51.509747339152455
+                            ],
+                            [
+                            -0.11890460527081359,
+                            51.50979448935968
+                            ],
+                            [
+                            -0.11904529826455246,
+                            51.509803470345446
+                            ],
+                            [
+                            -0.12038368546510014,
+                            51.509421776869374
+                            ],
+                            [
+                            -0.12125614889760072,
+                            51.50898676884165
+                            ],
+                            [
+                            -0.12220853224218331,
+                            51.50859608730079
+                            ],
+                            [
+                            -0.12286870706111586,
+                            51.50823683695003
+                            ],
+                            [
+                            -0.12324388456568158,
+                            51.507841655257266
+                            ],
+                            [
+                            -0.12250073695537367,
+                            51.50740605662966
+                            ],
+                            [
+                            -0.12238529654970876,
+                            51.50753853294188
+                            ],
+                            [
+                            -0.12231675380917295,
+                            51.50751383399742
+                            ],
+                            [
+                            -0.12227346365759217,
+                            51.5075340422257
+                            ],
+                            [
+                            -0.12231675380917295,
+                            51.50755425044446
+                            ],
+                            [
+                            -0.12220131340347962,
+                            51.50766876351679
+                            ],
+                            [
+                            -0.12193796497859921,
+                            51.50758793079004
+                            ],
+                            [
+                            -0.12186220721267205,
+                            51.50767999027323
+                            ],
+                            [
+                            -0.12168183157913859,
+                            51.50762161111021
+                            ],
+                            [
+                            -0.12133190285024398,
+                            51.508059453009366
+                            ],
+                            [
+                            -0.12121646439922529,
+                            51.50823683651345
+                            ],
+                            [
+                            -0.12090261079649167,
+                            51.50850627454179
+                            ],
+                            [
+                            -0.12055628958026432,
+                            51.508782446867286
+                            ],
+                            [
+                            -0.11985756960564231,
+                            51.50921957059185
+                            ],
+                            [
+                            -0.11909999194540433,
+                            51.50962820882933
+                            ],
+                            [
+                            -0.11883606253027779,
+                            51.509747339152455
+                            ]
+                        ]],
+                        "type": "Polygon"
+                    }
+                }
+            });
+            map.addLayer({
+                'id' : 'victoria-embankment',
+                'type' : 'fill',
+                'source' : 'victoria-embankment',
+                'layout' : {},
+                'paint' : {
+                    'fill-color' : '#50b848',
+                    'fill-opacity' : 0.5
+                }
+            });
+        });
+
+
+        
+ 
+     
     </script>
 </body>
 </html>
