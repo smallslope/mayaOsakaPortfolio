@@ -218,7 +218,277 @@
                     'fill-opacity' : 0.5
                 }
             });
+
+            map.addSource("lincolns-inn-fields-source",{
+                type : "geojson",
+                data : {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "properties": {},
+                        "geometry": {
+                            "coordinates": [
+                                [
+                                    [
+                                    -0.11582984985000166,
+                                    51.517149068628584
+                                    ],
+                                    [
+                                    -0.11812713398762753,
+                                    51.51663181936087
+                                    ],
+                                    [
+                                    -0.1182449434301418,
+                                    51.51632635443622
+                                    ],
+                                    [
+                                    -0.11758390155634402,
+                                    51.51538550959691
+                                    ],
+                                    [
+                                    -0.11734828267046282,
+                                    51.51530405025531
+                                    ],
+                                    [
+                                    -0.11721738328884612,
+                                    51.51533663400937
+                                    ],
+                                    [
+                                    -0.11721738328884612,
+                                    51.51538958256023
+                                    ],
+                                    [
+                                    -0.11501172871811605,
+                                    51.51593535634353
+                                    ],
+                                    [
+                                    -0.11491355418212379,
+                                    51.516098272623566
+                                    ],
+                                    [
+                                    -0.11546987655162866,
+                                    51.51698615610701
+                                    ],
+                                    [
+                                    -0.11582984985000166,
+                                    51.517149068628584
+                                    ]
+                                 ]
+                            ],
+                            "type": "Polygon"
+                        }}
+                    ]
+                }
+            })
+            map.addLayer({
+                "id" : 'lincolns_inn_fields',
+                "type" : "fill",
+                "source" : "lincolns-inn-fields-source",
+                "layout" : {},
+                "paint" : {
+                    'fill-color' : "#50b848",
+                    'fill-opacity' : 0.3
+                }
+
+            })
+            var popup = new maplibregl.Popup({closeOnClick: false})
+                
+            
+            map.on('mouseover', 'lincolns_inn_fields', function(e) {
+                 popup.setLngLat([-0.11662, 51.51624])
+                 .setHTML("Lincoln's Inn Fields")
+                 .addTo(map);
+            })
+            map.addSource("park_dynamic_popups_source",{
+                type : "geojson",
+                data : {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "properties": {
+                            "name" : "St. Jame's Square Gardens"
+                        },
+                        "geometry": {
+                            "coordinates": [[
+                                [
+                                -0.13510797673535535,
+                                51.50771235367847
+                                ],
+                                [
+                                -0.13609334731916078,
+                                51.507369056546224
+                                ],
+                                [
+                                -0.13609954461850293,
+                                51.50730155399654
+                                ],
+                                [
+                                -0.13551870934588806,
+                                51.506668962258146
+                                ],
+                                [
+                                -0.13536363223002468,
+                                51.50664017699046
+                                ],
+                                [
+                                -0.1352089489801358,
+                                51.50667439811767
+                                ],
+                                [
+                                -0.13458438462092204,
+                                51.506906708923225
+                                ],
+                                [
+                                -0.13447424854797418,
+                                51.50697647692681
+                                ],
+                                [
+                                -0.1344435563339914,
+                                51.5070773657111
+                                ],
+                                [
+                                -0.13449285271704525,
+                                51.50714477126539
+                                ],
+                                [
+                                -0.13495114887319914,
+                                51.50765155139206
+                                ],
+                                [
+                                -0.13504705657729232,
+                                51.5077307296487
+                                ],
+                                [
+                                -0.13510797673535535,
+                                51.50771235367847
+                                ]
+                            ]],
+                            "type": "Polygon"
+                        }},
+                        {
+                        "type": "Feature",
+                        "properties": {
+                            "name" : "Vauxhall Park"
+                        },
+                        "geometry": {
+                            "coordinates": [[
+                                [
+                                -0.12294014667992315,
+                                51.483793242656645
+                                ],
+                                [
+                                -0.12306917742770906,
+                                51.48325192010327
+                                ],
+                                [
+                                -0.12316040923133187,
+                                51.4830891951336
+                                ],
+                                [
+                                -0.12327548566841529,
+                                51.482945868218366
+                                ],
+                                [
+                                -0.12368038424639849,
+                                51.48265390459051
+                                ],
+                                [
+                                -0.12208636247652294,
+                                51.48213632811084
+                                ],
+                                [
+                                -0.1214107224200518,
+                                51.48192137041542
+                                ],
+                                [
+                                -0.12107401728641776,
+                                51.48235135946905
+                                ],
+                                [
+                                -0.12065633243744855,
+                                51.48220537598556
+                                ],
+                                [
+                                -0.12042944373209252,
+                                51.483193203661784
+                                ],
+                                [
+                                -0.12046354045372709,
+                                51.48368953484743
+                                ],
+                                [
+                                -0.12077467304530387,
+                                51.48367891819399
+                                ],
+                                [
+                                -0.12170807082006263,
+                                51.48371873063124
+                                ],
+                                [
+                                -0.12294014667992315,
+                                51.483793242656645
+                                ]
+                            ]],
+                            "type": "Polygon"
+                        }}
+                    ]
+                }
+            })
+            map.addLayer({
+                'id' : 'dynamic_popup_park_shapes',
+                'type' : 'fill',
+                'source' : 'park_dynamic_popups_source',
+                'paint' : {
+                    'fill-color' : '#50b848',
+                    'fill-opacity' : 0.5
+                }
+            })
+            
+            map.on('click','dynamic_popup_park_shapes', function(e){
+                const features = map.queryRenderedFeatures(e.point)
+                if(features.length > 0){
+                    popup.setLngLat(e.lnglat).setHTML(`${features[0].properties.name}`)
+                    .addTo(map);
+                }
+            })
+            
+                
         });
+
+        var jubilee_garens = new maplibregl.Marker()
+            .setLngLat([ -0.11826801525678868,51.5040004138959])
+            .setPopup(new maplibregl.Popup().setHTML('<h1>Jubilee Gardens</h1>'))
+            .addTo(map);
+
+        var westminster_bridge = new maplibregl.Popup({closeOnClick: false})
+            .setLngLat([-0.12176185179144741,51.50100564762111])
+            .setHTML('<h1>Westminster Bridge</h1>')
+            .addTo(map);
+
+        //A Pop up that tells you what the Longditude and Latitude is where your mouse is hovering over. //
+
+        // var lnglat_popup = new maplibregl.Popup({closeonClick: false})
+        //     .setLngLat([-0.12140664499332514,51.50281891835186 ])
+        //     .setHTML('<h1>Random Popup</h1>')
+        //     .addTo(map);
+        
+        // map.on('click', function(e){
+        //     lnglat_popup.setLngLat(e.lngLat)
+        //     .setHTML (`You Clicked the Map at ${e.lngLat.toString()}`)
+        //     .addTo(map)
+        // })
+        // map.on('mousemove', function(e){
+        //     lnglat_popup.setLngLat(e.lngLat)
+        //     .setHTML(`You Moved the Mouse at ${e.lngLat.toString()}`)
+        //     .addTo(map)
+        // })
+
+
+
+
+        
+
+      
 
 
         

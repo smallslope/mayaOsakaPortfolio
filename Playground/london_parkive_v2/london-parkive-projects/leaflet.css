@@ -1,0 +1,9 @@
+.park_popup_style{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.park_polygon_style{
+    color: #50b848;
+    opacity: 0.8;
+}

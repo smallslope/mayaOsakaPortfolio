@@ -9,7 +9,7 @@
 	<title>Quick Start - Leaflet</title>
 	
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
-
+    <link rel="stylesheet" href="/Playground/london_parkive_v2/london-parkive-projects/leaflet.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
@@ -138,7 +138,7 @@
         polyLatlngs.forEach(latlng => {
             latlng.reverse()
         })
-        var polygon= L.polygon(polyLatlngs, {color: '#50b848'}).addTo(map);
+        var polygon = L.polygon(polyLatlngs, {color: '#50b848'}).addTo(map);
 
         let dulwichPark =  {
             "type": "FeatureCollection",
@@ -308,48 +308,221 @@
     }
   ]
 }
-L.geoJSON(dulwichPark, {
+let dulichParkPolygon = L.geoJSON(dulwichPark, {
             style: function (feature) {
                 return {
                     color: '#50b848',
                     weight: 1  
                 };
             }
-        }).addTo(map);
+}).addTo(map);
 
+const dulwichParkPopup = L.popup({
+  className : 'park_popup_style',
+  interactive : true,
+    closeButton : false
+  })
+  .setLatLng([51.44556, -0.07827])
+  .setContent('Dulwich Park')
 
+  dulichParkPolygon.on('mouseover', function(dulwichPark){
+    dulwichParkPopup.openOn(map)
+  });
 
-	// const marker = L.marker([51.5, -0.09]).addTo(map)
-	// 	.bindPopup('<b>Hello world!</b><br />I am a popup.').openPopup();
+  dulichParkPolygon.on('mouseout', function(dulwichPark){
+    map.closePopup(dulwichParkPopup)
+  });
 
-	// const circle = L.circle([51.508, -0.11], {
-	// 	color: 'red',
-	// 	fillColor: '#f03',
-	// 	fillOpacity: 0.5,
-	// 	radius: 500
-	// }).addTo(map).bindPopup('I am a circle.');
+  var parkDataList = [
+    {
+      name : "Nunhead Green",
+      coordinates : [51.46542, -0.05854]
+    },
+    {
+      name : "Goose Green",
+      coordinates : [51.46156, -0.07290]
+    }
+  ]
 
-	// const polygon = L.polygon([
-	// 	[51.509, -0.08],
-	// 	[51.503, -0.06],
-	// 	[51.51, -0.047]
-	// ]).addTo(map).bindPopup('I am a polygon.');
+  parkDataList.forEach(park => {
+    const parkMarker = L.marker(park.coordinates).addTo(map)
+    .bindPopup(park.name);
 
+    parkMarker.on('mouseover', function(){
+      this.openPopup();
+    })
+    
+    parkMarker.on('mouseout', function(e){
+      this.closePopup();
+    })
+  });
+  const geojson_parks_polygons_list = {
+    "type": "FeatureCollection",
+    "features": [{
+      "type": "Feature",
+      "properties": {
+        name : "camberwell_green"
+      },
+      "geometry": {
+        "coordinates": [[
+            [
+              -0.09235677137843368,
+              51.47557218737006
+            ],
+            [
+              -0.09246856330221931,
+              51.47562039231582
+            ],
+            [
+              -0.0932296083215931,
+              51.475532016542786
+            ],
+            [
+              -0.09341449496437804,
+              51.47548648956274
+            ],
+            [
+              -0.0931909111168352,
+              51.475108881680995
+            ],
+            [
+              -0.09300602447402184,
+              51.47440989714141
+            ],
+            [
+              -0.0929200306867699,
+              51.47435097841495
+            ],
+            [
+              -0.09284263627725409,
+              51.47417422177861
+            ],
+            [
+              -0.09184080865372835,
+              51.474249209526164
+            ],
+            [
+              -0.09179351207009745,
+              51.47429741587001
+            ],
+            [
+              -0.09213318753089084,
+              51.47488392230835
+            ],
+            [
+              -0.09235677137843368,
+              51.47557218737006
+            ]
+          ]],
+        "type": "Polygon"
+      }},
+    {
+      "type": "Feature",
+      "properties": {
+        "name" : "brunswick_park"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -0.08584119073307761,
+              51.47678846700606
+            ],
+            [
+              -0.0866608168847165,
+              51.47668172825223
+            ],
+            [
+              -0.08645532609321549,
+              51.475300801032404
+            ],
+            [
+              -0.08652910852788409,
+              51.4752088898735
+            ],
+            [
+              -0.08685805521631096,
+              51.47510357477617
+            ],
+            [
+              -0.08681501546232084,
+              51.474942729431405
+            ],
+            [
+              -0.08497045459458263,
+              51.47502123734907
+            ],
+            [
+              -0.08490282655102988,
+              51.47507095124146
+            ],
+            [
+              -0.08487515813772006,
+              51.47515711821882
+            ],
+            [
+              -0.08547156615168205,
+              51.47593452847897
+            ],
+            [
+              -0.08584119073307761,
+              51.47678846700606
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    }]
+  }
+  var geojson_parks_polygons = L.geoJSON(geojson_parks_polygons_list,{
+    style : function(feature){
+      return { 
+        color : "#50b848",
+        weight : 1
+      }
+    }
+  }).addTo(map);
 
-	// const popup = L.popup()
-	// 	.setLatLng([51.513, -0.09])
-	// 	.setContent('I am a standalone popup.')
-	// 	.openOn(map);
+  const geojson_parks_markers = {
+  "type": "FeatureCollection",
+  "features": [
+   
+    {
+      "type": "Feature",
+      "properties": {
+        "name" : "Camberwell Green"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.09262335211911932,
+          51.47491070324415
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name" : "Brunswick Park"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.08594500840931119,
+          51.475741728076116
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
 
-	// function onMapClick(e) {
-	// 	popup
-	// 		.setLatLng(e.latlng)
-	// 		.setContent(`You clicked the map at ${e.latlng.toString()}`)
-	// 		.openOn(map);
-	// }
-
-	// map.on('click', onMapClick);
-
+var park_list_markers = L.geoJSON(geojson_parks_markers, {
+  pointToLayer : function(geoJsonPoint, latlng){
+    return L.marker(latlng, {opacity: 0}) 
+  }.bindPopup(function(layer){
+  return layer.feature.properties.name;
+  })
+})
 </script>
 
 
