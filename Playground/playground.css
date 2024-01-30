@@ -64,3 +64,29 @@
     margin-left: 4rem;
 
 }
+@media screen and (max-width: 500px){
+    #topSection{
+        flex-direction: column;
+    }
+    #pageTitle{
+        padding: 3rem;
+    }
+    #typewriterTitle{
+        font-size: 1.5rem;
+    }
+    #playgroundDescription{
+        font-size: 1.2rem;
+        margin: 1rem;
+        margin-left: 1.3rem;
+        margin-right: 1.3rem;
+    }
+    .project{
+        margin: 1.3rem;
+    }
+    .projectTile{
+        margin-left: 0.5rem;
+    }
+    .projectDescription{
+        margin-left: 0.5rem;
+    }
+}
