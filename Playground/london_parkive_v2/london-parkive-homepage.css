@@ -4,6 +4,7 @@ body{
 #page-title{
     font-weight:bold;
     font-size: 3rem;
+    color: #50b848;
     padding: 0.2rem;
     margin-left: 4rem;
 }
@@ -16,8 +17,12 @@ body{
 }
 .project-link{
     font-size: 1.75rem;
+    color: #50b848;
     padding: 0.25rem;
     margin-left: 4rem;  
+}
+.project-link:after{
+    color: #38761d;
 }
 .project-description{
     font-size: 1.2rem;
