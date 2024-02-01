@@ -26,13 +26,36 @@
         var popup = new maplibregl.Popup({closeOnClick: false})
 
         map.on('load', () =>{
-            fetch('/data-files/uk_local_district_boundaries.json')
+
+            fetch('./data_files/uk_local_district_boundaries.json')
             .then(response => response.json())
             .then(response => {
                 console.log(response);
-                map.addSource("boroughs",{
+                
+                map.addSource("boroughs_shapes",{
                     type : "geojson",
-                    data :  response              })
+                    data :  response             
+                 })
+
+                map.addLayer({
+                    id : "boroughs_line_layer",
+                    type : "line",
+                    source : "boroughs_shapes",
+                    paint : {
+                        "line-opacity" : 0.5,
+                        "line-color" : "#000000",
+                        "line-width" : 2.5
+                    }
+                })
+            })
+
+            map.on('click', 'boroughs_line_layer', function(e){
+                const borough_line_hover = map.queryRenderedFeatures(e.point, { layers : ['boroughs_line_layer']})
+                console.log(borough_line_hover)
+                popup.setLngLat(e.lngLat)[0].setHTML(
+                    `${borough_line_hover[0].properties.name}`
+                ).addTo(map)
+                
             })
         })
     </script>
