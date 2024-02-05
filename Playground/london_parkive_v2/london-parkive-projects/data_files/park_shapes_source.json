@@ -1,0 +1,1093 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Camberwell Green",
+                "Other Names": "",
+                "Borough": "Southwark",
+                "Coordinates": "51.47486, -0.09269",
+                "Status": "Open",
+                "Period Opened": "1850-1874",
+                "Year Opened": 1857,
+                "Altered": "Unchanged",
+                "Destroyed": "No",
+                "Period Destroyed": "N/A",
+                "First List Found On": 1905,
+                "Brief History": "Camberwell was a rural village until the late C18th, and Camberwell Fair was held in August on Camberwell Green for the Feast of St Giles, patron saint of Camberwell, from 1279 until 1855 when it was suppressed as a nuisance to the local residents. In 1856 four local dignitaries purchased exclusive rights for holding the fair on the Green from the Lords of the Manor on a 1,000 year lease with an annual rent of one peppercorn. They sold it to Camberwell Vestry in September 1857 and the Green re-opened as a public open space in 1859. The Green was previously dominated by elm trees and had a pond in the south.",
+                "History Link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU013"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.09254478201279426,
+                            51.475611917360254
+                        ],
+                        [
+                            -0.09320859881532328,
+                            51.47553886291041
+                        ],
+                        [
+                            -0.09323729766160227,
+                            51.4755318683292
+                        ],
+                        [
+                            -0.09326474873202528,
+                            51.475460368105416
+                        ],
+                        [
+                            -0.09332339420177505,
+                            51.47542150924099
+                        ],
+                        [
+                            -0.09328970425090688,
+                            51.47535544909556
+                        ],
+                        [
+                            -0.09315730898291008,
+                            51.47514387237902
+                        ],
+                        [
+                            -0.09307337725635989,
+                            51.4749726818595
+                        ],
+                        [
+                            -0.09302678519253504,
+                            51.474848595459775
+                        ],
+                        [
+                            -0.09297055339050075,
+                            51.47457640475602
+                        ],
+                        [
+                            -0.09291993395802933,
+                            51.47435771745006
+                        ],
+                        [
+                            -0.09290226110613276,
+                            51.474324694044185
+                        ],
+                        [
+                            -0.09287494851693623,
+                            51.47425164218339
+                        ],
+                        [
+                            -0.09282353658309717,
+                            51.47422262154848
+                        ],
+                        [
+                            -0.09272874583089674,
+                            51.47420661015593
+                        ],
+                        [
+                            -0.09232548347912939,
+                            51.47425564502768
+                        ],
+                        [
+                            -0.09207003043530904,
+                            51.47427665995724
+                        ],
+                        [
+                            -0.09194631993270264,
+                            51.47426665306142
+                        ],
+                        [
+                            -0.091877235146967,
+                            51.47431168502959
+                        ],
+                        [
+                            -0.09187241527874335,
+                            51.47437973325239
+                        ],
+                        [
+                            -0.09207645638869622,
+                            51.47463491318575
+                        ],
+                        [
+                            -0.09220337957495417,
+                            51.47485907003028
+                        ],
+                        [
+                            -0.0922580047542283,
+                            51.47516628325212
+                        ],
+                        [
+                            -0.09230955448023792,
+                            51.4754497354152
+                        ],
+                        [
+                            -0.09239309887240665,
+                            51.475525787407435
+                        ],
+                        [
+                            -0.09254478201279426,
+                            51.475611917360254
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Christ Church Garden",
+                "Other Names": "",
+                "Borough": "Southwark",
+                "Coordinates": "51.50611, -0.10518",
+                "Status": "Open",
+                "Period Opened": "1900-1924",
+                "Year Opened": 1900,
+                "Altered": "Unchanged",
+                "Destroyed": "No",
+                "Period Destroyed": "N/A",
+                "First List Found On": 1905,
+                "Brief History": "Christ Church Garden is the former churchyard of Christ Church built here in 1671, which was rebuilt in the C18th and added to in the 1890s but destroyed by bombing in WWII. The current church dates from 1960. The churchyard was enlarged a number of times but closed to burial in 1856. It was converted into a public garden by the MPGA and opened in 1900. A drinking fountain was donated by John Passmore Edwards. When the church was bombed, the cross fell into the churchyard scorching the ground, its position now marked by a stone cross in the grass. The garden was redesigned in 2000.",
+                "History Link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU017"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.10469012801524968,
+                            51.50612591257749
+                        ],
+                        [
+                            -0.10467687580239726,
+                            51.50636787050769
+                        ],
+                        [
+                            -0.1052025469219302,
+                            51.50652734207708
+                        ],
+                        [
+                            -0.1054653824817251,
+                            51.506552087615376
+                        ],
+                        [
+                            -0.1055448957599765,
+                            51.50650672078487
+                        ],
+                        [
+                            -0.10565533086901269,
+                            51.50648197522193
+                        ],
+                        [
+                            -0.10565312216706957,
+                            51.506303256867966
+                        ],
+                        [
+                            -0.10584086185241404,
+                            51.50619327599364
+                        ],
+                        [
+                            -0.10575472246713957,
+                            51.50591144879249
+                        ],
+                        [
+                            -0.10564207865616027,
+                            51.505771221925784
+                        ],
+                        [
+                            -0.10557802629270441,
+                            51.50580559129577
+                        ],
+                        [
+                            -0.10547863469452068,
+                            51.5057396020826
+                        ],
+                        [
+                            -0.10507002479110383,
+                            51.50595681621567
+                        ],
+                        [
+                            -0.10481823274224666,
+                            51.506088793917655
+                        ],
+                        [
+                            -0.10469012801524968,
+                            51.50612591257749
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Dulwich Park",
+                "Other Names": "",
+                "Borough": "Southwark",
+                "Coordinates": "51.44556, -0.07827",
+                "Status": "Open",
+                "Period Opened": "1875-1899",
+                "Year Opened": 1890,
+                "Altered": "Unchanged",
+                "Destroyed": "No",
+                "Period Destroyed": "N/A",
+                "First List Found On": 1905,
+                "Brief History": "Dulwich Park opened as a public park in 1890. It was formerly part of the Manor of Dulwich, purchased by theatre impresario Edward Alleyn in the early C17th, who founded almshouses and a school here, now Dulwich College. The Dulwich Estates' Board of Governors, set up in 1882, donated land to the MBW for the public park in 1885. It was laid out by the newly formed LCC in 1889/90 and much of its original layout is still intact.",
+                "History Link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU025"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.07448358587456028,
+                            51.44376953689843
+                        ],
+                        [
+                            -0.07410065197353788,
+                            51.44377072579016
+                        ],
+                        [
+                            -0.07383998188274177,
+                            51.44354076615258
+                        ],
+                        [
+                            -0.07336285114340058,
+                            51.44374073196033
+                        ],
+                        [
+                            -0.07310619136123364,
+                            51.443723235060816
+                        ],
+                        [
+                            -0.07310619136123364,
+                            51.443668244760744
+                        ],
+                        [
+                            -0.07219585119781868,
+                            51.44359325788139
+                        ],
+                        [
+                            -0.07206741347170009,
+                            51.44415261929001
+                        ],
+                        [
+                            -0.07205939285327645,
+                            51.44444256432294
+                        ],
+                        [
+                            -0.07211553718593677,
+                            51.444882477132126
+                        ],
+                        [
+                            -0.07244839284001614,
+                            51.445129926380616
+                        ],
+                        [
+                            -0.0729706745638623,
+                            51.44553228960595
+                        ],
+                        [
+                            -0.07485150952700792,
+                            51.446259626255824
+                        ],
+                        [
+                            -0.07643557777163323,
+                            51.44692446575618
+                        ],
+                        [
+                            -0.07771887717115078,
+                            51.4473552593019
+                        ],
+                        [
+                            -0.07737399058882488,
+                            51.44802258322048
+                        ],
+                        [
+                            -0.07764669160778226,
+                            51.44807506895768
+                        ],
+                        [
+                            -0.07810787715303036,
+                            51.44754521017424
+                        ],
+                        [
+                            -0.07846078435261461,
+                            51.447560206262125
+                        ],
+                        [
+                            -0.07996865502298078,
+                            51.44792510895766
+                        ],
+                        [
+                            -0.0812679951682469,
+                            51.44828501071234
+                        ],
+                        [
+                            -0.08279993384559248,
+                            51.44874238198662
+                        ],
+                        [
+                            -0.08334582090964204,
+                            51.4483682856272
+                        ],
+                        [
+                            -0.08349019203751595,
+                            51.44820583062136
+                        ],
+                        [
+                            -0.08355034667383165,
+                            51.44782343424981
+                        ],
+                        [
+                            -0.0837989862671975,
+                            51.44709112323139
+                        ],
+                        [
+                            -0.08377893472174947,
+                            51.446786198677984
+                        ],
+                        [
+                            -0.08458901715795264,
+                            51.4468211901235
+                        ],
+                        [
+                            -0.08457297592227064,
+                            51.44704113573923
+                        ],
+                        [
+                            -0.08540310990392186,
+                            51.44704363511525
+                        ],
+                        [
+                            -0.08539108006738161,
+                            51.44645627771024
+                        ],
+                        [
+                            -0.08539108006738161,
+                            51.44607886554391
+                        ],
+                        [
+                            -0.08522665739405966,
+                            51.44609136268545
+                        ],
+                        [
+                            -0.08490984297674231,
+                            51.44615384834211
+                        ],
+                        [
+                            -0.08468125535841864,
+                            51.4461638460391
+                        ],
+                        [
+                            -0.08436444093990758,
+                            51.44609636154121
+                        ],
+                        [
+                            -0.08356187592679021,
+                            51.445929005199815
+                        ],
+                        [
+                            -0.08285205121782724,
+                            51.44548410327312
+                        ],
+                        [
+                            -0.08258336170604252,
+                            51.44495174143742
+                        ],
+                        [
+                            -0.08231066154459654,
+                            51.443916940125206
+                        ],
+                        [
+                            -0.07936709360282634,
+                            51.44377446612006
+                        ],
+                        [
+                            -0.07963162953709002,
+                            51.442422413688575
+                        ],
+                        [
+                            -0.0791142996641554,
+                            51.4424774054888
+                        ],
+                        [
+                            -0.07891779491714601,
+                            51.443564730030346
+                        ],
+                        [
+                            -0.07877743409903815,
+                            51.44377469311328
+                        ],
+                        [
+                            -0.07762661304320773,
+                            51.44375452478306
+                        ],
+                        [
+                            -0.07591019534663701,
+                            51.44398830302174
+                        ],
+                        [
+                            -0.07487420513427878,
+                            51.44413120613291
+                        ],
+                        [
+                            -0.07448358587456028,
+                            51.44376953689843
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Goose Green",
+                "Other Names": "",
+                "Borough": "Southwark",
+                "Coordinates": "51.44556, -0.07827",
+                "Status": "Open",
+                "Period Opened": "<1850",
+                "Year Opened": "<1850",
+                "Altered": "Unchanged",
+                "Destroyed": "No",
+                "Period Destroyed": "N/A",
+                "First List Found On": 1905,
+                "Brief History": "Goose Green was once common land, available for the use of the whole community, but in the late 19th century William Bowyer-Smith, the Lord of the Manor at that time, started giving building leases on other common land at Peckham Rye to developers.\n\nThe Camberwell Vestry stepped in and bought the manorial right to the land, so retaining it as a public open space.",
+                "History Link": "https://ideal-homes.gre.ac.uk/southwark/assets/galleries/east-dulwich/goose-green.html"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.07552559058001407,
+                            51.46104130020336
+                        ],
+                        [
+                            -0.07530603652401169,
+                            51.460894248119615
+                        ],
+                        [
+                            -0.07512216000196759,
+                            51.46087885892055
+                        ],
+                        [
+                            -0.07320654980318864,
+                            51.46120887098661
+                        ],
+                        [
+                            -0.07155166191114404,
+                            51.46143970649291
+                        ],
+                        [
+                            -0.07166509942402399,
+                            51.46222509589231
+                        ],
+                        [
+                            -0.0725021492633573,
+                            51.462055819355044
+                        ],
+                        [
+                            -0.07269974791392997,
+                            51.46205068975331
+                        ],
+                        [
+                            -0.07552559058001407,
+                            51.46104130020336
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Long Lane Recreation Ground",
+                "Other Names": "",
+                "Borough": "Southwark",
+                "Coordinates": "51.49789, -0.08259",
+                "Status": "Open",
+                "Period Opened": "1875-1899",
+                "Year Opened": 1896,
+                "Altered": "Expanded",
+                "Destroyed": "No",
+                "Period Destroyed": "N/A",
+                "First List Found On": 1905,
+                "Brief History": "Long Lane Playground is on the site of a Quaker Burial Ground whose perimeter wall remains as the wall to the recreation ground, now laid out as a playground. The garden consists of an area of grass with some shrubs to the front boundary with Long Lane and south of the wall, which remains across the centre of the playground.",
+                "History Link": "https://www.parksandgardens.org/places/long-lane-recreation-ground-playground"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.0826452631339123,
+                            51.49807872006659
+                        ],
+                        [
+                            -0.08290237017823188,
+                            51.4978433376281
+                        ],
+                        [
+                            -0.08226464388366139,
+                            51.497620507799496
+                        ],
+                        [
+                            -0.08200501618236444,
+                            51.49790767561518
+                        ],
+                        [
+                            -0.0820478673571472,
+                            51.49791709092304
+                        ],
+                        [
+                            -0.08198989223893705,
+                            51.497970444295674
+                        ],
+                        [
+                            -0.0826452631339123,
+                            51.49807872006659
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Guy Street Park",
+                "Other Names": "Nelson Recreation Ground",
+                "Borough": "Southwark",
+                "Coordinates": "51.50165, -0.08682",
+                "Status": "Open",
+                "Period Opened": "1875-1899",
+                "Year Opened": 1899,
+                "Altered": "Expanded",
+                "Destroyed": "No",
+                "Period Destroyed": "N/A",
+                "First List Found On": 1905,
+                "Brief History": "The land here was open fields until the C18th when it was purchased by the Trustees of Guy's Hospital for use as a burial ground for deceased patients. It continued as a burial ground until the 1850s Burial Acts led to its closure. For a time it was leased to a local builder but in the 1890s part was purchased by Bermondsey Vestry for a much-needed public recreation ground, opening as Nelson Recreation Ground in 1899. Although it was refurbished after WWII war damage it became run down. It was renamed and refurbished after local residents set up Friends of Guy Street Park in 2001 following community consultation. It re-opened in 2003 with improved lighting, seating, play areas, a community garden and a community artwork that also provided illumination.",
+                "History Link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU036"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.08714209827650166,
+                            51.50156617010694
+                        ],
+                        [
+                            -0.08576690403452858,
+                            51.5014002460463
+                        ],
+                        [
+                            -0.08590607463423794,
+                            51.50174677702566
+                        ],
+                        [
+                            -0.08642265703389285,
+                            51.50174090364143
+                        ],
+                        [
+                            -0.0863849158542962,
+                            51.501915636505544
+                        ],
+                        [
+                            -0.08690149825406479,
+                            51.50198464846076
+                        ],
+                        [
+                            -0.08692744531495578,
+                            51.50198024344556
+                        ],
+                        [
+                            -0.08693688061015337,
+                            51.50196262338005
+                        ],
+                        [
+                            -0.08697462178975002,
+                            51.50195675002362
+                        ],
+                        [
+                            -0.08718455710300077,
+                            51.50198024344556
+                        ],
+                        [
+                            -0.08714209827650166,
+                            51.50156617010694
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Newington Gardens",
+                "Other Names": "",
+                "Borough": "Southwark",
+                "Coordinates": "51.49772, -0.09604",
+                "Status": "Open",
+                "Period Opened": "1900-1925",
+                "Year Opened": 1917,
+                "Altered": "Expanded",
+                "Destroyed": "No",
+                "Period Destroyed": "N/A",
+                "First List Found On": 1905,
+                "Brief History": "Newington Gardens is a small quiet garden behind the Crown Court on Newington Causeway, created on the site where Horsemonger Lane Gaol once stood. For a long time, it was known as Gaol Park, the memory of the former building kept alive by the high external wall and large gatehouse long retained after the prison was demolished in 1880.\n\nToday the park is situated behind the Inner London Sessions House which was rebuilt at the beginning of the 20th century; but due to delays caused by the First World War, it didn't open until 1917.",
+                "History Link": "ttps://www.southwark.gov.uk/parks-and-open-spaces/parks/newington-gardens"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.09496937305257802,
+                            51.497647412415375
+                        ],
+                        [
+                            -0.09512591410859272,
+                            51.49785560939796
+                        ],
+                        [
+                            -0.09581967561038596,
+                            51.49834951971161
+                        ],
+                        [
+                            -0.09587659963054307,
+                            51.498298578536804
+                        ],
+                        [
+                            -0.09572361632544357,
+                            51.49822105924835
+                        ],
+                        [
+                            -0.09687632774259214,
+                            51.49757210688975
+                        ],
+                        [
+                            -0.09705065755599662,
+                            51.49770721377374
+                        ],
+                        [
+                            -0.09717517885098914,
+                            51.49768063540188
+                        ],
+                        [
+                            -0.09721787186563802,
+                            51.49756989201941
+                        ],
+                        [
+                            -0.09732816215611706,
+                            51.4975145202273
+                        ],
+                        [
+                            -0.09733171990697542,
+                            51.49747243762033
+                        ],
+                        [
+                            -0.09649920610559093,
+                            51.4969142856834
+                        ],
+                        [
+                            -0.09579477135116576,
+                            51.497299677036835
+                        ],
+                        [
+                            -0.09562044153776128,
+                            51.497195577394734
+                        ],
+                        [
+                            -0.09498004630623313,
+                            51.497596470455846
+                        ],
+                        [
+                            -0.09496937305257802,
+                            51.497647412415375
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Nunhead Green",
+                "Other Names": "",
+                "Borough": "Southwark",
+                "Coordinates": "51.46542, -0.05854",
+                "Status": "Open",
+                "Period Opened": "<1850",
+                "Year Opened": "<1850",
+                "Altered": "Unchanged",
+                "Destroyed": "FALSE",
+                "Period Destroyed": "N/A",
+                "First List Found On": 1905,
+                "Brief History": "Nunhead Green is a prominent gateway to the high street. Previously it was underused due to its poor layout and frequent anti-social behaviour. A new design by architects AOC has helped put Nunhead Green back at the heart of the high street. It also celebrates its 200-year history as a traditional village green. The new green has a children’s play area and a village square that can host gatherings and events.",
+                "History Link": "https://www.london.gov.uk/programmes-strategies/shaping-local-places/public-space/londons-great-outdoors-nunhead-southwark"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.0579301052427752,
+                            51.46588234266011
+                        ],
+                        [
+                            -0.058665106125999955,
+                            51.465488655866295
+                        ],
+                        [
+                            -0.0591153280693959,
+                            51.46515748322872
+                        ],
+                        [
+                            -0.0591912691198786,
+                            51.465073000028354
+                        ],
+                        [
+                            -0.058971582508689835,
+                            51.46494458526391
+                        ],
+                        [
+                            -0.058901065819156884,
+                            51.46494120592348
+                        ],
+                        [
+                            -0.05804130463877755,
+                            51.46565762057156
+                        ],
+                        [
+                            -0.05783246674943143,
+                            51.46579955044075
+                        ],
+                        [
+                            -0.0579301052427752,
+                            51.46588234266011
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Peckham Rye Park & Common",
+                "Other Names": "",
+                "Borough": "Southwark",
+                "Coordinates": "51.45810, -0.06125",
+                "Status": "Open",
+                "Period Opened": "1875-1899",
+                "Year Opened": 1894,
+                "Altered": "Unchanged",
+                "Destroyed": "No",
+                "Period Destroyed": "N/A",
+                "First List Found On": 1905,
+                "Brief History": "Peckham Rye Common was for centuries used as a deer park although local people had common rights. It was purchased for public open space in 1868 by Camberwell Vestry and transferred to the MBW in 1882. In 1890 the adjacent Homestall Farm was acquired by the Vestry, the LCC and the Charity Commissioners for a public park and Peckham Rye Park was laid out in 1894. The park had an artificial lake with island and bankside walks, rock and water gardens; an American garden, Japanese garden, and an English Garden, also known as the Sexby Garden.",
+                "History Link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU070a"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.0648917124439663,
+                            51.46283528256927
+                        ],
+                        [
+                            -0.06603554440170001,
+                            51.464903608470024
+                        ],
+                        [
+                            -0.06614016317826099,
+                            51.46494705968934
+                        ],
+                        [
+                            -0.06625175653911697,
+                            51.46489491822089
+                        ],
+                        [
+                            -0.06639124824218356,
+                            51.464729803178415
+                        ],
+                        [
+                            -0.06646796867752869,
+                            51.463178561633384
+                        ],
+                        [
+                            -0.0665307399442554,
+                            51.4625180730375
+                        ],
+                        [
+                            -0.06641217199708649,
+                            51.462492000923305
+                        ],
+                        [
+                            -0.0648917124439663,
+                            51.46283528256927
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Peckham Rye Park & Common",
+                "Other Names": "",
+                "Borough": "Southwark",
+                "Coordinates": "51.45810, -0.06125",
+                "Status": "Open",
+                "Period Opened": "1875-1899",
+                "Year Opened": 1894,
+                "Altered": "Unchanged",
+                "Destroyed": "No",
+                "Period Destroyed": "N/A",
+                "First List Found On": 1905,
+                "Brief History": "Peckham Rye Common was for centuries used as a deer park although local people had common rights. It was purchased for public open space in 1868 by Camberwell Vestry and transferred to the MBW in 1882. In 1890 the adjacent Homestall Farm was acquired by the Vestry, the LCC and the Charity Commissioners for a public park and Peckham Rye Park was laid out in 1894. The park had an artificial lake with island and bankside walks, rock and water gardens; an American garden, Japanese garden, and an English Garden, also known as the Sexby Garden.",
+                "History Link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU070a"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.06480489271046963,
+                            51.46266481506669
+                        ],
+                        [
+                            -0.06647747558244532,
+                            51.4623329787982
+                        ],
+                        [
+                            -0.06655223251235043,
+                            51.462217470828506
+                        ],
+                        [
+                            -0.06621134328557332,
+                            51.46068603359964
+                        ],
+                        [
+                            -0.06603193025222254,
+                            51.45967136789801
+                        ],
+                        [
+                            -0.06590633880395558,
+                            51.45897454967579
+                        ],
+                        [
+                            -0.06576878605241632,
+                            51.458769600899785
+                        ],
+                        [
+                            -0.06490536114381484,
+                            51.45771283715786
+                        ],
+                        [
+                            -0.06420264529404562,
+                            51.456738362804145
+                        ],
+                        [
+                            -0.06376221847745,
+                            51.45608016215124
+                        ],
+                        [
+                            -0.06308641614617727,
+                            51.454867146543705
+                        ],
+                        [
+                            -0.06272758245177101,
+                            51.45439013020808
+                        ],
+                        [
+                            -0.06238071029724779,
+                            51.45404354511439
+                        ],
+                        [
+                            -0.061417840139796454,
+                            51.45422615602794
+                        ],
+                        [
+                            -0.06021574870558766,
+                            51.45457087638917
+                        ],
+                        [
+                            -0.05850018049758887,
+                            51.45519076748599
+                        ],
+                        [
+                            -0.05687588396565957,
+                            51.45573317013509
+                        ],
+                        [
+                            -0.05640141151189937,
+                            51.456045591004965
+                        ],
+                        [
+                            -0.056147237950142426,
+                            51.45629154410358
+                        ],
+                        [
+                            -0.05606949074334011,
+                            51.45650768361156
+                        ],
+                        [
+                            -0.05608743201537436,
+                            51.456846796915954
+                        ],
+                        [
+                            -0.05595287221981948,
+                            51.45772760350579
+                        ],
+                        [
+                            -0.05571065976633349,
+                            51.4580778870351
+                        ],
+                        [
+                            -0.05519334181141744,
+                            51.45846729482429
+                        ],
+                        [
+                            -0.0554090621317016,
+                            51.45851086584017
+                        ],
+                        [
+                            -0.056623114674238195,
+                            51.458903996273875
+                        ],
+                        [
+                            -0.05811119029047518,
+                            51.45939537937738
+                        ],
+                        [
+                            -0.059657164741935276,
+                            51.4599505948743
+                        ],
+                        [
+                            -0.06085652055455171,
+                            51.460437027161646
+                        ],
+                        [
+                            -0.0610987330080377,
+                            51.460533908612405
+                        ],
+                        [
+                            -0.06257201873637541,
+                            51.461312105205025
+                        ],
+                        [
+                            -0.06450351555429279,
+                            51.46238978911788
+                        ],
+                        [
+                            -0.06480489271046963,
+                            51.46266481506669
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Red Cross Garden",
+                "Other Names": "",
+                "Borough": "Southwark",
+                "Coordinates": "51.50311, -0.09459",
+                "Status": "Open",
+                "Period Opened": "1875-1899",
+                "Year Opened": 1888,
+                "Altered": "Unchanged",
+                "Destroyed": "No",
+                "Period Destroyed": "N/A",
+                "First List Found On": 1905,
+                "Brief History": "Red Cross Garden formed part of Octavia Hill's pioneering social housing scheme here, which consisted of two rows of cottages and a community hall, designed by Elijah Hoole. The garden predated the buildings and was laid out in 1887, the opening ceremony taking place in 1888. It was created to provide 'an open air sitting room for the tired inhabitants of Southwark' and had an elaborate layout of curved lawns, flower beds and serpentine paths, an ornamental pond with fountain, bandstand and covered children's play area. There were once two mosaics in the garden, that depicting 'The Sower' remains, restored in 1956 and again in 2005. During WWII the railings were removed for the war effort and the caretaker dismissed, and by 1948 the layout of the garden had disappeared. Sir Sidney Cockerell writing to The Times of his visit in July 1948 found 'a desolate flat space part of it newly asphalted'. The garden appears treeless in a photograph of 1965, although some trees were subsequently planted. It was not until 2005 that it was restored to much of its original layout through the work of Bankside Open Spaces Trust with support by local people and funding from HLF and Southwark Council. It reflects its Victorian origins as a community garden and combines C19th and ecological planting.",
+                "History Link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU074"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.0942066784957376,
+                            51.5032122867097
+                        ],
+                        [
+                            -0.09455350305452725,
+                            51.503317426919295
+                        ],
+                        [
+                            -0.09456476359216026,
+                            51.50330200637018
+                        ],
+                        [
+                            -0.09471002452752941,
+                            51.50334055773263
+                        ],
+                        [
+                            -0.09490483182918297,
+                            51.50304265999327
+                        ],
+                        [
+                            -0.0945940409904722,
+                            51.50296205203489
+                        ],
+                        [
+                            -0.09456926780796948,
+                            51.50299149147952
+                        ],
+                        [
+                            -0.0944138723886283,
+                            51.50294102384839
+                        ],
+                        [
+                            -0.0942066784957376,
+                            51.5032122867097
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Camberwell Library Ground",
+                "Other Names": "",
+                "Borough": "Southwark",
+                "Coordinates": "51.47384 -0.07646",
+                "Status": "Defunct",
+                "Period Opened": "1875-1899",
+                "Year Opened": 1893,
+                "Altered": "Closed",
+                "Destroyed": "Yes",
+                "Period Destroyed": "1940s",
+                "First List Found On": 1905,
+                "Brief History": "The grand Camberwell Central Library on Peckham Road was opened in 1893 by the Prince of Wales, who later became Edward VII, but was razed to the ground by a doodlebug in 1944.",
+                "History Link": "https://southwarknews.co.uk/area/peckham/new-camberwell-library-opens-its-doors/"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.07621,
+                            51.4737
+                        ],
+                        [
+                            -0.07661,
+                            51.47365
+                        ],
+                        [
+                            -0.07641,
+                            51.47313
+                        ],
+                        [
+                            -0.076,
+                            51.47319
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        }
+    ]
+}

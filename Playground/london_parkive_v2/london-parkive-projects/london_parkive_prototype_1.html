@@ -23,7 +23,22 @@
             zoom: 12
              // starting zoom
         });
+
+        var parksInformation = false;
+        var parksShapes = false;
         var popup = new maplibregl.Popup({closeOnClick: false})
+
+        mergeParkData = function (parkinfo, parkshapes){
+                console.log(parkinfo);
+                console.log(parkshapes);
+                parkshapes.features.forEach((feature) => {
+                   console.log(feature.properties);
+                   let data = parkinfo.filter((info)=>info.name == feature.properties.name);
+                   console.log(data);
+                   feature.properties = data[0]
+                });
+                console.log
+            }
 
         map.on('load', () =>{
 
@@ -49,14 +64,60 @@
                 })
             })
 
-            map.on('click', 'boroughs_line_layer', function(e){
-                const borough_line_hover = map.queryRenderedFeatures(e.point, { layers : ['boroughs_line_layer']})
-                console.log(borough_line_hover)
-                popup.setLngLat(e.lngLat)[0].setHTML(
-                    `${borough_line_hover[0].properties.name}`
-                ).addTo(map)
-                
+
+            fetch('./data_files/london_parks_info.json')
+                .then(response => response.json())
+                .then(response => {
+                parksInformation = response;
+                console.log(parksInformation);
             })
+            fetch('./data_files/park_shapes_source.json')
+                .then(response => response.json())
+                .then(response => {
+                parksShapes = response;
+                console.log(parksShapes);
+            
+                map.addSource("parkShapesSource",{
+                    type : "geojson",
+                    data : response
+                })
+                map.addLayer({
+                    id : "park_shapes_layer",
+                    type : "fill",
+                    source : "parkShapesSource",
+                    paint : {
+                        'fill-color' : [
+                            'match',
+                            ['get', 'Status'],
+                            'Open', '#50b848',
+                            'Defunct', '#ff4c3f',
+                            'Under Threat', '#FDFD11',
+                            '#5A5AE2'
+                        ],
+                        'fill-opacity' : 0.5
+                        
+                    }
+                })
+            })
+            
+        })
+        map.on('click', 'park_shapes_layer', function(e){
+            const clickedFeatures = map.queryRenderedFeatures(e.point, { layers : ['park_shapes_layer']})
+            console.log(clickedFeatures)
+
+            let clickedParkName = clickedFeatures[0].properties.name;
+            let yearOpened = 0;
+            parksInformation.forEach(function(thisPark){
+                if(thisPark.name === clickedParkName){
+                    yearOpened = thisPark["year opened"];
+                    
+                } 
+            })
+            popup.setLngLat(e.lngLat).setHTML(
+                `${clickedParkName} was opened in ${yearOpened}`
+            ).addTo(map)
+            
+            mergeParkData (parksInformation, parksShapes);
         })
     </script>
 </body>

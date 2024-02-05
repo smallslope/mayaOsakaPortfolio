@@ -24,3 +24,7 @@ Design:
 Tech:
 - We will use Stamens 'Toner Light' basemap for the first prototype. Once a few features have been added I will try using other basemaps to see which ones work best. 
 - Map Libre will be  the main GIS JavaScript Library. Having used both Map Libre and Leaflet I think Map Libre will be better for handling large quantities of  data. 
+
+Styling:
+Open Parks = #50b848
+Closed Parks = #ff4c3f
