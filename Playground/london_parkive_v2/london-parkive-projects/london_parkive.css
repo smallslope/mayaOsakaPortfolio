@@ -1,0 +1,31 @@
+body { margin: 0; padding: 0; }
+html, body, #map {
+    z-index: 1;
+    height: 100%; 
+}
+.view_mode_buttons_container{
+    z-index: 2;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+}
+.view_mode_buttons{
+    width: 7rem;
+    height: 3rem;
+    background-color:rgb(123, 122, 122);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin: 0.2rem;
+   
+}
+.view_mode_toggle_title{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    line-height: 1.1rem;
+}
