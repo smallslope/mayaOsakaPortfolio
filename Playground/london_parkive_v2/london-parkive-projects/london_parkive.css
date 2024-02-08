@@ -3,7 +3,7 @@ html, body, #map {
     z-index: 1;
     height: 100%; 
 }
-.view_mode_buttons_container{
+#view_mode_buttons_container{
     z-index: 2;
     position: absolute;
     top: 1rem;
@@ -28,4 +28,61 @@ html, body, #map {
     color: white;
     text-align: center;
     line-height: 1.1rem;
+}
+.key_row{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0.1rem;
+}
+.key_square{
+    z-index: 3;
+    width: 1rem;
+    height: 1rem;
+    margin: 0.1rem;
+    margin-left: 0.2rem;
+    background-color:aqua;
+}
+.key_description{
+    font-family: 'Helvetica', sans-serif;
+    font-size: 0.9rem;
+    font-weight:lighter;
+    margin-left: 0.3rem;
+}
+#status_keys{
+    z-index: 2;
+    width: 7.5rem;
+    height: 5rem;
+    background-color: white;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+#yearOpened_keys{
+    z-index: 2;
+    width: 6.5rem;
+    height: 12rem;
+    background-color: white;
+    display: none;
+    flex-direction:column;
+    justify-content: center;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+#alterations_keys{
+    z-index: 2;
+    width: 10.2rem;
+    height: 5rem;
+    background-color: white;
+    display: none;
+    flex-direction:column;
+    justify-content: center;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
 }

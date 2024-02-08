@@ -12,15 +12,77 @@
         <script src='/Playground/london_parkive_v2/london-parkive-projects/london_parkive.js' defer></script>
     </head>
     <body>
-        <div class="view_mode_buttons_container">
-            <div id="status_button" class="view_mode_buttons">
+        <div id="view_mode_buttons_container">
+            <button id="status_button" class="view_mode_buttons">
                 <div class="view_mode_toggle_title">Status</div>
-            </div>
-            <div id="year_opened_button" class="view_mode_buttons">
+            </button>
+            <button id="year_opened_button" class="view_mode_buttons">
                 <div class="view_mode_toggle_title">Year Opened</div>
-            </div>
-            <div id="alterations_button" class="view_mode_buttons">
+            </button>
+            <button id="alterations_button" class="view_mode_buttons">
                 <div class="view_mode_toggle_title">Alterations</div>
+            </button>
+        </div>
+        <div id="status_keys">
+            <div class="key_row">
+                <div id="status_open" class="key_square"></div>
+                <div class="key_description">Open</div>
+            </div>
+            <div class="key_row">
+                <div id="status_under_threat" class="key_square"></div>
+                <div class="key_description">Under Threat</div>
+            </div>
+            <div class="key_row">
+                <div id="status_defunct" class="key_square"></div>
+                <div class="key_description">Defunct</div>
+            </div>
+        </div>
+        <div id="yearOpened_keys">
+            <div class="key_row">
+                <div id="yo_before1850" class="key_square"></div>
+                <div class="key_description">&#60;1850</div>
+            </div>
+            <div class="key_row">
+                <div id="yo_1850to1874" class="key_square"></div>
+                <div class="key_description">1850-1874</div>
+            </div>
+            <div class="key_row">
+                <div id="yo_1875to1899" class="key_square"></div>
+                <div class="key_description">1875-1899</div>
+            </div>
+            <div class="key_row">
+                <div id="yo_1900to1924" class="key_square"></div>
+                <div class="key_description">1900-1924</div>
+            </div>
+            <div class="key_row">
+                <div id="yo_1925to1949" class="key_square"></div>
+                <div class="key_description">1925-1949</div>
+            </div>
+            <div class="key_row">
+                <div id="yo_1950to1974" class="key_square"></div>
+                <div class="key_description">1950-1974</div>
+            </div>
+            <div class="key_row">
+                <div id="yo_1975to1999" class="key_square"></div>
+                <div class="key_description">1975-1999</div>
+            </div>
+            <div class="key_row">
+                <div id="yo_2000to2024" class="key_square"></div>
+                <div class="key_description">2000-2024</div>
+            </div>
+        </div>
+        <div id="alterations_keys">
+            <div class="key_row">
+                <div id="alterations_unchanged" class="key_square"></div>
+                <div class="key_description">Unchanged/Original</div>
+            </div>
+            <div class="key_row">
+                <div id="alterations_expanded" class="key_square"></div>
+                <div class="key_description">Expanded</div>
+            </div>
+            <div class="key_row">
+                <div id="alterations_shrunk" class="key_square"></div>
+                <div class="key_description">Shrunk/Defunct</div>
             </div>
         </div>
        

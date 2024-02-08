@@ -5,10 +5,40 @@ var map = new maplibregl.Map({
     center: [-0.13067, 51.5068], 
     zoom: 12
 });
-
 var parksInformation = false;
 var parksShapes = false;
 var popup = new maplibregl.Popup({closeOnClick: false})
+//Status Polygon Colours//
+var statusOpenColor = "#50b848";
+document.getElementById("status_open").style = `background-color: ${statusOpenColor}`;
+document.getElementById("alterations_unchanged").style = `background-color: ${statusOpenColor}`;
+var statusDefunctColor = "#ff4c3f";
+document.getElementById("status_defunct").style = `background-color: ${statusDefunctColor}`;
+var statusUnderThreatColor = "#fee400";
+document.getElementById("status_under_threat").style = `background-color: ${statusUnderThreatColor}`;
+//Year Opened Polygon Colours//
+var yoBefore1850Color = "#870E8A";
+document.getElementById("yo_before1850").style = `background-color: ${yoBefore1850Color}`;
+var yo1850to1874Color = "#CA1CCD";
+document.getElementById("yo_1850to1874").style = `background-color: ${yo1850to1874Color}`;
+var yo1875to1899Color = "#FC51FF";
+document.getElementById("yo_1875to1899").style = `background-color: ${yo1875to1899Color}`;
+var yo1900to1924Color = "#102C8F";
+document.getElementById("yo_1900to1924").style = `background-color: ${yo1900to1924Color}`;
+var yo1925to1949Color = "#244BD6";
+document.getElementById("yo_1925to1949").style = `background-color: ${yo1925to1949Color}`;
+var yo1950to1974Color = "#809CFF";
+document.getElementById("yo_1950to1974").style = `background-color: ${yo1950to1974Color}`;
+var yo1975to1999Color = "#BDCCFF";
+document.getElementById("yo_1975to1999").style = `background-color: ${yo1975to1999Color}`;
+var yo2000to2024Color = "#AAA30D";
+document.getElementById("yo_2000to2024").style = `background-color: ${yo2000to2024Color}`;
+//Alterations Polygon Colours//
+var alterationsExpandedColor = "#059FDC";
+document.getElementById("alterations_expanded").style = `background-color: ${alterationsExpandedColor}`;
+var alterationsShrunkColor = "#ff4c3f";
+document.getElementById("alterations_shrunk").style = `background-color: ${alterationsShrunkColor}`;
+
 //View Modes// 
 var parkStatusViewMode = {
     id : "park_status_layer",
@@ -18,9 +48,9 @@ var parkStatusViewMode = {
         'fill-color' : [
             'match',
             ['get', 'status'],
-            'Open', '#50b848',
-            'Defunct', '#ff4c3f',
-            'Under Threat', '#FDFD11',
+            'Open', statusOpenColor,
+            'Defunct', statusDefunctColor,
+            'Under Threat', statusUnderThreatColor,
             '#5A5AE2'
         ],
         'fill-opacity' : 1
@@ -31,29 +61,28 @@ var yearOpenedViewMode = {
     type : "fill",
     source : "parkShapesSource",
     paint : {
-        'fill-color' : [
-            'match',
-            ['get', 'period_opened'],
-            '<1850', '#870E8A',
-            '1850-1874', '#CA1CCD',
-            '1875-1899', '#FC51FF',
-            '1900-1924', '#102C8F',
-            '1925-1949', '#244BD6',
-            '1950-1974', '#809CFF',
-            '1975-1999', '#BDCCFF',
-            '2000-2025', '#AAA30D',
-            '#000000'
+        "fill-color" : [
+            "match",
+            ["get", "period_opened"],
+            "<1850", yoBefore1850Color,
+            "1850-1874", yo1850to1874Color,
+            "1875-1899", yo1875to1899Color,
+            "1900-1924", yo1900to1924Color,
+            "1925-1949", yo1925to1949Color,
+            "1950-1974", yo1950to1974Color,
+            "1975-1999", yo1975to1999Color,
+            "2000-2024", yo2000to2024Color,
+            "#000000"
         ],
         'fill-opacity' : 0
     }
 };
-//Park Alteraations -> Different shapes and colours depending on whether a park has been expanded, shrunk or remained the same.
 var shrunkParksLayer = {
     id : "shrunk_park_areas",
     type : "fill",
     source : "parksAlterationsSource",
     paint : {
-        "fill-color" : "#ff4c3f",
+        "fill-color" : alterationsShrunkColor,
         "fill-opacity" : 0
     },
     filter : ["==", ["get", "alteration"], "Shrunk"],
@@ -67,10 +96,10 @@ var alterationParksLayer = {
         "fill-color" : [
             "match",
             ["get", "altered"],
-            "Unchanged", "#50b848",
-            "Expanded", "#059FDC",
-            "Shrunk", "#50b848",
-            "Closed", "#ff4c3f",
+            "Unchanged", statusOpenColor,
+            "Expanded", alterationsExpandedColor,
+            "Shrunk", statusOpenColor,
+            "Closed", statusDefunctColor,
             "#000000"
         ],
         "fill-opacity" : 0,
@@ -82,7 +111,7 @@ var expandedParksLayer = {
     type : "fill",
     source : "parksAlterationsSource",
     paint :  {
-        "fill-color" : '#50b848',
+        "fill-color" : statusOpenColor,
         "fill-opacity" : 0.8
     },
     filter : ["==", ["get", "alteration"], "Expanded"]
@@ -149,21 +178,33 @@ document.getElementById("status_button").addEventListener("click", function(){
     map.setPaintProperty("park_status_layer", "fill-opacity", 0.8)
     map.setPaintProperty("shrunk_park_areas", "fill-opacity", 0)
     map.setPaintProperty("expanded_park_areas", "fill-opacity", 0)
-    map.setPaintProperty("park_alterations", "fill-opacity", 0)   
+    map.setPaintProperty("park_alterations", "fill-opacity", 0)
+    
+    document.getElementById("status_keys").style.display = "flex";
+    document.getElementById("yearOpened_keys").style.display = "none";
+    document.getElementById("alterations_keys").style.display = "none";
 });
 document.getElementById("year_opened_button").addEventListener("click", function(){
     map.setPaintProperty("year_opened_layer", "fill-opacity", 0.8)
     map.setPaintProperty("park_status_layer", "fill-opacity", 0)
     map.setPaintProperty("shrunk_park_areas", "fill-opacity", 0)
     map.setPaintProperty("expanded_park_areas", "fill-opacity", 0)
-    map.setPaintProperty("park_alterations", "fill-opacity", 0)   
+    map.setPaintProperty("park_alterations", "fill-opacity", 0)
+    
+    document.getElementById("status_keys").style.display = "none";
+    document.getElementById("yearOpened_keys").style.display = "flex";
+    document.getElementById("alterations_keys").style.display = "none";
 });
 document.getElementById("alterations_button").addEventListener("click", function(){
     map.setPaintProperty("year_opened_layer", "fill-opacity", 0)
     map.setPaintProperty("park_status_layer", "fill-opacity", 0)
     map.setPaintProperty("shrunk_park_areas", "fill-opacity", 0.8)
     map.setPaintProperty("expanded_park_areas", "fill-opacity", 0.8)
-    map.setPaintProperty("park_alterations", "fill-opacity", 0.8)   
+    map.setPaintProperty("park_alterations", "fill-opacity", 0.8)  
+    
+    document.getElementById("status_keys").style.display = "none";
+    document.getElementById("yearOpened_keys").style.display = "none";
+    document.getElementById("alterations_keys").style.display = "flex";
 });
 
 //Find code that is currently not being used but could be useful later down the line here://
