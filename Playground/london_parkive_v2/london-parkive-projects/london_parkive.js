@@ -16,6 +16,7 @@ var statusDefunctColor = "#ff4c3f";
 document.getElementById("status_defunct").style = `background-color: ${statusDefunctColor}`;
 var statusUnderThreatColor = "#fee400";
 document.getElementById("status_under_threat").style = `background-color: ${statusUnderThreatColor}`;
+document.getElementById("alterations_under_threat").style = `background-color: ${statusUnderThreatColor}`
 //Year Opened Polygon Colours//
 var yoBefore1850Color = "#870E8A";
 document.getElementById("yo_before1850").style = `background-color: ${yoBefore1850Color}`;
@@ -34,7 +35,7 @@ document.getElementById("yo_1975to1999").style = `background-color: ${yo1975to19
 var yo2000to2024Color = "#AAA30D";
 document.getElementById("yo_2000to2024").style = `background-color: ${yo2000to2024Color}`;
 //Alterations Polygon Colours//
-var alterationsExpandedColor = "#059FDC";
+var alterationsExpandedColor = "#62d0fb";
 document.getElementById("alterations_expanded").style = `background-color: ${alterationsExpandedColor}`;
 var alterationsShrunkColor = "#ff4c3f";
 document.getElementById("alterations_shrunk").style = `background-color: ${alterationsShrunkColor}`;
@@ -53,7 +54,7 @@ var parkStatusViewMode = {
             'Under Threat', statusUnderThreatColor,
             '#5A5AE2'
         ],
-        'fill-opacity' : 1
+        'fill-opacity' : 0.8
     }
 };
 var yearOpenedViewMode = {
@@ -77,6 +78,17 @@ var yearOpenedViewMode = {
         'fill-opacity' : 0
     }
 };
+var underThreatParksLayer = {
+    id : "under_threat_park_areas",
+    type : "fill",
+    source : "parksAlterationsSource",
+    paint : {
+        "fill-color" : statusUnderThreatColor ,
+        "fill-opacity" : 0
+    },
+    filter : ["==", ["get", "alteration"], "Under Threat"],
+   
+}
 var shrunkParksLayer = {
     id : "shrunk_park_areas",
     type : "fill",
@@ -172,6 +184,7 @@ map.on('load', () =>{
     map.addLayer(shrunkParksLayer);
     map.addLayer(alterationParksLayer);
     map.addLayer(expandedParksLayer);
+    map.addLayer(underThreatParksLayer);
 })
 
 
@@ -199,6 +212,7 @@ document.getElementById("status_button").addEventListener("click", function(){
     map.setPaintProperty("shrunk_park_areas", "fill-opacity", 0)
     map.setPaintProperty("expanded_park_areas", "fill-opacity", 0)
     map.setPaintProperty("park_alterations", "fill-opacity", 0)
+    map.setPaintProperty("under_threat_park_areas", "fill-opacity", 0)
     
     document.getElementById("status_keys").style.display = "flex";
     document.getElementById("yearOpened_keys").style.display = "none";
@@ -210,6 +224,7 @@ document.getElementById("year_opened_button").addEventListener("click", function
     map.setPaintProperty("shrunk_park_areas", "fill-opacity", 0)
     map.setPaintProperty("expanded_park_areas", "fill-opacity", 0)
     map.setPaintProperty("park_alterations", "fill-opacity", 0)
+    map.setPaintProperty("under_threat_park_areas", "fill-opacity", 0)
     
     document.getElementById("status_keys").style.display = "none";
     document.getElementById("yearOpened_keys").style.display = "flex";
@@ -221,6 +236,7 @@ document.getElementById("alterations_button").addEventListener("click", function
     map.setPaintProperty("shrunk_park_areas", "fill-opacity", 0.8)
     map.setPaintProperty("expanded_park_areas", "fill-opacity", 0.8)
     map.setPaintProperty("park_alterations", "fill-opacity", 0.8)  
+    map.setPaintProperty("under_threat_park_areas", "fill-opacity", 0.8)
     
     document.getElementById("status_keys").style.display = "none";
     document.getElementById("yearOpened_keys").style.display = "none";

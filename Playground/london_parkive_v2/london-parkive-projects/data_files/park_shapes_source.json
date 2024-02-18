@@ -2293,8 +2293,8 @@
                 "longitude": 51.48718,
                 "latitude": -0.09098,
                 "status": "Open",
-                "year_opened": "Unknown",
-                "period_opened": "",
+                "year_opened": "1905",
+                "period_opened": "1900-1924",
                 "altered": "Expanded",
                 "period_destroyed": "n/a",
                 "first_list_appearence": 1921,
@@ -2303,36 +2303,48 @@
             },
             "geometry": {
                 "coordinates": [
+                  [
                     [
-                        [
-                            -0.09135853573599206,
-                            51.48797146811893
-                        ],
-                        [
-                            -0.09318267523514123,
-                            51.487363182182946
-                        ],
-                        [
-                            -0.09274955946739283,
-                            51.48688536677102
-                        ],
-                        [
-                            -0.0914122784129745,
-                            51.487281053284676
-                        ],
-                        [
-                            -0.09097916383538518,
-                            51.48736767070341
-                        ],
-                        [
-                            -0.09135853573599206,
-                            51.48797146811893
-                        ]
+                      -0.0927437162453657,
+                      51.48688335910256
+                    ],
+                    [
+                      -0.09140079516870969,
+                      51.48728825638696
+                    ],
+                    [
+                      -0.09119222258729565,
+                      51.486940795408145
+                    ],
+                    [
+                      -0.09025483189702754,
+                      51.487184735452246
+                    ],
+                    [
+                      -0.09045256953905323,
+                      51.48750183417167
+                    ],
+                    [
+                      -0.09097264662491966,
+                      51.487363525426815
+                    ],
+                    [
+                      -0.09136760928774379,
+                      51.487970206232234
+                    ],
+                    [
+                      -0.09318162569377364,
+                      51.48736967003725
+                    ],
+                    [
+                      -0.0927437162453657,
+                      51.48688335910256
                     ]
+                  ]
                 ],
                 "type": "Polygon"
-            }
-        },
+              }
+            },
         {
             "type": "Feature",
             "properties": {
@@ -3105,19 +3117,19 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "Leyton Square Garden",
+                "name": "Dulwich Library Ground",
                 "other_names": "",
                 "borough": "Southwark",
-                "longitude": 51.48141,
-                "latitude": -0.0676,
+                "longitude": 51.44871,
+                "latitude": -0.0749,
                 "status": "Open",
-                "year_opened": 1901,
-                "period_opened": "1900-1924",
-                "altered": "Expanded",
+                "year_opened": 1897,
+                "period_opened": "1875-1899",
+                "altered": "Unchanged",
                 "period_destroyed": "n/a",
                 "first_list_appearence": 1921,
-                "brief_history": "Leyton Square was opened to the public in 1901, after Camberwell Borough Council purchased the land in 1899 for £3,000, of which £1,500 was provided by the LCC, plus £683 for half the paving expenses. The garden has since been reconfigured, and is now within a more recent housing estate. Laid out on slightly undulating ground, it is largely laid to grass with recreation facilities, paths and seating. There are scattered trees including lines of older plane trees, presumably marking the original perimeter.",
-                "history_link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU050"
+                "brief_history": "Dulwich Library is a John Passmore Edwards Library, built as a memorial to Edward Alleyn, the Elizabethan actor and founder of Alleyn's School and Dulwich College. The architect was Charles Barry and Son and the site was donated by Dulwich College. The foundation stone was laid by the famous actor Sir Henry Irving on 24 September 1896 and the library was declared open by Lord Chancellor Halsbury on the 24 November 1897.\n\nThe building probably originally operated on a closed access system where books could be selected from a catalogue and retrieved by staff for viewing. The original single-storey wing to the west of the main entrance was rebuilt in about 1950 following bomb damage in 1940 or 1941.\n\nThe building was refurbished in 2013.",
+                "history_link": "https://historicengland.org.uk/listing/the-list/list-entry/1430885?section=official-list-entry"
             },
             "geometry": {
                 "coordinates": [
@@ -3162,19 +3174,19 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "One Tree Hill",
+                "name": "Leyton Square Garden",
                 "other_names": "",
                 "borough": "Southwark",
-                "longitude": 51.45132,
-                "latitude": -0.05191,
+                "longitude": 51.48141,
+                "latitude": -0.0676,
                 "status": "Open",
-                "year_opened": 1905,
+                "year_opened": 1901,
                 "period_opened": "1900-1924",
-                "altered": "Unchanged",
+                "altered": "Expanded",
                 "period_destroyed": "n/a",
                 "first_list_appearence": 1921,
-                "brief_history": "One Tree Hill has a long history and connections with significant events, its height exploited for both defence and commercial purposes. It was named after the Oak of Honor that marked the boundary of lands belonging to the Honour of Gloucester. The most famous story in its history is that Elizabeth I rested under an oak at the summit in 1602, and the third successive specimen planted in 1905 remains today. In 1896 the hill was enclosed when the adjacent Golf Club rented the land, but following an active local protest it was eventually opened as a public park in 1905, the LCC General Powers Bill of 1902 having enabled Camberwell Borough Council to compulsorily purchase the land as public open space.",
-                "history_link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU067"
+                "brief_history": "Leyton Square was opened to the public in 1901, after Camberwell Borough Council purchased the land in 1899 for £3,000, of which £1,500 was provided by the LCC, plus £683 for half the paving expenses. The garden has since been reconfigured, and is now within a more recent housing estate. Laid out on slightly undulating ground, it is largely laid to grass with recreation facilities, paths and seating. There are scattered trees including lines of older plane trees, presumably marking the original perimeter.",
+                "history_link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU050"
             },
             "geometry": {
                 "coordinates": [
@@ -3227,19 +3239,19 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "Holly Grove Shrubbery",
-                "other_names": "South Grove Shrubbery",
+                "name": "One Tree Hill",
+                "other_names": "",
                 "borough": "Southwark",
-                "longitude": 51.47011,
-                "latitude": -0.07111,
+                "longitude": 51.45132,
+                "latitude": -0.05191,
                 "status": "Open",
-                "year_opened": 1897,
-                "period_opened": "1875-1899",
-                "altered": "Expanded",
+                "year_opened": 1905,
+                "period_opened": "1900-1924",
+                "altered": "Unchanged",
                 "period_destroyed": "n/a",
                 "first_list_appearence": 1921,
-                "brief_history": "Holly Grove Shrubbery is a Victorian shrubbery with a serpentine boundary with a footpath winding through it, of some 250 yards in length. The shrubbery adjoins the nearby listed houses in Holly Grove built between 1816 and 1822, fronted by cast iron railings. The land between South Grove and the rear of houses in Elm Grove was purchased by Camberwell Borough Council in 1896 for £966, which represented paving charges from which the owners were released, and the land was laid out as a shrubbery with the pathway along its length and opened to the public in 1897. It was extended In 1902 when further land was purchased for £350.",
-                "history_link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU039"
+                "brief_history": "One Tree Hill has a long history and connections with significant events, its height exploited for both defence and commercial purposes. It was named after the Oak of Honor that marked the boundary of lands belonging to the Honour of Gloucester. The most famous story in its history is that Elizabeth I rested under an oak at the summit in 1602, and the third successive specimen planted in 1905 remains today. In 1896 the hill was enclosed when the adjacent Golf Club rented the land, but following an active local protest it was eventually opened as a public park in 1905, the LCC General Powers Bill of 1902 having enabled Camberwell Borough Council to compulsorily purchase the land as public open space.",
+                "history_link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU067"
             },
             "geometry": {
                 "coordinates": [
@@ -3344,19 +3356,19 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "Bramcote Park",
-                "other_names": "Varcoe Road Recreation Ground",
+                "name": "Holly Grove Shrubbery",
+                "other_names": "South Grove Shrubbery",
                 "borough": "Southwark",
-                "longitude": 51.4855,
-                "latitude": -0.05632,
+                "longitude": 51.47011,
+                "latitude": -0.07111,
                 "status": "Open",
-                "year_opened": 1906,
-                "period_opened": "1900-1924",
+                "year_opened": 1897,
+                "period_opened": "1875-1899",
                 "altered": "Expanded",
                 "period_destroyed": "n/a",
                 "first_list_appearence": 1921,
-                "brief_history": "The site was purchased by Camberwell Borough Council in 1905 for a sum of £2,000 and Varcoe Road Recreation Ground was opened to the public in 1906. It is protected by the London Squares and Enclosures (Preservation) Act of 1906. Now privately owned, it is a scrubby area with grass, paths and some trees.",
-                "history_link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU097"
+                "brief_history": "Holly Grove Shrubbery is a Victorian shrubbery with a serpentine boundary with a footpath winding through it, of some 250 yards in length. The shrubbery adjoins the nearby listed houses in Holly Grove built between 1816 and 1822, fronted by cast iron railings. The land between South Grove and the rear of houses in Elm Grove was purchased by Camberwell Borough Council in 1896 for £966, which represented paving charges from which the owners were released, and the land was laid out as a shrubbery with the pathway along its length and opened to the public in 1897. It was extended In 1902 when further land was purchased for £350.",
+                "history_link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU039"
             },
             "geometry": {
                 "coordinates": [
@@ -4617,6 +4629,67 @@
                         [
                             -0.07342992766973566,
                             51.483262611778315
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hatcham Gardens",
+                "other_names": "",
+                "borough": "Lewisham",
+                "longitude": 51.47512,
+                "latitude": -0.05181,
+                "status": "Under Threat",
+                "year_opened": 1959,
+                "period_opened": "1950-1974",
+                "altered": "Shrank",
+                "period_destroyed": "n/a",
+                "first_list_appearence": "n/a",
+                "brief_history": "Hatcham Gardens is currently under threat. Part of the park was flattened to accommodate housing development next door to the park with the understanding that the park would be restored to its former state after the development had completed. Development was completed in 2020 but the areas closed for development are still boarded up. There is no indication as to when the park will be restored to its former state.",
+                "history_link": "https://www.theguardian.com/environment/2023/jun/29/most-children-live-flats-park-boarded-up-developers"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.05193868072686314,
+                            51.47542785189907
+                        ],
+                        [
+                            -0.05194134190139721,
+                            51.475278675507155
+                        ],
+                        [
+                            -0.0526146189100416,
+                            51.475283648061094
+                        ],
+                        [
+                            -0.05262260243216588,
+                            51.474927280299255
+                        ],
+                        [
+                            -0.05131064367554927,
+                            51.47492065017494
+                        ],
+                        [
+                            -0.05134523893624987,
+                            51.475169279175844
+                        ],
+                        [
+                            -0.051289354283795774,
+                            51.47517590926404
+                        ],
+                        [
+                            -0.05128669311000067,
+                            51.47542785189907
+                        ],
+                        [
+                            -0.05193868072686314,
+                            51.47542785189907
                         ]
                     ]
                 ],
