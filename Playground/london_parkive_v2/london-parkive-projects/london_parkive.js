@@ -2,12 +2,12 @@ var mapContainer = document.getElementById('map');
 var map = new maplibregl.Map({
     container: mapContainer, 
     style: 'https://tiles.stadiamaps.com/styles/stamen_toner_lite.json', 
-    center: [-0.13067, 51.5068], 
+    center: [-0.0670045430832684,51.47066260405178], 
     zoom: 12
 });
 var parksInformation = false;
 var parksShapes = false;
-var popup = new maplibregl.Popup({closeOnClick: false})
+var popup = new maplibregl.Popup({closeOnClick: false});
 //Status Polygon Colours//
 var statusOpenColor = "#50b848";
 document.getElementById("status_open").style = `background-color: ${statusOpenColor}`;
@@ -98,7 +98,7 @@ var alterationParksLayer = {
             ["get", "altered"],
             "Unchanged", statusOpenColor,
             "Expanded", alterationsExpandedColor,
-            "Shrunk", statusOpenColor,
+            "Shrank", statusOpenColor,
             "Closed", statusDefunctColor,
             "#000000"
         ],
@@ -116,6 +116,18 @@ var expandedParksLayer = {
     },
     filter : ["==", ["get", "alteration"], "Expanded"]
 } 
+
+mergeParkData = function (parkinfo, parkshapes){
+    console.log(parkinfo);
+    console.log(parkshapes);
+    parkshapes.features.forEach((feature) => {
+    console.log(feature.properties);
+    let data = parkinfo.filter((info)=>info.name == feature.properties.name);
+    console.log(data);
+    feature.properties = data[0]
+    });
+    console.log(parkshapes);
+}
 map.on('load', () =>{
 
     fetch('./data_files/london_parks_info.json')
@@ -123,6 +135,12 @@ map.on('load', () =>{
     .then(response => {
     parksInformation = response;
     console.log(parksInformation);
+    })
+    fetch('./data_files/park_shapes_source.json')
+    .then(response => response.json())
+    .then(response => {
+    parksShapes = response;
+    console.log(parksShapes);
     })
 
     map.addSource("parkShapesSource",{
@@ -172,6 +190,8 @@ map.on('click', 'park_status_layer', function(e){
     popup.setLngLat(e.lngLat).setHTML(
         `${clickedParkName} was opened in ${yearOpened}`
     ).addTo(map)
+
+    mergeParkData(parksInformation,parksShapes);
 })
 document.getElementById("status_button").addEventListener("click", function(){
     map.setPaintProperty("year_opened_layer", "fill-opacity", 0)
