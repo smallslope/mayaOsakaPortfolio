@@ -2293,7 +2293,7 @@
                 "longitude": 51.48718,
                 "latitude": -0.09098,
                 "status": "Open",
-                "year_opened": "1905",
+                "year_opened": 1905,
                 "period_opened": "1900-1924",
                 "altered": "Expanded",
                 "period_destroyed": "n/a",
@@ -2303,48 +2303,48 @@
             },
             "geometry": {
                 "coordinates": [
-                  [
                     [
-                      -0.0927437162453657,
-                      51.48688335910256
-                    ],
-                    [
-                      -0.09140079516870969,
-                      51.48728825638696
-                    ],
-                    [
-                      -0.09119222258729565,
-                      51.486940795408145
-                    ],
-                    [
-                      -0.09025483189702754,
-                      51.487184735452246
-                    ],
-                    [
-                      -0.09045256953905323,
-                      51.48750183417167
-                    ],
-                    [
-                      -0.09097264662491966,
-                      51.487363525426815
-                    ],
-                    [
-                      -0.09136760928774379,
-                      51.487970206232234
-                    ],
-                    [
-                      -0.09318162569377364,
-                      51.48736967003725
-                    ],
-                    [
-                      -0.0927437162453657,
-                      51.48688335910256
+                        [
+                            -0.0927437162453657,
+                            51.48688335910256
+                        ],
+                        [
+                            -0.09140079516870969,
+                            51.48728825638696
+                        ],
+                        [
+                            -0.09119222258729565,
+                            51.486940795408145
+                        ],
+                        [
+                            -0.09025483189702754,
+                            51.487184735452246
+                        ],
+                        [
+                            -0.09045256953905323,
+                            51.48750183417167
+                        ],
+                        [
+                            -0.09097264662491966,
+                            51.487363525426815
+                        ],
+                        [
+                            -0.09136760928774379,
+                            51.487970206232234
+                        ],
+                        [
+                            -0.09318162569377364,
+                            51.48736967003725
+                        ],
+                        [
+                            -0.0927437162453657,
+                            51.48688335910256
+                        ]
                     ]
-                  ]
                 ],
                 "type": "Polygon"
-              }
-            },
+            }
+        },
         {
             "type": "Feature",
             "properties": {
@@ -3032,7 +3032,7 @@
                 "status": "Open",
                 "year_opened": 1910,
                 "period_opened": "1900-1924",
-                "altered": "Expanded",
+                "altered": "Unchanged",
                 "period_destroyed": "n/a",
                 "first_list_appearence": 1921,
                 "brief_history": "",
@@ -3596,7 +3596,7 @@
                 "status": "Open",
                 "year_opened": 1921,
                 "period_opened": "1900-1924",
-                "altered": "Expanded",
+                "altered": "Shrank",
                 "period_destroyed": "n/a",
                 "first_list_appearence": 1921,
                 "brief_history": "This was originally the communal garden of The Paragon, a late C18th crescent. When the houses were demolished and replaced by a Board School the garden survived and was purchased by the Vestry of St George the Martyr. It was laid out as public garden by the MPGA and once had a bandstand. Part of the site was later lost as a result of road schemes when the Bricklayers Arms Flyover was built in 1970 although a strip of land was added to the west as compensation and planted with shrubs. Improvements have been carried out since 2009 as part of wider improvements to the Salisbury Row neighbourhood.",
@@ -3795,7 +3795,7 @@
                 "status": "Open",
                 "year_opened": 1910,
                 "period_opened": "1900-1924",
-                "altered": "Expanded",
+                "altered": "Unchanged",
                 "period_destroyed": "n/a",
                 "first_list_appearence": 1921,
                 "brief_history": "The land that became West Square was first leased out in 1791 by the owners, the Temple West family, from whom the square gets its name, the terraces were built by 1794 with a garden laid out by 1799. When the Bethlehem Royal Hospital moved to St George's Fields, its senior hospital staff needed accommodation nearby and West Square was laid out with terraces surrounding the garden. By 1813 it appears to have had a formal layout but it was much simplified by 1870. Threatened with development in the late C19th, the garden was saved for public open space by the MPGA in 1909, and laid out by their landscape gardener Madeline Agar. The cruciform layout was restored and the garden opened to the public in 1910. In the centre is a rose garden with sundial; a tree was planted here on 14 September 1991 to celebrate the bicentenary of West Square. The garden at one point had 4 black mulberries.",
@@ -4690,6 +4690,147 @@
                         [
                             -0.05193868072686314,
                             51.47542785189907
+                        ]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Mint Street Park",
+                "other_names": "",
+                "borough": "Southwark",
+                "longitude": 51.502,
+                "latitude": -0.09644,
+                "status": "Open",
+                "year_opened": "Unknown",
+                "period_opened": "1975-1999",
+                "altered": "Unknown",
+                "period_destroyed": "n/a",
+                "first_list_appearence": "n/a",
+                "brief_history": "Mint Street Park was laid out on the site previously occupied by the Evelina Hospital for Sick Children founded by Baron Frederick de Rothschild in memory of his wife Evelina who died in premature childbirth in 1866. It opened in 1869 and remained here until 1976 although it was later re-established in a new building next to St Thomas' Hospital. After the hospital closed the buildings were demolished and the site became green space. Mint Street Park was re-landscaped by Bankside Open Spaces Trust (BOST) working with local people to carry out improvements that included new landscaping, access and lighting. Raised beds were created and planted by the gardening club working with Putting Down Roots, a project run by St Mungo's Association working with homeless people. Mint Street Park is now s a local play space and venue for community events, and includes an adventure play facility.",
+                "history_link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU060"
+            },
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -0.09767084891777245,
+                            51.50193169478888
+                        ],
+                        [
+                            -0.09779153340414837,
+                            51.50175012904134
+                        ],
+                        [
+                            -0.09747662802493551,
+                            51.50167388219944
+                        ],
+                        [
+                            -0.09747623131292471,
+                            51.50165133002491
+                        ],
+                        [
+                            -0.09743843185430023,
+                            51.50164579656163
+                        ],
+                        [
+                            -0.09740874443335201,
+                            51.50165605718209
+                        ],
+                        [
+                            -0.09723670327392142,
+                            51.501929838335144
+                        ],
+                        [
+                            -0.0971757853668862,
+                            51.501951711056364
+                        ],
+                        [
+                            -0.09681554166792239,
+                            51.501842185257146
+                        ],
+                        [
+                            -0.0966020975787103,
+                            51.50213935090454
+                        ],
+                        [
+                            -0.0965655270656498,
+                            51.5021313098251
+                        ],
+                        [
+                            -0.09650788800666987,
+                            51.50220040289369
+                        ],
+                        [
+                            -0.09606491618490054,
+                            51.50207300686449
+                        ],
+                        [
+                            -0.09578809552246526,
+                            51.502397058722494
+                        ],
+                        [
+                            -0.09581946811209718,
+                            51.50248439389554
+                        ],
+                        [
+                            -0.09611904741959165,
+                            51.50284169797021
+                        ],
+                        [
+                            -0.09618744912512511,
+                            51.502833307246476
+                        ],
+                        [
+                            -0.0962913138010606,
+                            51.50278669821188
+                        ],
+                        [
+                            -0.09623869567607812,
+                            51.50271256658709
+                        ],
+                        [
+                            -0.0964320743873941,
+                            51.50267199167823
+                        ],
+                        [
+                            -0.09646170674571408,
+                            51.502647467535354
+                        ],
+                        [
+                            -0.09662255968515865,
+                            51.502684043036965
+                        ],
+                        [
+                            -0.09682573115438231,
+                            51.5026935696107
+                        ],
+                        [
+                            -0.09697111991718543,
+                            51.50267346599475
+                        ],
+                        [
+                            -0.09709978376071149,
+                            51.502633758868114
+                        ],
+                        [
+                            -0.09721068046155779,
+                            51.50256381577526
+                        ],
+                        [
+                            -0.09744936142286065,
+                            51.502265095372195
+                        ],
+                        [
+                            -0.09742050623648879,
+                            51.50225029630744
+                        ],
+                        [
+                            -0.09767084891777245,
+                            51.50193169478888
                         ]
                     ]
                 ],

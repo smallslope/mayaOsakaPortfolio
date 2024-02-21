@@ -336,8 +336,8 @@
     "longitude": 51.48718,
     "latitude": -0.09098,
     "status": "Open",
-    "year_opened": "",
-    "period_opened": "",
+    "year_opened": 1905,
+    "period_opened": "1900-1924",
     "altered": "Expanded",
     "period_destroyed": "n/a",
     "first_list_appearence": 1921,
@@ -703,5 +703,20 @@
     "first_list_appearence": "n/a",
     "brief_history": "Hatcham Gardens is currently under threat. Part of the park was flattened to accommodate housing development next door to the park with the understanding that the park would be restored to its former state after the development had completed. Development was completed in 2020 but the areas closed for development are still boarded up. There is no indication as to when the park will be restored to its former state.",
     "history_link": "https://www.theguardian.com/environment/2023/jun/29/most-children-live-flats-park-boarded-up-developers"
+  },
+  {
+    "name": "Mint Street Park",
+    "other_names": "",
+    "borough": "Southwark",
+    "longitude": 51.502,
+    "latitude": -0.09644,
+    "status": "Open",
+    "year_opened": "Unknown",
+    "period_opened": "1975-1999",
+    "altered": "Unknown",
+    "period_destroyed": "n/a",
+    "first_list_appearence": "n/a",
+    "brief_history": "Mint Street Park was laid out on the site previously occupied by the Evelina Hospital for Sick Children founded by Baron Frederick de Rothschild in memory of his wife Evelina who died in premature childbirth in 1866. It opened in 1869 and remained here until 1976 although it was later re-established in a new building next to St Thomas' Hospital. After the hospital closed the buildings were demolished and the site became green space. Mint Street Park was re-landscaped by Bankside Open Spaces Trust (BOST) working with local people to carry out improvements that included new landscaping, access and lighting. Raised beds were created and planted by the gardening club working with Putting Down Roots, a project run by St Mungo's Association working with homeless people. Mint Street Park is now s a local play space and venue for community events, and includes an adventure play facility.",
+    "history_link": "https://londongardenstrust.org/conservation/inventory/site-record/?ID=SOU060"
   }
 ]

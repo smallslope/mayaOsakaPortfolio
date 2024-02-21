@@ -112,6 +112,7 @@ var alterationParksLayer = {
             "Expanded", alterationsExpandedColor,
             "Shrank", statusOpenColor,
             "Closed", statusDefunctColor,
+            "Uncertain", statusOpenColor,
             "#000000"
         ],
         "fill-opacity" : 0,
