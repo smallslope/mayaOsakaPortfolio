@@ -1,9 +1,14 @@
+const bounds = [
+    [-0.6169495524080867,51.25653223074311], // Southwest coordinates
+    [0.40065908656101884,51.72595361089737] // Northeast coordinates
+];
 var mapContainer = document.getElementById('map');
 var map = new maplibregl.Map({
     container: mapContainer, 
     style: 'https://tiles.stadiamaps.com/styles/stamen_toner_lite.json', 
     center: [-0.0670045430832684,51.47066260405178], 
-    zoom: 12
+    zoom: 12,
+    maxBounds: bounds
 });
 var parksInformation = false;
 var parksShapes = false;
