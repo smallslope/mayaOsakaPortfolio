@@ -1,3 +1,6 @@
+function myFunction(x) {
+    x.classList.toggle("change");
+  }
 const bounds = [
     [-0.6169495524080867,51.25653223074311], // Southwest coordinates
     [0.40065908656101884,51.72595361089737] // Northeast coordinates

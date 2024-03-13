@@ -6,6 +6,7 @@
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css' />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
         <link rel="stylesheet" href="/Playground/london_parkive_v2/london-parkive-projects/london_parkive.css" />
         <script src='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js' defer></script>
         <script src='https://unpkg.com/@turf/turf@6/turf.min.js'defer></script>
@@ -13,15 +14,21 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/d3fc69292a.js" crossorigin="anonymous"></script>
     </head>
-    <body>
+        <div id="dropdown_menu_icon" onclick="myFunction(this)">
+            <div id="top_line" class="dropdown_menu_lines"></div>
+            <div id="middle_line" class="dropdown_menu_lines"></div>
+            <div id="bottom_line" class="dropdown_menu_lines"></div>
+        </div>
         <div id="nav_bar">
             <h1 id="london_parkive_title">LONDON PARKIVE</h1>
-            <nav id="nav_options">
+            <!-- <nav id="nav_options">
                 <a class="nav_item active_nav_item" href="./london_parkive.html">Map</a>
                 <a class="nav_item" href="./lp_list_page.html">List</a>
                 <a class="nav_item" href="./lp_about_page.html">About</a>
-            </nav>
+            </nav> -->
+           
         </div>
         <input id="search_bar" type="search" placeholder="Search for a park...">
         <div id="view_mode_buttons_container">
@@ -29,7 +36,6 @@
             <button id="alterations_button" class="view_mode_buttons">Alterations</button>
             <button id="year_opened_button" class="view_mode_buttons">Year Opened</button>
         </div>
-        
         <div id="status_keys">
             <div class="key_row">
                 <div id="status_open" class="key_square"></div>
