@@ -253,7 +253,7 @@ html, body, #map {
     }
     #search_bar{
         height: 2.5rem;
-        width: 24.5rem;
+        width: 92vw;;
     }
     #view_mode_buttons_container{
         position: absolute;
