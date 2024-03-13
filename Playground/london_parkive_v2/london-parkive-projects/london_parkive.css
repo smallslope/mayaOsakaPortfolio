@@ -39,7 +39,7 @@ html, body, #map {
     background-color: black;
 }
 #top_line, #middle_line, #bottom_line{
-    transition: 0.3s;
+    transition: 0.5s;
 }
 .change #top_line{
     transform: translate(0, 11px) rotate(-45deg);
