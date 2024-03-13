@@ -10,18 +10,26 @@
         <script src='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js' defer></script>
         <script src='https://unpkg.com/@turf/turf@6/turf.min.js'defer></script>
         <script src='/Playground/london_parkive_v2/london-parkive-projects/london_parkive.js' defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div id="nav_bar">
+            <h1 id="london_parkive_title">LONDON PARKIVE</h1>
+            <nav id="nav_options">
+                <a class="nav_item active_nav_item" href="./london_parkive.html">Map</a>
+                <a class="nav_item" href="./lp_list_page.html">List</a>
+                <a class="nav_item" href="./lp_about_page.html">About</a>
+            </nav>
+        </div>
+        <div class="custom_input">
+            <input id="search_bar" type="search" placeholder="Search for a park...">
+        </div>
         <div id="view_mode_buttons_container">
-            <button id="status_button" class="view_mode_buttons">
-                <div class="view_mode_toggle_title">Status</div>
-            </button>
-            <button id="year_opened_button" class="view_mode_buttons">
-                <div class="view_mode_toggle_title">Year Opened</div>
-            </button>
-            <button id="alterations_button" class="view_mode_buttons">
-                <div class="view_mode_toggle_title">Alterations</div>
-            </button>
+            <button id="status_button" class="view_mode_buttons view_mode_active">Status</button>
+            <button id="alterations_button" class="view_mode_buttons">Alterations</button>
+            <button id="year_opened_button" class="view_mode_buttons">Year Opened</button>
         </div>
         <div id="status_keys">
             <div class="key_row">
@@ -89,7 +97,6 @@
                 <div class="key_description">Under Threat</div>
             </div>
         </div>
-       
         <div id="map"></div>
     </body>
 </html>
