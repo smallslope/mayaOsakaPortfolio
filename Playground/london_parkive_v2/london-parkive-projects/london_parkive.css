@@ -303,4 +303,16 @@ html, body, #map {
     #alterations_keys{
         bottom: 2.5rem;
     }
+    .tell_me_more_button{
+        width: 8rem;
+        height: 2rem;
+        border-radius: 0.7rem;
+        border-style:none;
+        font-size: 0.8rem;
+        font-weight: 800;
+        background-color: black;
+        color: white;
+        margin: 0.2rem;
+        margin-top: 0.4rem;
+    }
 }
