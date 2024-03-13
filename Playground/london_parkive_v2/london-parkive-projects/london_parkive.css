@@ -261,12 +261,12 @@ html, body, #map {
         left: 1rem;
     }
     #status_keys{
-        bottom: 3.5rem;
+        bottom: 2rem;
     }
     #yearOpened_keys{
-        bottom: 3.5rem;
+        bottom: 2rem;
     }
     #alterations_keys{
-        bottom: 3.5rem;
+        bottom: 2rem;
     }
 }
