@@ -1,19 +1,19 @@
 function myFunction(x) {
-    x.classList.toggle("change");
     let dropdownBackground = document.getElementById("dropdown_background");
-    if (dropdownBackground.style.display === "none"){
-        dropdownBackground.style.display = "flex";
+    if (dropdownBackground.style.display === "flex"){
+        dropdownBackground.style.display = "none";
     }
     else{
-        dropdownBackground.style.display = "none";
+        dropdownBackground.style.display = "flex";
     };
     let navOptions = document.getElementById("nav_container");
-    if(navOptions.style.display === "none"){
-        navOptions.style.display = "flex";
-    }
-    else{
+    if(navOptions.style.display === "flex"){
         navOptions.style.display = "none";
     }
+    else{
+        navOptions.style.display = "flex";
+    }
+    x.classList.toggle("change");
 };
 const bounds = [
     [-0.6169495524080867,51.25653223074311], // Southwest coordinates
