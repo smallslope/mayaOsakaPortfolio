@@ -309,7 +309,8 @@ html, body, #map {
         
     }
     .dropdown_box{
-        height: 3rem;
+        height: 2rem;
+        padding-top: 0.5rem;
         padding-bottom: 0.5rem;
         border-bottom: 1px solid black;
         display: flex;
@@ -319,13 +320,13 @@ html, body, #map {
     }
     .nav_item{
        text-align: center;
-       padding: 0.4rem;
-       font-size: 2rem;
+       padding: 0.6rem;
+       font-size: 1.5rem;
     }
     #dropdown_background{
         z-index: 4;
-        width: 98.5vw;
-        height: 11.1rem;
+        width: 99vw;
+        height: 9.4rem;
         background-color:white;
         border-style: solid;
         border-width: 3px;
