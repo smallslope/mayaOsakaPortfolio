@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>London Parkive</title>
+        <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css' />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+        <link rel="stylesheet" href="/Playground/london_parkive_v2/london-parkive-projects/london_parkive.css" />
+        <script src='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js' defer></script>
+        <script src='https://unpkg.com/@turf/turf@6/turf.min.js'defer></script>
+        <script src='/Playground/london_parkive_v2/london-parkive-projects/london_parkive.js' defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/d3fc69292a.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="dropdown_menu_icon" onclick="myFunction(this)">
+            <div id="top_line" class="dropdown_menu_lines"></div>
+            <div id="middle_line" class="dropdown_menu_lines"></div>
+            <div id="bottom_line" class="dropdown_menu_lines"></div>
+        </div>
+        <div id="nav_bar">
+            <h1 id="london_parkive_title">LONDON PARKIVE</h1> 
+        </div>
+        <div id="nav_container">
+            <nav id="nav_options">
+                <div id="dropdown_box_1" class="dropdown_box">
+                    <a class="nav_item active_nav_item" href="./london_parkive.html">Map</a>
+                </div>
+                <div id="dropdownbox_2" class="dropdown_box">
+                    <a class="nav_item" href="./lp_list_page.html">List</a>
+                </div> 
+                <div id="dropdownbox_3" class="dropdown_box">
+                    <a class="nav_item" href="./lp_about_page.html">About</a>
+                </div>      
+            </nav>
+        </div>
+        <div id="dropdown_background"></div>
+    </body>
+</html>

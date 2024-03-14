@@ -40,6 +40,10 @@ html, body, #map {
     right: 1.5rem;
     
 }
+.dropdown_box{
+    display: flex;
+   
+}
 .nav_item{
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;

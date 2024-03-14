@@ -1,3 +1,4 @@
+//Dropdown Menu for Mobile//
 function myFunction(x) {
     let dropdownBackground = document.getElementById("dropdown_background");
     if (dropdownBackground.style.display === "flex"){
@@ -15,6 +16,7 @@ function myFunction(x) {
     }
     x.classList.toggle("change");
 };
+//Base Map Set Up//
 const bounds = [
     [-0.6169495524080867,51.25653223074311], // Southwest coordinates
     [0.40065908656101884,51.72595361089737] // Northeast coordinates
@@ -27,10 +29,10 @@ var map = new maplibregl.Map({
     zoom: 12,
     maxBounds: bounds
 });
+
 var parksInformation = false;
 var parksShapes = false;
 var southwarkParksShapes = false;
-
 var popup = new maplibregl.Popup({closeOnClick: false});
 //Status Polygon Colours//
 var statusOpenColor = "#50b848";
