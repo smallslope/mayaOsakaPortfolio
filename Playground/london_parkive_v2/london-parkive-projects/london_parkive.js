@@ -1,7 +1,5 @@
 function myFunction(x) {
     x.classList.toggle("change");
-};
-document.getElementById("dropdown_menu_icon").addEventListener("click", function(){
     let dropdownBackground = document.getElementById("dropdown_background");
     if (dropdownBackground.style.display === "none"){
         dropdownBackground.style.display = "flex";
@@ -16,7 +14,7 @@ document.getElementById("dropdown_menu_icon").addEventListener("click", function
     else{
         navOptions.style.display = "none";
     }
-});
+};
 const bounds = [
     [-0.6169495524080867,51.25653223074311], // Southwest coordinates
     [0.40065908656101884,51.72595361089737] // Northeast coordinates
