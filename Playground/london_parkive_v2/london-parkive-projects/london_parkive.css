@@ -325,7 +325,7 @@ html, body, #map {
     }
     #dropdown_background{
         z-index: 4;
-        width: 99vw;
+        width: 100vw;
         height: 9.4rem;
         background-color:white;
         border-style: solid;
