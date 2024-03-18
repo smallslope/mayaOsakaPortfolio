@@ -1,3 +1,9 @@
+//Global Variables//
+var parksInformation = false;
+var parksShapes = false;
+var southwarkParksShapes = false;
+var popup = new maplibregl.Popup({closeOnClick: false});
+
 //Dropdown Menu for Mobile//
 function myFunction(x) {
     let dropdownBackground = document.getElementById("dropdown_background");
@@ -16,6 +22,7 @@ function myFunction(x) {
     }
     x.classList.toggle("change");
 };
+
 //Base Map Set Up//
 const bounds = [
     [-0.6169495524080867,51.25653223074311], // Southwest coordinates
@@ -30,10 +37,6 @@ var map = new maplibregl.Map({
     maxBounds: bounds
 });
 
-var parksInformation = false;
-var parksShapes = false;
-var southwarkParksShapes = false;
-var popup = new maplibregl.Popup({closeOnClick: false});
 //Status Polygon Colours//
 var statusOpenColor = "#50b848";
 document.getElementById("status_open").style = `background-color: ${statusOpenColor}`;
@@ -43,6 +46,7 @@ document.getElementById("status_defunct").style = `background-color: ${statusDef
 var statusUnderThreatColor = "#fee400";
 document.getElementById("status_under_threat").style = `background-color: ${statusUnderThreatColor}`;
 document.getElementById("alterations_under_threat").style = `background-color: ${statusUnderThreatColor}`
+
 //Year Opened Polygon Colours//
 var yoBefore1850Color = "#FA2DFF";
 document.getElementById("yo_before1850").style = `background-color: ${yoBefore1850Color}`;
@@ -60,6 +64,7 @@ var yo1975to1999Color = "#D1EEFF";
 document.getElementById("yo_1975to1999").style = `background-color: ${yo1975to1999Color}`;
 var yo2000to2024Color = "#AAA30D";
 document.getElementById("yo_2000to2024").style = `background-color: ${yo2000to2024Color}`;
+
 //Alterations Polygon Colours//
 var alterationsExpandedColor = "#62d0fb";
 document.getElementById("alterations_expanded").style = `background-color: ${alterationsExpandedColor}`;
@@ -156,18 +161,6 @@ var expandedParksLayer = {
     filter : ["==", ["get", "alteration"], "Expanded"]
 } 
 
-// mergeParkData = function (parkinfo, parkshapes){
-//     console.log(parkinfo);
-//     console.log(parkshapes);
-//     parkshapes.features.forEach((feature) => {
-//     console.log(feature.properties);
-//     let data = parkinfo.filter((info)=>info.name == feature.properties.name);
-//     console.log(data);
-//     feature.properties = data[0]
-//     });
-//     console.log(parkshapes);
-// }
-
 map.on('load', () =>{
 
     // fetch('./data_files/london_parks_info.json')
@@ -213,7 +206,7 @@ map.on('load', () =>{
     map.addLayer(underThreatParksLayer);
 })
 
-//Functions tyhat assign colours depending on different values.//
+//Functions that assign colours depending on different values. (Used for the colour coded boxes in the popups)//
 
 function setOpeningDateColor(clickedParkPeriod){
     let returnColor;
@@ -307,7 +300,7 @@ map.on('click', 'park_status_layer', (e) => {
         `
         <div class="popup_container">
             <h3 class="popup_park_name">${clickedParkName}</h3>
-            <p class="popup_coordinates">${clickedParkLatitude}, ${clickedParkLongitude}</p>
+            <p class="popup_coordinates">${clickedParkLongitude}, ${clickedParkLatitude}</p>
             <div class="popup_info_section">
                 <div class="popup_info_row">
                     <p class="popup_info_type">Opened:</p>
@@ -384,7 +377,8 @@ document.getElementById("alterations_button").addEventListener("click", function
 });
 
 //Find code that is currently not being used but could be useful later down the line here://
-    //Function for merging park data. 
+    //Function for merging park data.//
+
     // mergeParkData = function (parkinfo, parkshapes){
     //     console.log(parkinfo);
     //     console.log(parkshapes);
@@ -396,26 +390,3 @@ document.getElementById("alterations_button").addEventListener("click", function
     //     });
     //     console.log(parkshapes);
     // }
-
-   // Year Opened Option 1 (Different shades of green -> Don't think the deestinction is obvious enough.)
-        // map.addLayer({
-        //     id : "park_shapes_layer",
-        //     type : "fill",
-        //     source : "parkShapesSource",
-        //     paint : {
-        //         'fill-color' : [
-        //             'match',
-        //             ['get', 'period_opened'],
-        //             '<1850', '#0D5A00',
-        //             '1850-1874', '#158204',
-        //             '1875-1899', '#1BA405',
-        //             '1900-1924', '#56B647',
-        //             '1925-1949', '#85DE76',
-        //             '1950-1974', '#ACEEA1',
-        //             '1975-1999', '#D5FBCF',
-        //             '2000-2025', '#E2F7DF',
-        //             '#000000'
-        //         ],
-        //         'fill-opacity' : 0.5
-        //     }
-        // })

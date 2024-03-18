@@ -1,7 +1,11 @@
-body { margin: 0; padding: 0; }
+body {
+     margin: 0; 
+     padding: 0; 
+     font-family: 'Open Sans', sans-serif;
+    }
 html, body, #map {
     z-index: 1;
-    height: 100%; 
+    height: 100vh; 
 }
 
 /*Nav Bar*/
@@ -27,7 +31,7 @@ html, body, #map {
 
 #london_parkive_title{
     margin-left: 1.5rem;
-    font-family:'Open Sans',sans-serif;
+
     font-weight:800;
     font-size: 2rem;
     color: black;
@@ -45,7 +49,6 @@ html, body, #map {
    
 }
 .nav_item{
-    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
     color: black;
@@ -72,7 +75,6 @@ html, body, #map {
     border-color: black;
     border-width: 2.5px;
     padding-left:1rem;
-    font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
 }
 #search_bar::placeholder{
@@ -102,7 +104,6 @@ html, body, #map {
     justify-content:center;
     align-items: center;
     margin: 0.2rem;
-    font-family: 'Open Sans', sans-serif;
     font-weight:700;
     font-size: 1.2rem;
     color: black;
@@ -134,7 +135,6 @@ html, body, #map {
     background-color:aqua;
 }
 .key_description{
-    font-family: 'Open Sans', sans-serif;
     font-size: 0.9rem;
     font-weight:lighter;
     margin-left: 0.3rem;
@@ -181,7 +181,6 @@ html, body, #map {
 .maplibregl-popup-content{
     width: fit-content;
     border-radius: 1rem;
-    font-family: 'Open Sans', sans-serif;
     box-shadow: 5px 5px 5px 2px rgba(0,0,0,0.3);
 }
 .maplibregl-popup-close-button{
@@ -254,11 +253,165 @@ html, body, #map {
     color: #50B848;
 }
 
+/* Parks Infortmation Overlay*/
+
+#parks_information_overlay_container{
+    width: 50vw;
+    max-height: 93vh;
+    background-color:white;
+    z-index: 3;
+    position: absolute;
+    top: 3.5rem;
+    border-width: 3px;
+    border-color: black;
+    border-style: solid;
+    display:none;
+   
+}
+#parks_information_overlay_content{
+    overflow: scroll;
+    height: 93vh;
+}
+#park_info_overlay_top_row{
+    display: flex;
+}
+#park_info_overlay_header{
+    margin-bottom: 1rem;
+}
+#parks_info_backButton{
+    flex: 1;
+    width: 4.4rem;
+    height: 2.8rem;
+    margin: 0.4rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+#parks_info_backButton:hover div{
+    background-color:#50B848;
+}
+#arrow_line_1, #arrow_line_3{
+    width: 1.5rem;
+    height:0.3rem;
+    background-color: black;
+    border-radius: 5rem;
+}
+#arrow_line_2{
+    width: 2rem;
+    height: 0.3rem;
+    background-color: black;
+    border-radius: 5rem;
+    transform: translate(5px, 15px)
+}
+#arrow_line_1{
+    transform: translate(0, 13px) rotate(-45deg);
+}
+#arrow_line_3{
+    transform: translate(0, 17px) rotate(45deg);
+}
+#park_info_overlay_coordinates{
+    flex: 2;
+    flex-direction: column;
+    justify-content: center;
+}
+.park_info_overlay_park_name{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.4rem;
+    
+}
+#park_info_overlay_other_names{
+    font-size: 1rem;
+    margin: 0.6rem;
+    margin-bottom: 2.5rem;
+}
+#park_info_overlay_coordinates{
+    font-size: 1rem;
+    text-align: center;
+}
+#blank_flex_box{
+    flex: 1;
+}
+#park_info_overlay_info_summary_section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+}
+.park_info_overlay_info_summary_row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 20vw;
+    margin: 0.4rem;
+}
+.park_info_overlay_info_summary_type{
+    font-size: 1rem;
+}
+.park_info_overlay_info_summary_box{
+    width: 7rem;
+    height:1.6rem;
+    background-color: cyan;
+    border-radius: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.park_info_overlay_info_summary_text{
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    color: black;
+}
+.park_info_overlay_section_divider{
+    width: 95%;
+    border-style: solid;
+    border-width:1px;
+}
+.park_info_overlay_detailed_info_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.park_info_overlay_title_row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.park_info_overlay_toggle_arrow{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0.4rem;
+    /* background-color:aqua; */
+}
+#park_info_overlay_toggle_arrow_line_1, #park_info_overlay_toggle_arrow_line_2{
+    width: 0.8rem;
+    height:0.3rem;
+    background-color: black;
+    border-radius: 5rem;
+}
+#park_info_overlay_toggle_arrow_line_1{
+    transform: translate(1px, 12px) rotate(45deg);
+}
+#park_info_overlay_toggle_arrow_line_2{
+    transform: translate(7px, 7px) rotate(-45deg);
+}
+.park_info_overlay_detailed_info_section_title{
+    font-size: 1.6rem;
+    font-weight:700;
+    text-align: center;
+    margin: 1rem;
+}
+.park_info_overlay_detailed_info_section_text{
+    width: 80%;
+    font-size: 0.9rem;
+}
 /*Media Queries*/
 @media screen and (max-width: 800px){
     #london_parkive_title{
         margin-left: 0.5rem;
-        font-family:'Open Sans',sans-serif;
         font-weight:800;
         font-size: 1.6rem;
         color: black;
@@ -345,6 +498,8 @@ html, body, #map {
     }
     #view_mode_buttons_container{
         position: absolute;
+        justify-content:flex-start;
+        width: 92vw;
         top: 7rem;
         left: 1rem;
     }
@@ -366,7 +521,6 @@ html, body, #map {
         background-color:aqua;
     }
     .key_description{
-        font-family: 'Open Sans', sans-serif;
         font-size: 0.7rem;
         font-weight:lighter;
         margin-left: 0.3rem;
@@ -383,7 +537,7 @@ html, body, #map {
     .tell_me_more_button{
         width: 8rem;
         height: 2rem;
-        border-radius: 0.7rem;
+        border-radius: 1rem;
         border-style:none;
         font-size: 0.8rem;
         font-weight: 800;

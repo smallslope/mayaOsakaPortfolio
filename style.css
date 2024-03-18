@@ -230,6 +230,9 @@ body {
   justify-content: center;
   margin: 25px;
 }
+.boldDescription{
+  font-size: 1.3rem;
+}
 .description{
   font-family: 'avenir', sans-serif;
   font-size: 16px;
