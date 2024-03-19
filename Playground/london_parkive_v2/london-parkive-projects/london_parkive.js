@@ -279,10 +279,58 @@ function setAlterationColor(clickedParkAlteration){
 }
 
 //PopUps//
+let clickedPark_acres;
+let rounded_area;
+function sqMetersToAcresConversion(squareMeters){
+    clickedPark_acres = squareMeters / 4046.85642;
+    rounded_area = Math.round(clickedPark_acres * 100) / 100;
+    return rounded_area;
+}
+
+function determineParkZoom(parkArea){
+        
+    if(parkArea >=0 && parkArea < 1){
+       return 18;
+    }
+    else if(parkArea >= 1 && parkArea < 2.5){
+       return 17;
+    }
+    else if(parkArea >= 2.5 && parkArea < 4){
+       return 16.5;
+    }
+    else if(parkArea >= 4 && parkArea < 10){
+       return 16;
+    }
+    else if(parkArea >=10 && parkArea < 25){
+       return 15.5;
+    }
+    else if(parkArea >=25 && parkArea < 75){
+       return 15;
+    }
+    else{
+        return 14;
+    };
+};
+function determineLongitudeDiscrepancy(parkArea){
+    if(parkArea >= 0 && parkArea < 1){
+        return -0.0008;
+    }
+    else if(parkArea >= 1 && parkArea < 4){
+        return -0.002;
+    }
+    else if(parkArea >= 4 && parkArea < 25){
+        return -0.004;
+    }
+    else if(parkArea >= 25 && parkArea < 75){
+        return -0.007;
+    }
+    else{
+        return -0.015;
+    }
+}
 
 map.on('click', 'park_status_layer', (e) => {
     const clickedFeatures = map.queryRenderedFeatures(e.point, { layers : ['park_status_layer']})
-    console.log(clickedFeatures)
 
     let clickedParkName = clickedFeatures[0].properties.name;
     let clickedParkLongitude = clickedFeatures[0].properties.longitude;
@@ -292,16 +340,26 @@ map.on('click', 'park_status_layer', (e) => {
     let clickedParkAlterations = clickedFeatures[0].properties.alteration;
     let clickedParkOtherNames = clickedFeatures[0].properties.other_names;
     let clickedParkHistory = clickedFeatures[0].properties.brief_history;
-
+    let clickedPark_sq_Meters = turf.area(clickedFeatures[0]);
+    let clickedParkArea = sqMetersToAcresConversion(clickedPark_sq_Meters);
+    let zoomLevel = determineParkZoom(clickedParkArea);
+    let longitudeDiscrepancy = determineLongitudeDiscrepancy(clickedParkArea);
+    let clickedParkCoordinates =  {lng: clickedFeatures[0].properties.longitude + longitudeDiscrepancy, lat: clickedFeatures[0].properties.latitude};
+    console.log(clickedParkArea);
+   
     let openingPeriodColor = setOpeningDateColor(clickedParkOpeningPeriod);
     let statusColor = setStatusColor(clickedParkStatus);
     let alterationsColor = setAlterationColor(clickedParkAlterations);
-
+  
+    
+    
+    console.log(longitudeDiscrepancy);
+   
     popup.setLngLat(e.lngLat).setHTML(
         `
         <div class="popup_container">
             <h3 class="popup_park_name">${clickedParkName}</h3>
-            <p class="popup_coordinates">${clickedParkLongitude}, ${clickedParkLatitude}</p>
+            <p class="popup_coordinates">${clickedParkLatitude}, ${clickedParkLongitude}</p>
             <div class="popup_info_section">
                 <div class="popup_info_row">
                     <p class="popup_info_type">Opened:</p>
@@ -347,10 +405,16 @@ map.on('click', 'park_status_layer', (e) => {
             parkInfoHistory.innerHTML = clickedParkHistory;
         }
     }
-    document.getElementById("tell_me_more_button").addEventListener("click",function(){
+    
+    document.getElementById("tell_me_more_button").addEventListener("click",function(clickedFeature){
+        popup.remove();
+        map.flyTo({
+            center: clickedParkCoordinates,
+            zoom: zoomLevel
+        })
         document.getElementById("parks_information_overlay_container").style.display = "block";
         document.getElementById("park_info_overlay_park_name").innerHTML = clickedParkName;
-        document.getElementById("park_info_overlay_coordinates").innerHTML = `${clickedParkLongitude}, ${clickedParkLatitude}`;
+        document.getElementById("park_info_overlay_coordinates").innerHTML = `${clickedParkLatitude}, ${clickedParkLongitude}`;
         showHideOtherNames(clickedParkOtherNames);
         document.getElementById("park_info_overlay_year_opened").innerHTML = clickedParkOpeningPeriod;
         document.getElementById("park_info_overlay_year_opened_box").style = `background-color: ${openingPeriodColor}`;
@@ -363,9 +427,11 @@ map.on('click', 'park_status_layer', (e) => {
 });
 document.getElementById("parks_info_backButton").addEventListener("click", function(){
     document.getElementById("parks_information_overlay_container").style.display = "none";
+    // document.getElementById("map").style.width = "100vw";
+    // document.getElementById("map").style.position = "absolute";
+    // document.getElementById("map").style.right = "0";
 });
 //Overlay History Section Toggle//
-
 function myFunction(x){
     let overlayHistoryText = document.getElementById("park_info_overlay_history_text");
     if (overlayHistoryText.style.display === "flex"){
@@ -424,6 +490,18 @@ document.getElementById("alterations_button").addEventListener("click", function
     document.getElementById("yearOpened_keys").style.display = "none";
     document.getElementById("alterations_keys").style.display = "flex";
 });
+
+function roundToFiveDecimals(num){
+    try{
+        if (num < 0){
+            return -this.roundToFiveDecimals(-num);
+        }
+        return +(Math.round(num + "e+5") + "e-5");
+    } catch(e){
+        return num;
+    }
+}
+
 
 //Find code that is currently not being used but could be useful later down the line here://
     //Function for merging park data.//
