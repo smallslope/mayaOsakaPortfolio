@@ -237,7 +237,7 @@ html, body, #map {
     text-align: center;
     color: black;
 }
-.tell_me_more_button{
+#tell_me_more_button{
     width: 8rem;
     height: 2.5rem;
     border-radius: 0.7rem;
@@ -249,7 +249,7 @@ html, body, #map {
     margin: 0.2rem;
     margin-top: 0.4rem;
 }
-.tell_me_more_button:hover{
+#tell_me_more_button:hover{
     color: #50B848;
 }
 
@@ -276,6 +276,9 @@ html, body, #map {
     display: flex;
 }
 #park_info_overlay_header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 1rem;
 }
 #parks_info_backButton{
@@ -290,39 +293,40 @@ html, body, #map {
     background-color:#50B848;
 }
 #arrow_line_1, #arrow_line_3{
-    width: 1.5rem;
+    width: 1.2rem;
     height:0.3rem;
     background-color: black;
     border-radius: 5rem;
 }
 #arrow_line_2{
-    width: 2rem;
+    width: 1.5rem;
     height: 0.3rem;
     background-color: black;
     border-radius: 5rem;
-    transform: translate(5px, 15px)
+    transform: translate(5px, 14px)
 }
 #arrow_line_1{
     transform: translate(0, 13px) rotate(-45deg);
 }
 #arrow_line_3{
-    transform: translate(0, 17px) rotate(45deg);
+    transform: translate(0, 14px) rotate(45deg);
 }
 #park_info_overlay_coordinates{
     flex: 2;
     flex-direction: column;
     justify-content: center;
 }
-.park_info_overlay_park_name{
-    font-size: 2rem;
+#park_info_overlay_park_name{
+    font-size: 1.6rem;
     text-align: center;
     margin-bottom: 0.4rem;
+    max-width: 80%;
     
 }
 #park_info_overlay_other_names{
     font-size: 1rem;
-    margin: 0.6rem;
-    margin-bottom: 2.5rem;
+    margin: 0.8rem;
+    max-width: 80%;
 }
 #park_info_overlay_coordinates{
     font-size: 1rem;
@@ -386,20 +390,29 @@ html, body, #map {
     margin: 0.4rem;
     /* background-color:aqua; */
 }
-#park_info_overlay_toggle_arrow_line_1, #park_info_overlay_toggle_arrow_line_2{
-    width: 0.8rem;
-    height:0.3rem;
+.park_info_overlay_toggle_arrow:hover div{
+    background-color:#50B848;
+}
+.park_info_overlay_toggle_arrow_line_1, .park_info_overlay_toggle_arrow_line_2{
+    width: 0.6rem;
+    height:0.2rem;
     background-color: black;
     border-radius: 5rem;
 }
-#park_info_overlay_toggle_arrow_line_1{
-    transform: translate(1px, 12px) rotate(45deg);
+.park_info_overlay_toggle_arrow_line_1{
+    transform: translate(1px, 10.5px) rotate(45deg);
 }
-#park_info_overlay_toggle_arrow_line_2{
-    transform: translate(7px, 7px) rotate(-45deg);
+.park_info_overlay_toggle_arrow_line_2{
+    transform: translate(1px, 12px) rotate(-45deg);
+}
+.changeHistoryToggle .park_info_overlay_toggle_arrow_line_1{
+    transform: translate(1px, 12.5px) rotate(45deg);
+}
+.changeHistoryToggle .park_info_overlay_toggle_arrow_line_2{
+    transform: translate(6px, 9px) rotate(-45deg);
 }
 .park_info_overlay_detailed_info_section_title{
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight:700;
     text-align: center;
     margin: 1rem;
@@ -407,6 +420,9 @@ html, body, #map {
 .park_info_overlay_detailed_info_section_text{
     width: 80%;
     font-size: 0.9rem;
+}
+#park_info_overlay_history_text{
+    display:none;
 }
 /*Media Queries*/
 @media screen and (max-width: 800px){
@@ -443,13 +459,13 @@ html, body, #map {
     #top_line, #middle_line, #bottom_line{
         transition: 0.5s;
     }
-    .change #top_line{
+    .changeDropdown #top_line{
         transform: translate(0, 11px) rotate(45deg);
     }
-    .change #middle_line{
+    .changeDropdown #middle_line{
         opacity: 0;
     }
-    .change #bottom_line{
+    .changeDropdown #bottom_line{
         transform: translate(0, -5px) rotate(-45deg);
     }
     #nav_container{

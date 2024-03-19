@@ -121,26 +121,26 @@
                         <div id="arrow_line_3"></div>
                     </div>
                     <div id="park_info_overlay_header">
-                        <h1 class="park_info_overlay_park_name">Burgess Park</h1>
+                        <h1 id="park_info_overlay_park_name">Burgess Park</h1>
                         <div id="park_info_overlay_coordinates">51.48330, -0.08213</div>
                         <div id="park_info_overlay_other_names">Other Names: North Camberwell Open Space</div>
                         <div id="park_info_overlay_info_summary_section">
                             <div class="park_info_overlay_info_summary_row">
                                 <div class="park_info_overlay_info_summary_type">Opened:</div>
-                                <div class="park_info_overlay_info_summary_box">
-                                    <p class="park_info_overlay_info_summary_text">1975-1999</p>
+                                <div class="park_info_overlay_info_summary_box" id="park_info_overlay_year_opened_box">
+                                    <p class="park_info_overlay_info_summary_text" id="park_info_overlay_year_opened">1975-1999</p>
                                 </div>
                             </div>
                             <div class="park_info_overlay_info_summary_row">
                                 <div class="park_info_overlay_info_summary_type">Status:</div>
-                                <div class="park_info_overlay_info_summary_box">
-                                    <p class="park_info_overlay_info_summary_text">Open</p>
+                                <div class="park_info_overlay_info_summary_box" id="park_info_overlay_status_box">
+                                    <p class="park_info_overlay_info_summary_text" id="park_info_overlay_status">Open</p>
                                 </div>
                             </div>
                             <div class="park_info_overlay_info_summary_row">
                                 <div class="park_info_overlay_info_summary_type">Alterations:</div>
-                                <div class="park_info_overlay_info_summary_box">
-                                    <p class="park_info_overlay_info_summary_text">Expanded</p>
+                                <div class="park_info_overlay_info_summary_box" id="park_info_overlay_alterations_box">
+                                    <p class="park_info_overlay_info_summary_text" id="park_info_overlay_alterations">Expanded</p>
                                 </div>
                             </div>   
                         </div>
@@ -150,19 +150,21 @@
                 <hr class="park_info_overlay_section_divider">
                 <div class="park_info_overlay_detailed_info_section" id="park_info_overlay_history_section">
                     <div class="park_info_overlay_title_row">
-                        <div class="park_info_overlay_toggle_arrow">
-                            <div id="park_info_overlay_toggle_arrow_line_1"></div>
-                            <div id="park_info_overlay_toggle_arrow_line_2"></div>
+                        <div class="park_info_overlay_toggle_arrow" onclick="myFunction(this)">
+                            <div class="park_info_overlay_toggle_arrow_line_1"></div>
+                            <div class="park_info_overlay_toggle_arrow_line_2"></div>
                         </div>
                         <h2 class="park_info_overlay_detailed_info_section_title">History</h2>
                     </div>
-                    <p class="park_info_overlay_detailed_info_section_text">
+                    <p class="park_info_overlay_detailed_info_section_text" id="park_info_overlay_history_text">
                         Burgess Park was created over a prolonged period from just after WWII right up to 1995 when it was completed. The park is the result the demolition of numerous houses, streets, churches and factories and infilling the disused Grand Surrey Canal. Several existing open spaces were incorporated into Burgess Park, which was originally known as North Camberwell Open Space and was renamed Burgess Park in 1973 after Alderman Jessie Burgess, first lady Mayor of Camberwell. Initially the open spaces were fragmented but consolidation into one large open space began in 1982 and completed in 1995. Numerous projects have taken place within the park including the planting of 1000s of trees, the provision of sports facilities, greening of the canal route etc. 
                         <br>
                         <br>
                         It is difficult to date the exact opening date of Burgess Park as it is the result of the consolidation of several open spaces over a prolonged period of time. At the Parkive we have chosen to classify it’s opening period as 1950-1975 as this is when the initial consolidation of Burgess Park began. You can see some of the original open spaces that were incorporated into Burgess Park depicted on the map (If you look at the ‘Year Opened’ and ‘Alterations’ view modes you will see some areas that are coloured differently to the majority of Burgess Park).
                     </p>
                 </div>
+                <hr class="park_info_overlay_section_divider">
+                
             </div>
         </div>
     </body>

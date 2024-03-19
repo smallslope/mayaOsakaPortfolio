@@ -20,7 +20,7 @@ function myFunction(x) {
     else{
         navOptions.style.display = "flex";
     }
-    x.classList.toggle("change");
+    x.classList.toggle("changeDropdown");
 };
 
 //Base Map Set Up//
@@ -290,7 +290,8 @@ map.on('click', 'park_status_layer', (e) => {
     let clickedParkOpeningPeriod = clickedFeatures[0].properties.period_opened;
     let clickedParkStatus = clickedFeatures[0].properties.status;
     let clickedParkAlterations = clickedFeatures[0].properties.alteration;
-    console.log(clickedParkAlterations);
+    let clickedParkOtherNames = clickedFeatures[0].properties.other_names;
+    let clickedParkHistory = clickedFeatures[0].properties.brief_history;
 
     let openingPeriodColor = setOpeningDateColor(clickedParkOpeningPeriod);
     let statusColor = setStatusColor(clickedParkStatus);
@@ -321,12 +322,60 @@ map.on('click', 'park_status_layer', (e) => {
                     </div>
                 </div>
             </div>
-            <button class="tell_me_more_button">Tell Me More</button>
+            <button id="tell_me_more_button">Tell Me More</button>
         </div>
         
         `
     ).addTo(map)
-})
+    let parkInfoOtherNames = document.getElementById("park_info_overlay_other_names");
+    let parkInfoHistory = document.getElementById("park_info_overlay_history_text");
+    function showHideOtherNames(clickedPark){
+        
+        if (clickedPark === ""){
+            parkInfoOtherNames.style.display = "none";
+        }
+        else{
+            parkInfoOtherNames.style.display = "flex";
+            parkInfoOtherNames.innerHTML = `Other Names: ${clickedParkOtherNames}`;
+        }
+    };
+    function historyDescription(clickedPark){
+        if (clickedPark === ""){
+            parkInfoHistory.innerHTML = `The history of ${clickedParkName} is yet to be discovered by the London Parkive!`
+        }
+        else{
+            parkInfoHistory.innerHTML = clickedParkHistory;
+        }
+    }
+    document.getElementById("tell_me_more_button").addEventListener("click",function(){
+        document.getElementById("parks_information_overlay_container").style.display = "block";
+        document.getElementById("park_info_overlay_park_name").innerHTML = clickedParkName;
+        document.getElementById("park_info_overlay_coordinates").innerHTML = `${clickedParkLongitude}, ${clickedParkLatitude}`;
+        showHideOtherNames(clickedParkOtherNames);
+        document.getElementById("park_info_overlay_year_opened").innerHTML = clickedParkOpeningPeriod;
+        document.getElementById("park_info_overlay_year_opened_box").style = `background-color: ${openingPeriodColor}`;
+        document.getElementById("park_info_overlay_status").innerHTML = clickedParkStatus;
+        document.getElementById("park_info_overlay_status_box").style = `background-color: ${statusColor}`;
+        document.getElementById("park_info_overlay_alterations").innerHTML = clickedParkAlterations;
+        document.getElementById("park_info_overlay_alterations_box").style = `background-color: ${alterationsColor}`;
+        historyDescription(clickedParkHistory);
+    })
+});
+document.getElementById("parks_info_backButton").addEventListener("click", function(){
+    document.getElementById("parks_information_overlay_container").style.display = "none";
+});
+//Overlay History Section Toggle//
+
+function myFunction(x){
+    let overlayHistoryText = document.getElementById("park_info_overlay_history_text");
+    if (overlayHistoryText.style.display === "flex"){
+        overlayHistoryText.style.display = "none";
+    }
+    else{
+        overlayHistoryText.style.display = "flex";
+    }
+    x.classList.toggle("changeHistoryToggle");
+}
 
 //View Mode Buttons//
 
