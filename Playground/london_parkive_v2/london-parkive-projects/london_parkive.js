@@ -172,8 +172,19 @@ map.on('load', () =>{
     fetch('./data_files/park_shapes_source.json')
     .then(response => response.json())
     .then(response => {
-    parksShapes = response;
-    console.log(parksShapes);
+        parksShapes = response;
+        console.log(parksShapes);
+
+        function generateTable(data){
+            const keys = Object.keys(data.properties[0]);
+            const headerRow = document.getElementById('list_view_table_header');
+            keys.forEach(key =>{
+                const th = document.createElement('th');
+                th.textContent = key;
+                headerRow.appendChild(th);
+            })
+        };
+        generateTable(parksShapes);
     })
     map.addSource("parkShapesSource",{
         type : "geojson",
@@ -204,6 +215,7 @@ map.on('load', () =>{
     map.addLayer(alterationParksLayer);
     map.addLayer(expandedParksLayer);
     map.addLayer(underThreatParksLayer);
+
 })
 
 //Functions that assign colours depending on different values. (Used for the colour coded boxes in the popups)//
@@ -257,6 +269,11 @@ function setStatusColor(clickedParkStatus){
     }
     return returnColor;
 }
+function sqMetersToAcresConversion(squareMeters){
+    clickedPark_acres = squareMeters / 4046.85642;
+    rounded_area = Math.round(clickedPark_acres * 100) / 100;
+    return rounded_area;
+}
 function setAlterationColor(clickedParkAlteration){
     let returnColor;
     switch(clickedParkAlteration){
@@ -281,11 +298,6 @@ function setAlterationColor(clickedParkAlteration){
 //PopUps//
 let clickedPark_acres;
 let rounded_area;
-function sqMetersToAcresConversion(squareMeters){
-    clickedPark_acres = squareMeters / 4046.85642;
-    rounded_area = Math.round(clickedPark_acres * 100) / 100;
-    return rounded_area;
-}
 
 function determineParkZoom(parkArea){
         
@@ -340,8 +352,7 @@ map.on('click', 'park_status_layer', (e) => {
     let clickedParkAlterations = clickedFeatures[0].properties.alteration;
     let clickedParkOtherNames = clickedFeatures[0].properties.other_names;
     let clickedParkHistory = clickedFeatures[0].properties.brief_history;
-    let clickedPark_sq_Meters = turf.area(clickedFeatures[0]);
-    let clickedParkArea = sqMetersToAcresConversion(clickedPark_sq_Meters);
+    let clickedParkArea = clickedFeatures[0].properties.area;
     let zoomLevel = determineParkZoom(clickedParkArea);
     let longitudeDiscrepancy = determineLongitudeDiscrepancy(clickedParkArea);
     let clickedParkCoordinates =  {lng: clickedFeatures[0].properties.longitude + longitudeDiscrepancy, lat: clickedFeatures[0].properties.latitude};
@@ -499,6 +510,8 @@ function roundToFiveDecimals(num){
     }
 }
 
+//List Page//
+
 
 //Find code that is currently not being used but could be useful later down the line here://
     //Function for merging park data.//
@@ -514,3 +527,18 @@ function roundToFiveDecimals(num){
     //     });
     //     console.log(parkshapes);
     // }
+
+    //Function for calculating a parks area and adding it to the geoJSON file. 
+    // To use it add it add the end of the fetch function which calls for the 'parks_shapes_source'. 
+    // This is around lione 172. 
+    // Don't forget to add it to the actual JSON file you have to copy and paste it from the console!!!
+
+    // function calculateGeoJSONPolygonArea(current_park){
+    //     let polygon_square_meters = turf.area(current_park);
+    //     let polygon_acres = polygon_square_meters / 4046.85642;
+    //     let polygon_area = Math.round(polygon_acres * 100) / 100;
+    //     current_park.properties.area = polygon_area;
+    //     console.log(polygon_area);
+    // }
+    // parksShapes.features.forEach((current_park) => calculateGeoJSONPolygonArea(current_park));
+    // console.log(parksShapes);

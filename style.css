@@ -386,9 +386,11 @@ body {
 .outcomePics{
   display: flex;
   flex-direction: column;
+  max-height: 90vh;
 }
 .outcomesPic{
   max-width:65vw;
+  max-height: 90vh;
 }
 .tabsPicDescription{
   width: 60vw;
@@ -396,7 +398,8 @@ body {
   font-style: italic;
 }
 .processPic{
-  width: 65vw;
+  max-width: 65vw;
+  max-height: 95vh;
 }
 .processSectionHeaders{
   font-size: 1.4rem;
