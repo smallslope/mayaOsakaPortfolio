@@ -427,9 +427,6 @@ map.on('click', 'park_status_layer', (e) => {
 });
 document.getElementById("parks_info_backButton").addEventListener("click", function(){
     document.getElementById("parks_information_overlay_container").style.display = "none";
-    // document.getElementById("map").style.width = "100vw";
-    // document.getElementById("map").style.position = "absolute";
-    // document.getElementById("map").style.right = "0";
 });
 //Overlay History Section Toggle//
 function myFunction(x){

@@ -279,6 +279,16 @@ body {
   align-items: center;
   padding-bottom:4rem;
 }
+.projectTypeBanner{
+  background-color: #f2f2f2;
+  width: 20rem;
+  height: 1.8rem;
+}
+.projectTypeText{
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+}
 .projectPicsSection{
   display:flex;
   flex-direction: column;
@@ -330,7 +340,7 @@ body {
 .projectTitle{
   font-family: 'avenir', sans-serif;
   font-size: 2rem;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
   color:black;
   text-align: center;
 }
@@ -338,7 +348,7 @@ body {
   font-family: 'avenir', sans-serif;
   font-weight:lighter;
   font-size: 1.25rem;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
   color:black;
   text-align:center
 }
@@ -354,14 +364,48 @@ body {
 .listHeading{
   font-weight:bold;
 }
-.viewbutton{
-  border: none;
-  padding: 10px 50px;
-  font-family:'avenir', sans-serif;
-  font-size: 1rem;
+#viewParkiveButton{
+  width: 20rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: #666666;
+  border-style: none;
+  margin: 2rem;
 }
-.viewbutton :hover{
-  color: #E3B16D;
+#viewParkiveLink{
+  color: white;
+  text-decoration: none;
+}
+#viewParkiveButton:hover{
+  background-color: black;
+}
+.processDescription{
+  width: 65vw;
+}
+.outcomePics{
+  display: flex;
+  flex-direction: column;
+}
+.outcomesPic{
+  max-width:65vw;
+}
+.tabsPicDescription{
+  width: 60vw;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+.processPic{
+  width: 65vw;
+}
+.processSectionHeaders{
+  font-size: 1.4rem;
+}
+.processSectionSubHeaders{
+  font-size: 1.2rem;
+}
+.processSectionSubSubHeaders{
+  font-size: 1rem;
 }
 @media screen and (max-width: 480px){
   .projectSection{
