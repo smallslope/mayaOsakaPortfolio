@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>London Parkive</title>
+        <title>London Parkive Map</title>
         <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
         <script src="https://kit.fontawesome.com/d3fc69292a.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div id="dropdown_menu_icon" onclick="myFunction(this)">
+        <div id="dropdown_menu_icon" onclick="dropdownMenu(this)">
             <div id="top_line" class="dropdown_menu_lines"></div>
             <div id="middle_line" class="dropdown_menu_lines"></div>
             <div id="bottom_line" class="dropdown_menu_lines"></div>
@@ -120,37 +120,40 @@
                         <div id="arrow_line_2"></div>
                         <div id="arrow_line_3"></div>
                     </div>
-                    <div id="park_info_overlay_header">
-                        <h1 id="park_info_overlay_park_name">Burgess Park</h1>
-                        <div id="park_info_overlay_coordinates">51.48330, -0.08213</div>
-                        <div id="park_info_overlay_other_names">Other Names: North Camberwell Open Space</div>
-                        <div id="park_info_overlay_info_summary_section">
-                            <div class="park_info_overlay_info_summary_row">
-                                <div class="park_info_overlay_info_summary_type">Opened:</div>
-                                <div class="park_info_overlay_info_summary_box" id="park_info_overlay_year_opened_box">
-                                    <p class="park_info_overlay_info_summary_text" id="park_info_overlay_year_opened">1975-1999</p>
-                                </div>
-                            </div>
-                            <div class="park_info_overlay_info_summary_row">
-                                <div class="park_info_overlay_info_summary_type">Status:</div>
-                                <div class="park_info_overlay_info_summary_box" id="park_info_overlay_status_box">
-                                    <p class="park_info_overlay_info_summary_text" id="park_info_overlay_status">Open</p>
-                                </div>
-                            </div>
-                            <div class="park_info_overlay_info_summary_row">
-                                <div class="park_info_overlay_info_summary_type">Alterations:</div>
-                                <div class="park_info_overlay_info_summary_box" id="park_info_overlay_alterations_box">
-                                    <p class="park_info_overlay_info_summary_text" id="park_info_overlay_alterations">Expanded</p>
-                                </div>
-                            </div>   
-                        </div>
-                    </div>
+                    <h1 id="park_info_overlay_park_name">Burgess Park</h1>
                     <div id="blank_flex_box"></div>
                 </div>
+                <div id="park_info_overlay_header">
+                    
+                    <div id="park_info_overlay_coordinates">51.48330, -0.08213</div>
+                    <div id="park_info_overlay_other_names">Other Names: North Camberwell Open Space</div>
+                    <div id="park_info_overlay_info_summary_section">
+                        <div class="park_info_overlay_info_summary_row">
+                            <div class="park_info_overlay_info_summary_type">Opened:</div>
+                            <div class="park_info_overlay_info_summary_box" id="park_info_overlay_year_opened_box">
+                                <p class="park_info_overlay_info_summary_text" id="park_info_overlay_year_opened">1975-1999</p>
+                            </div>
+                        </div>
+                        <div class="park_info_overlay_info_summary_row">
+                            <div class="park_info_overlay_info_summary_type">Status:</div>
+                            <div class="park_info_overlay_info_summary_box" id="park_info_overlay_status_box">
+                                <p class="park_info_overlay_info_summary_text" id="park_info_overlay_status">Open</p>
+                            </div>
+                        </div>
+                        <div class="park_info_overlay_info_summary_row">
+                            <div class="park_info_overlay_info_summary_type">Alterations:</div>
+                            <div class="park_info_overlay_info_summary_box" id="park_info_overlay_alterations_box">
+                                <p class="park_info_overlay_info_summary_text" id="park_info_overlay_alterations">Expanded</p>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+               
+                
                 <hr class="park_info_overlay_section_divider">
                 <div class="park_info_overlay_detailed_info_section" id="park_info_overlay_history_section">
                     <div class="park_info_overlay_title_row">
-                        <div class="park_info_overlay_toggle_arrow" onclick="myFunction(this)">
+                        <div class="park_info_overlay_toggle_arrow" onclick="overlayHistoryToggle(this)">
                             <div class="park_info_overlay_toggle_arrow_line_1"></div>
                             <div class="park_info_overlay_toggle_arrow_line_2"></div>
                         </div>

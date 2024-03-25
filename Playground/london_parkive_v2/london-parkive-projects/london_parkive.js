@@ -5,7 +5,7 @@ var southwarkParksShapes = false;
 var popup = new maplibregl.Popup({closeOnClick: false});
 
 //Dropdown Menu for Mobile//
-function myFunction(x) {
+function dropdownMenu(x) {
     let dropdownBackground = document.getElementById("dropdown_background");
     if (dropdownBackground.style.display === "flex"){
         dropdownBackground.style.display = "none";
@@ -96,7 +96,7 @@ var yearOpenedViewMode = {
         "fill-color" : [
             "match",
             ["get", "period_opened"],
-            "<1850", yoBefore1850Color,
+            "Before 1850", yoBefore1850Color,
             "1850-1874", yo1850to1874Color,
             "1875-1899", yo1875to1899Color,
             "1900-1924", yo1900to1924Color,
@@ -174,18 +174,7 @@ map.on('load', () =>{
     .then(response => {
         parksShapes = response;
         console.log(parksShapes);
-
-        function generateTable(data){
-            const keys = Object.keys(data.properties[0]);
-            const headerRow = document.getElementById('list_view_table_header');
-            keys.forEach(key =>{
-                const th = document.createElement('th');
-                th.textContent = key;
-                headerRow.appendChild(th);
-            })
-        };
-        generateTable(parksShapes);
-    })
+    });
     map.addSource("parkShapesSource",{
         type : "geojson",
         data : './data_files/park_shapes_source.json'
@@ -223,7 +212,7 @@ map.on('load', () =>{
 function setOpeningDateColor(clickedParkPeriod){
     let returnColor;
     switch(clickedParkPeriod){
-        case "<1850":
+        case "Before 1850":
             returnColor = yoBefore1850Color;
             break;
         case "1850-1874":
@@ -268,12 +257,7 @@ function setStatusColor(clickedParkStatus){
             returnColor = "#000000";
     }
     return returnColor;
-}
-function sqMetersToAcresConversion(squareMeters){
-    clickedPark_acres = squareMeters / 4046.85642;
-    rounded_area = Math.round(clickedPark_acres * 100) / 100;
-    return rounded_area;
-}
+};
 function setAlterationColor(clickedParkAlteration){
     let returnColor;
     switch(clickedParkAlteration){
@@ -300,44 +284,147 @@ let clickedPark_acres;
 let rounded_area;
 
 function determineParkZoom(parkArea){
-        
-    if(parkArea >=0 && parkArea < 1){
-       return 18;
-    }
-    else if(parkArea >= 1 && parkArea < 2.5){
-       return 17;
-    }
-    else if(parkArea >= 2.5 && parkArea < 4){
-       return 16.5;
-    }
-    else if(parkArea >= 4 && parkArea < 10){
-       return 16;
-    }
-    else if(parkArea >=10 && parkArea < 25){
-       return 15.5;
-    }
-    else if(parkArea >=25 && parkArea < 75){
-       return 15;
-    }
-    else{
-        return 14;
+    if(window.innerWidth >= 1200){
+        if(parkArea >=0 && parkArea < 1){
+            return 18;
+         }
+         else if(parkArea >= 1 && parkArea < 2.5){
+            return 17;
+         }
+         else if(parkArea >= 2.5 && parkArea < 4){
+            return 16.5;
+         }
+         else if(parkArea >= 4 && parkArea < 10){
+            return 16;
+         }
+         else if(parkArea >=10 && parkArea < 25){
+            return 15.5;
+         }
+         else if(parkArea >=25 && parkArea < 75){
+            return 15;
+         }
+         else{
+             return 14;
+         };
+    } else if(window.innerWidth >= 900 && window.innerWidth < 1200){
+        if(parkArea >=0 && parkArea < 1){
+            return 17.5;
+         }
+         else if(parkArea >= 1 && parkArea < 2.5){
+            return 16.5;
+         }
+         else if(parkArea >= 2.5 && parkArea < 4){
+            return 16;
+         }
+         else if(parkArea >= 4 && parkArea < 10){
+            return 15.5;
+         }
+         else if(parkArea >=10 && parkArea < 25){
+            return 15;
+         }
+         else if(parkArea >=25 && parkArea < 75){
+            return 14.5;
+         }
+         else{
+             return 13.7;
+         };
+    } else{
+        if(parkArea >=0 && parkArea < 1){
+            return 17;
+         }
+         else if(parkArea >= 1 && parkArea < 2.5){
+            return 16.3;
+         }
+         else if(parkArea >= 2.5 && parkArea < 4){
+            return 16;
+         }
+         else if(parkArea >= 4 && parkArea < 10){
+            return 15;
+         }
+         else if(parkArea >=10 && parkArea < 25){
+            return 14.5;
+         }
+         else if(parkArea >=25 && parkArea < 75){
+            return 13.8;
+         }
+         else{
+             return 13.4;
+         };
     };
+        
+   
 };
 function determineLongitudeDiscrepancy(parkArea){
-    if(parkArea >= 0 && parkArea < 1){
-        return -0.0008;
-    }
-    else if(parkArea >= 1 && parkArea < 4){
-        return -0.002;
-    }
-    else if(parkArea >= 4 && parkArea < 25){
-        return -0.004;
-    }
-    else if(parkArea >= 25 && parkArea < 75){
-        return -0.007;
+    if(window.innerWidth >= 1200){
+
+        if(parkArea >= 0 && parkArea < 1){
+            return -0.0008;
+        }
+        else if(parkArea >= 1 && parkArea < 4){
+            return -0.002;
+        }
+        else if(parkArea >= 4 && parkArea < 25){
+            return -0.004;
+        }
+        else if(parkArea >= 25 && parkArea < 75){
+            return -0.007;
+        }
+        else{
+            return -0.015;
+        }
+    } 
+    else if (window.innerWidth >= 900 && window.innerWidth < 1200){
+        if(parkArea >= 0 && parkArea < 1){
+            return -0.0008;
+        }
+        else if(parkArea >= 1 && parkArea < 4){
+            return -0.002;
+        }
+        else if(parkArea >= 4 && parkArea < 25){
+            return -0.004;
+        }
+        else if(parkArea >= 25 && parkArea < 75){
+            return -0.006;
+        }
+        else{
+            return -0.014;
+        }
     }
     else{
-        return -0.015;
+        if(parkArea >= 0 && parkArea < 1){
+            return -0.00008;
+        }
+        else if(parkArea >= 1 && parkArea < 4){
+            return -0.0003;
+        }
+        else if(parkArea >= 4 && parkArea < 25){
+            return -0.000006;
+        }
+        else if(parkArea >= 25 && parkArea < 75){
+            return -0.00002;
+        }
+        else{
+            return -0.001;
+        }
+    }
+}
+function determineLatitudeDiscrepancy(parkArea){
+    if(window.innerWidth < 900){
+        if(parkArea >= 0 && parkArea < 1){
+            return -0.0006;
+        }
+        else if(parkArea >= 1 && parkArea < 4){
+            return -0.0009;
+        }
+        else if(parkArea >= 4 && parkArea < 25){
+            return -0.0028;
+        }
+        else if(parkArea >= 25 && parkArea < 75){
+            return -0.005;
+        }
+        else{
+            return -0.005;
+        }
     }
 }
 
@@ -352,11 +439,12 @@ map.on('click', 'park_status_layer', (e) => {
     let clickedParkAlterations = clickedFeatures[0].properties.alteration;
     let clickedParkOtherNames = clickedFeatures[0].properties.other_names;
     let clickedParkHistory = clickedFeatures[0].properties.brief_history;
-    let clickedParkArea = clickedFeatures[0].properties.area;
-    let zoomLevel = determineParkZoom(clickedParkArea);
-    let longitudeDiscrepancy = determineLongitudeDiscrepancy(clickedParkArea);
-    let clickedParkCoordinates =  {lng: clickedFeatures[0].properties.longitude + longitudeDiscrepancy, lat: clickedFeatures[0].properties.latitude};
-    console.log(clickedParkArea);
+    let clickedParkSize = clickedFeatures[0].properties.size;
+    let zoomLevel = determineParkZoom(clickedParkSize);
+    let longitudeDiscrepancy = determineLongitudeDiscrepancy(clickedParkSize);
+    let latitudeDiscrepancy = determineLatitudeDiscrepancy(clickedParkSize);
+    let clickedParkCoordinates =  {lng: clickedFeatures[0].properties.longitude + longitudeDiscrepancy, lat: clickedFeatures[0].properties.latitude + latitudeDiscrepancy};
+    console.log(clickedParkSize);
    
     let openingPeriodColor = setOpeningDateColor(clickedParkOpeningPeriod);
     let statusColor = setStatusColor(clickedParkStatus);
@@ -440,7 +528,7 @@ document.getElementById("parks_info_backButton").addEventListener("click", funct
     document.getElementById("parks_information_overlay_container").style.display = "none";
 });
 //Overlay History Section Toggle//
-function myFunction(x){
+function overlayHistoryToggle(x){
     let overlayHistoryText = document.getElementById("park_info_overlay_history_text");
     if (overlayHistoryText.style.display === "flex"){
         overlayHistoryText.style.display = "none";
@@ -508,11 +596,7 @@ function roundToFiveDecimals(num){
     } catch(e){
         return num;
     }
-}
-
-//List Page//
-
-
+};
 //Find code that is currently not being used but could be useful later down the line here://
     //Function for merging park data.//
 
