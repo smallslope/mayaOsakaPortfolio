@@ -204,7 +204,6 @@ map.on('load', () =>{
     map.addLayer(alterationParksLayer);
     map.addLayer(expandedParksLayer);
     map.addLayer(underThreatParksLayer);
-
 })
 
 //Functions that assign colours depending on different values. (Used for the colour coded boxes in the popups)//
@@ -425,6 +424,8 @@ function determineLatitudeDiscrepancy(parkArea){
         else{
             return -0.005;
         }
+    }else {
+        return 0;
     }
 }
 
@@ -504,13 +505,14 @@ map.on('click', 'park_status_layer', (e) => {
             parkInfoHistory.innerHTML = clickedParkHistory;
         }
     }
-    
     document.getElementById("tell_me_more_button").addEventListener("click",function(clickedFeature){
+        clickedFeature.stopPropagation();
         popup.remove();
         map.flyTo({
             center: clickedParkCoordinates,
             zoom: zoomLevel
         })
+        console.log(clickedParkCoordinates)
         document.getElementById("parks_information_overlay_container").style.display = "block";
         document.getElementById("park_info_overlay_park_name").innerHTML = clickedParkName;
         document.getElementById("park_info_overlay_coordinates").innerHTML = `${clickedParkLatitude}, ${clickedParkLongitude}`;
@@ -522,11 +524,18 @@ map.on('click', 'park_status_layer', (e) => {
         document.getElementById("park_info_overlay_alterations").innerHTML = clickedParkAlterations;
         document.getElementById("park_info_overlay_alterations_box").style = `background-color: ${alterationsColor}`;
         historyDescription(clickedParkHistory);
-    })
+        mapContainer.addEventListener("click", closeOverlay);
+    });
 });
-document.getElementById("parks_info_backButton").addEventListener("click", function(){
-    document.getElementById("parks_information_overlay_container").style.display = "none";
-});
+let parkInfoOverlay = document.getElementById("parks_information_overlay_container");
+function closeOverlay(){
+    if(parkInfoOverlay.style.display === "block"){
+        parkInfoOverlay.style.display = "none";
+    }
+}
+document.getElementById("parks_info_backButton").addEventListener("click",closeOverlay)
+
+
 //Overlay History Section Toggle//
 function overlayHistoryToggle(x){
     let overlayHistoryText = document.getElementById("park_info_overlay_history_text");

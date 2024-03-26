@@ -253,8 +253,6 @@ html, body, #map {
     color: #50B848;
 }
 
-/* Parks Infortmation Overlay*/
-
 #parks_information_overlay_container{
     width: 50vw;
     max-height: 93vh;
@@ -448,9 +446,9 @@ html, body, #map {
 #london_parkive_list_view tr{
     height: 3rem;
 }
-#london_parkive_list_view td{
+/* #london_parkive_list_view td{
  
-}
+} */
 /*Media Queries*/
 
 @media screen and (max-width: 900px){
