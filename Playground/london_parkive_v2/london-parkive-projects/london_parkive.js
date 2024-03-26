@@ -448,19 +448,19 @@ function determineLatitudeDiscrepancy(parkArea){
     }
     else if(window.innerWidth < 400) {
         if(parkArea >= 0 && parkArea < 1){
-            return -0.0002;
-        }
-        else if(parkArea >= 1 && parkArea < 4){
             return -0.0003;
         }
+        else if(parkArea >= 1 && parkArea < 4){
+            return -0.0004;
+        }
         else if(parkArea >= 4 && parkArea < 25){
-            return -0.0006;
+            return -0.0007;
         }
         else if(parkArea >= 25 && parkArea < 75){
-            return -0.002;
+            return -0.003;
         }
         else{
-            return -0.002;
+            return -0.003;
         }
     }
     else {
