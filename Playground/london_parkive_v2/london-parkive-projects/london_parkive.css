@@ -705,3 +705,43 @@ html, body, #map {
         display:none;
     }
 }
+@media screen and (max-width: 400px){
+    #parks_information_overlay_container{
+        max-height: 40vh;
+        top: 60%;
+    }
+    #parks_information_overlay_content{
+        height: 40vh;
+    }
+    #park_info_overlay_top_row{
+        margin-bottom: 0;
+    }
+    #park_info_overlay_header{
+        margin-bottom: 0;
+    }
+    #park_info_overlay_park_name{
+        margin-top: 0.6rem;
+        margin-bottom: 0;
+        font-size: 1.3rem;
+    }
+    #parks_info_backButton{
+        margin-top: 0.6rem;
+        margin-bottom: 0;
+    }
+    #park_info_overlay_info_summary_section {
+        margin: 0.5rem;
+    }
+    .park_info_overlay_section_divider{
+        margin: 0.2rem;
+    }
+    .park_info_overlay_detailed_info_section_title {
+        margin: 0.5rem;
+        font-size: 1.2rem;
+    }
+    .park_info_overlay_detailed_info_section_text {
+        margin: 0.4rem;
+    }
+    #park_info_overlay_coordinates{
+        font-size: 0.8rem;
+    }
+}

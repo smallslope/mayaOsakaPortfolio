@@ -327,7 +327,30 @@ function determineParkZoom(parkArea){
          else{
              return 13.7;
          };
-    } else{
+    } else if(window.innerWidth < 400){
+        if(parkArea >=0 && parkArea < 1){
+            return 17;
+        }
+        else if(parkArea >= 1 && parkArea < 2.5){
+        return 15.5;
+        }
+        else if(parkArea >= 2.5 && parkArea < 4){
+        return 16;
+        }
+        else if(parkArea >= 4 && parkArea < 10){
+        return 15.5;
+        }
+        else if(parkArea >=10 && parkArea < 25){
+        return 15;
+        }
+        else if(parkArea >=25 && parkArea < 75){
+        return 13.5;
+        }
+        else{
+            return 13;
+        };
+    }
+    else {
         if(parkArea >=0 && parkArea < 1){
             return 17;
          }
@@ -349,9 +372,7 @@ function determineParkZoom(parkArea){
          else{
              return 13.4;
          };
-    };
-        
-   
+    };       
 };
 function determineLongitudeDiscrepancy(parkArea){
     if(window.innerWidth >= 1200){
@@ -408,7 +429,7 @@ function determineLongitudeDiscrepancy(parkArea){
     }
 }
 function determineLatitudeDiscrepancy(parkArea){
-    if(window.innerWidth < 900){
+    if(window.innerWidth >= 400 && window.innerWidth < 900){
         if(parkArea >= 0 && parkArea < 1){
             return -0.0006;
         }
@@ -424,10 +445,28 @@ function determineLatitudeDiscrepancy(parkArea){
         else{
             return -0.005;
         }
-    }else {
-        return 0;
     }
-}
+    else if(window.innerWidth < 400) {
+        if(parkArea >= 0 && parkArea < 1){
+            return -0.0002;
+        }
+        else if(parkArea >= 1 && parkArea < 4){
+            return -0.0003;
+        }
+        else if(parkArea >= 4 && parkArea < 25){
+            return -0.0006;
+        }
+        else if(parkArea >= 25 && parkArea < 75){
+            return -0.002;
+        }
+        else{
+            return -0.002;
+        }
+    }
+    else {
+        return 0;
+    };
+};
 
 map.on('click', 'park_status_layer', (e) => {
     const clickedFeatures = map.queryRenderedFeatures(e.point, { layers : ['park_status_layer']})
@@ -446,6 +485,7 @@ map.on('click', 'park_status_layer', (e) => {
     let latitudeDiscrepancy = determineLatitudeDiscrepancy(clickedParkSize);
     let clickedParkCoordinates =  {lng: clickedFeatures[0].properties.longitude + longitudeDiscrepancy, lat: clickedFeatures[0].properties.latitude + latitudeDiscrepancy};
     console.log(clickedParkSize);
+    console.log(latitudeDiscrepancy);
    
     let openingPeriodColor = setOpeningDateColor(clickedParkOpeningPeriod);
     let statusColor = setStatusColor(clickedParkStatus);
