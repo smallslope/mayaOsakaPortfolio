@@ -731,7 +731,35 @@ body{
 	  .picDescription{
 		font-size: 0.8rem;
 	  }
-
+    .tab{
+      width: 90vw;
+    }
+    .tab button{
+      padding: 0.75rem 10vw;
+    }
+    .outcomesPic{
+      max-width:90vw;
+      max-height: 90vh;
+    }
+    .tabsPicDescription{
+      width: 90vw;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+    .processContent{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .processDescription{
+      width: 88vw;
+    }
+    .processPic{
+      max-width: 90vw;
+    }
+    #londonParkiveV2Section{
+      width: 90vw;
+    }
 	/* Illustration Page 700px Media Queries*/
 	.illustrationProjectSection{
 		padding-bottom:2vh;

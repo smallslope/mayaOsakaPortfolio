@@ -440,11 +440,36 @@ html, body, #map {
     font-weight: 600;
 }
 #list_view_table_header{
-    text-align: left;
-
+    text-align: center;
 }
+#list_view_table_header th:nth-child(1){
+    width: 30%;
+    text-align: left;
+}
+#list_view_table_header th:nth-child(2){
+    width: 15%;
+}
+#list_view_table_header th:nth-child(3){
+    width: 10%;
+}
+#list_view_table_header th:nth-child(4){
+    width: 10%;
+}
+#list_view_table_header th:nth-child(5){
+    width: 15%;
+}
+#list_view_table_header th:nth-child(6){
+    width: 10%;
+}
+
 #london_parkive_list_view tr{
     height: 3rem;
+}
+#london_parkive_list_view td{
+    text-align: center;
+}
+#london_parkive_list_view td:nth-child(1){
+    text-align: left;
 }
 /* #london_parkive_list_view td{
  

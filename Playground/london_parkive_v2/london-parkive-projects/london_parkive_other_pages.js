@@ -26,17 +26,24 @@ if(document.title ==="London Parkive List"){
     .then(response => {
         parksShapes = response;
         console.log(parksShapes);
-        const tableProperties = ["name", "borough", "size", "status", "year_opened", "alteration"];
+        const tableProperties = ["name", "borough", "size", "status", "period_opened", "alteration"];
         generateTable(parksShapes, tableProperties);
     });
-
+    var headerMapping = {
+        "name" : "Name",
+        "borough" : "Borough",
+        "size" : "Size",
+        "status" : "Status",
+        "year_opened" : "Period Opened",
+        "alteration" : "Alteration"
+    };
     function generateTable(data, propertiesToShow){
         const headerRow = document.getElementById('list_view_table_header');
-       propertiesToShow.forEach(key =>{
-            const th = document.createElement('th');
-            th.textContent = key;
+        for (var key in headerMapping){
+            var th = document.createElement("th");
+            th.textContent = headerMapping[key];
             headerRow.appendChild(th);
-        });
+        }
         const tableBody = document.getElementById('list_view_table_body');
         data.features.forEach(feature => {
             const row = document.createElement('tr');
@@ -54,7 +61,12 @@ else if(document.title === "London Parkive About"){
 
 }
 
-
+// const headerRow = document.getElementById('list_view_table_header');
+//        propertiesToShow.forEach(key =>{
+//             const th = document.createElement('th');
+//             th.textContent = key;
+//             headerRow.appendChild(th);
+//         });
 
 
 
