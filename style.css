@@ -273,10 +273,10 @@ body {
 #viewParkiveButton:hover{
   background-color: black;
 }
-.processDescription{
+.tabsDescription{
   width: 65vw;
 }
-.outcomePics{
+.outcomeContent{
   display: flex;
   flex-direction: column;
   max-height: 90vh;
@@ -752,7 +752,7 @@ body{
       flex-direction: column;
       align-items: center;
     }
-    .processDescription{
+    .tabsDescription{
       width: 88vw;
     }
     .processPic{
