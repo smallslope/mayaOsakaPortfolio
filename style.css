@@ -275,11 +275,6 @@ body {
 .tabsDescription{
   width: 65vw;
 }
-.outcomeContent{
-  display: flex;
-  flex-direction: column;
-  max-height: 90vh;
-}
 .outcomesPic{
   max-width:65vw;
   max-height: 90vh;
@@ -289,7 +284,7 @@ body {
   font-size: 0.9rem;
   font-style: italic;
 }
-.processContent{
+.tabsContent{
   display: flex;
   flex-direction: column;
   align-items: center;
