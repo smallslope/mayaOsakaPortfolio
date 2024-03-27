@@ -189,10 +189,9 @@ body {
   align-items: center;
 }
 .projectVid{
-  width: auto;
-  height: auto;
+  width: 70vw;
+  height: 30rem;
   max-width: 70vw;
-  max-height: 90vh;
 }
 .projectDescriptionSection{
   display: flex;
@@ -289,6 +288,11 @@ body {
   width: 60vw;
   font-size: 0.9rem;
   font-style: italic;
+}
+.processContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .processPic{
   max-width: 65vw;
@@ -543,9 +547,8 @@ body{
   cursor: pointer;
   position: absolute;
   top: 50%;
+  padding: 0.2rem;
   width: auto;
-  margin-top: -22px;
-  padding: 0.7rem;
   color: black;
   font-weight: bold;
   font-size: 1rem;
@@ -562,11 +565,9 @@ body{
 }
 .slideshowCaption{
   color: black;
-  font-size: 1rem;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
+  font-size: 0.9rem;
+  font-style: italic;
+  width: 90%;
   text-align: center;
 }
 .numbertext{
@@ -712,6 +713,13 @@ body{
 		padding-right: 1%;
 		margin: auto;
 	  }
+    .projectVid{
+      width: 90vw;
+      height: 27vh;
+      max-width: 90vw;
+      max-height: 90vh;
+      padding: none;
+    }
 	  .projectDescriptionSection{
 		max-width: 90vw;
 		padding-left:0.1rem;
@@ -747,15 +755,13 @@ body{
       font-style: italic;
       text-align: center;
     }
-    .processContent{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
     .tabsDescription{
       width: 88vw;
     }
     .processPic{
+      max-width: 90vw;
+    }
+    .slideshow-container{
       max-width: 90vw;
     }
     #londonParkiveV2Section{

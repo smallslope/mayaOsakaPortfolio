@@ -434,46 +434,80 @@ html, body, #map {
 #london_parkive_list_view{
     position: absolute;
     top: 10rem;
-    width: 80vw;
+    width: 90vw;
     margin: 2rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
+    table-layout: fixed;
+    border-collapse: collapse;
 }
 #list_view_table_header{
     text-align: center;
+    border-bottom: 2px solid black;
 }
 #list_view_table_header th:nth-child(1){
-    width: 30%;
+    width: 25%;
     text-align: left;
+    border-right: 2px solid black;
 }
 #list_view_table_header th:nth-child(2){
-    width: 15%;
+    width: 10%;
+    border-right: 2px solid black;
 }
 #list_view_table_header th:nth-child(3){
     width: 10%;
+    border-right: 2px solid black;
 }
 #list_view_table_header th:nth-child(4){
-    width: 10%;
+    width: 12%;
+    border-right: 2px solid black;
 }
 #list_view_table_header th:nth-child(5){
     width: 15%;
+    border-right: 2px solid black;
 }
 #list_view_table_header th:nth-child(6){
-    width: 10%;
+    width: 15%;
 }
 
 #london_parkive_list_view tr{
-    height: 3rem;
+    height: auto;
 }
 #london_parkive_list_view td{
     text-align: center;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
 }
 #london_parkive_list_view td:nth-child(1){
     text-align: left;
 }
-/* #london_parkive_list_view td{
- 
-} */
+#london_parkive_list_view td:nth-child(6){
+    border-right: none;
+}
+.list_view_box_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.list_view_box{
+    width: 8rem;
+    height: 1.5rem;
+    border-radius: 0.8rem;
+    background-color: aqua;
+}
+.list_view_box_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+
 /*Media Queries*/
 
 @media screen and (max-width: 900px){
