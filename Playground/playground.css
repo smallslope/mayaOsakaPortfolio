@@ -44,8 +44,15 @@
     padding: 0.1rem;
     margin-bottom: 2rem;
 }
+#playgroundProjects{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .project{
-    margin: 2rem
+    margin: 0.5rem;
+    width: 60vw;
 }
 .projectTile{
     padding: 0.2rem;
@@ -81,7 +88,7 @@
         margin-right: 1.3rem;
     }
     .project{
-        margin: 1.3rem;
+        width: 90vw;
     }
     .projectTile{
         margin-left: 0.5rem;

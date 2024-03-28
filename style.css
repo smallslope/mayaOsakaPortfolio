@@ -688,14 +688,13 @@ body{
 
 	/* Project Pages 700px Media Queries */
 	.projectSection{
-		width:100%;
 		display: flex;
 		flex-direction:column;
 		justify-content: center;
 		align-items: center;
 		padding-top:4vw;
 		margin: auto;
-		width: 100%;
+		width: 90vw;
 		margin-bottom: 2rem;
 	  }
 	  .projectPicsSection{
