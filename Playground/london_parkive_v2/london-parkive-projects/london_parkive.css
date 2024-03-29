@@ -819,7 +819,7 @@ html, body, #map {
         justify-content: space-between;
         margin-left: 1rem;
         font-size: 1.1rem;
-        width: 16rem;
+        width: 18rem;
     }
     .mobile_list_view_key{
         margin: 0.2rem;
@@ -830,7 +830,7 @@ html, body, #map {
        font-weight: 700;
     }
     .mobile_list_view_info_box{
-        width: 7.4rem;
+        width: 7.6rem;
         height: 1.6rem;
         border-radius: 1rem;
         display: flex;
