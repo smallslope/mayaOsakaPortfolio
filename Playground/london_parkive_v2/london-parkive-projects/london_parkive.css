@@ -804,7 +804,7 @@ html, body, #map {
         width: 80vw;
     }
     .mobile_list_view_park_name{
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-weight: 700;
     }
     .mobile_list_view_park_info_container{
@@ -830,8 +830,8 @@ html, body, #map {
        font-weight: 700;
     }
     .mobile_list_view_info_box{
-        width: 7rem;
-        height: 1.4rem;
+        width: 7.4rem;
+        height: 1.6rem;
         border-radius: 1rem;
         display: flex;
         align-items: center;
@@ -839,7 +839,7 @@ html, body, #map {
     }
     .mobile_list_view_line{
         border-width: 0.8px;
-        width: 90vw;
+        width: 85vw;
         border-style: solid;
         color: black;
     }
