@@ -806,6 +806,7 @@ html, body, #map {
     .mobile_list_view_park_name{
         font-size: 1.3rem;
         font-weight: 700;
+        margin-top: 1rem;
     }
     .mobile_list_view_park_info_container{
         margin-top: 1.2rem;
