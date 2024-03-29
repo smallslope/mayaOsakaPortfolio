@@ -63,25 +63,32 @@ html, body, #map {
 .active_nav_item{
     color: #50B848;
 }
-#search_bar{
+.search_bar{
     z-index: 2;
-    position: absolute;
-    top: 4.3rem;
-    left: 1rem;
     height: 2.5rem;
     width: 20rem;
     border-radius: 0.75rem;
     border-style: solid;
     border-color: black;
     border-width: 2.5px;
-    padding-left:1rem;
     font-size: 1rem;
+    padding-left:1rem;
 }
-#search_bar::placeholder{
+.search_bar::placeholder{
     color: #C0C0C0C0;
 }
-#search_bar::-webkit-search-cancel-button{
+.search_bar::-webkit-search-cancel-button{
     -webkit-appearance: none;
+}
+#map_view_search_bar{
+    position: absolute;
+    top: 4.3rem;
+    left: 1rem;
+}
+#list_view_search_bar{
+    position: absolute;
+    top: 6rem;
+    left: 4rem;
 }
 #view_mode_buttons_container{
     z-index: 2;
@@ -508,6 +515,9 @@ html, body, #map {
     margin-bottom: 0.6rem;
 }
 
+#mobile_table_container{
+    display: none;
+}
 /*Media Queries*/
 
 @media screen and (max-width: 900px){
@@ -593,9 +603,16 @@ html, body, #map {
         top: 3.4rem;
     }
     
-    #search_bar{
+    #map_view_search_bar{
         height: 2.5rem;
         width: 92vw;;
+    }
+    #list_view_search_bar{
+        top: 5rem;
+        left: 0;
+        width: 90vw;
+        margin-left: 1rem;
+        margin-right: 1rem;  
     }
     #view_mode_buttons_container{
         position: absolute;
@@ -762,6 +779,69 @@ html, body, #map {
     }
     #park_info_overlay_history_text{
         display:none;
+    }
+
+    /* List Page 900px Media Queries */
+    #table_container{
+        display: none;
+    }
+    #mobile_table_container{
+        position: absolute;
+        top: 12rem;
+        left: 1rem;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+    .mobile_list_view_park_container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 80vw;
+    }
+    .mobile_list_view_park_name{
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    .mobile_list_view_park_info_container{
+        margin-top: 1.2rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .mobile_list_view_row{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 1rem;
+        font-size: 1.1rem;
+        width: 16rem;
+    }
+    .mobile_list_view_key{
+        margin: 0.2rem;
+        margin-right: 1rem;
+    }
+    .mobile_list_view_value{
+        margin: 0.2rem;
+       font-weight: 700;
+    }
+    .mobile_list_view_info_box{
+        width: 7rem;
+        height: 1.4rem;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mobile_list_view_line{
+        border-width: 0.8px;
+        width: 90vw;
+        border-style: solid;
+        color: black;
     }
 }
 @media screen and (max-width: 400px){

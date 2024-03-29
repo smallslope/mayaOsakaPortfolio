@@ -149,54 +149,166 @@ if(document.title ==="London Parkive List"){
                     row.appendChild(cell);
                     cell.innerHTML = feature.properties[key];
                 }
-
-
-
-
-                // const cell = document.createElement('td');
-                // row.appendChild(cell);
-                // var statusDiv = document.createElement("div");
-                // statusDiv.classList.add("list_view_box");
-                //     switch(feature.properties.status){
-                //         case "Open":statusDiv.classList.add("list_view_status_open");        
-                //         break;
-                //         case "Defunct": statusDiv.classList.add("list_view_status_defunct");
-                //         break;
-                //         case "Under Threat": statusDiv.classList.add("list_view_status_under_threat");
-                //         break;
-                //         case "Unknown": statusDiv.classList.add("list_view_status_unknown");
-                //         break;
-                //         default: statusDiv.classList.add("list_view_box");
-                //         break;
-                //     };
-              
-                // statusDiv.innerHTML = feature.properties[key];
-                // cell.appendChild(statusDiv);
             });
             tableBody.appendChild(row);
         });
-        // data.features.forEach(feature => {
-        //     const row = document.createElement('tr');
-        //     propertiesToShow.forEach(key =>{
-        //         const cell = document.createElement('td');
-        //         if(feature.properties[key]=== "status"){
-        //            const statusDiv = cell.createElement('div');
-        //            statusDiv.classList.add("list_view_status_box");
-        //            statusDiv.innerHtml = feature.properties[key];
-        //            row.appendChild(cell);
-        //            cell.appendChild(statusDiv);
+        function generateMobileListView(data){
+            var mobileListContainer = document.getElementById("mobile_table_container");
+            data.features.forEach(feature =>{
 
-        //         }
-        //         else{
-        //             cell.textContent = feature.properties[key];
-        //             row.appendChild(cell);
+                var mobileListParkSection = document.createElement("div");
+                mobileListParkSection.classList.add("mobile_list_view_park_container");
+                mobileListContainer.appendChild(mobileListParkSection);
 
-        //         }
-        //     });
+                var mobileListParkName = document.createElement("div");
+                mobileListParkName.classList.add("mobile_list_view_park_name");
+                mobileListParkName.innerHTML = feature.properties.name;
+                mobileListParkSection.appendChild(mobileListParkName);
 
-           
-        // });
-       
+                var mobileListParkInfoSection = document.createElement("div");
+                mobileListParkInfoSection.classList.add("mobile_list_view_park_info_container");
+                mobileListParkSection.appendChild(mobileListParkInfoSection);
+
+                var mobileListRow = document.createElement("div");
+                mobileListRow.classList.add("mobile_list_view_row");
+                mobileListParkInfoSection.appendChild(mobileListRow);
+
+                var mobileListKey = document.createElement("p");
+                mobileListKey.classList.add("mobile_list_view_key");
+                mobileListKey.innerHTML = "Borough(s):";
+                mobileListRow.appendChild(mobileListKey);
+
+                var mobileListBox = document.createElement("div");
+                mobileListBox.classList.add("mobile_list_view_info_box");
+                mobileListRow.appendChild(mobileListBox);
+
+                var mobileListValue = document.createElement("p");
+                mobileListBox.classList.add("mobile_list_view_value");
+                mobileListValue.innerHTML = feature.properties.borough;
+                mobileListBox.appendChild(mobileListValue);
+                
+                mobileListRow = document.createElement("div");
+                mobileListRow.classList.add("mobile_list_view_row");
+                mobileListParkInfoSection.appendChild(mobileListRow);
+
+                mobileListKey = document.createElement("p");
+                mobileListKey.classList.add("mobile_list_view_key");
+                mobileListKey.innerHTML = "Size (Acres:";
+                mobileListRow.appendChild(mobileListKey);
+
+                mobileListBox = document.createElement("div");
+                mobileListBox.classList.add("mobile_list_view_info_box");
+                mobileListRow.appendChild(mobileListBox);
+
+                mobileListValue = document.createElement("p");
+                mobileListBox.classList.add("mobile_list_view_value");
+                mobileListValue.innerHTML = feature.properties.size;
+                mobileListBox.appendChild(mobileListValue);
+
+                mobileListRow = document.createElement("div");
+                mobileListRow.classList.add("mobile_list_view_row");
+                mobileListParkInfoSection.appendChild(mobileListRow);
+
+                mobileListKey = document.createElement("p");
+                mobileListKey.classList.add("mobile_list_view_key");
+                mobileListKey.innerHTML = "Status:";
+                mobileListRow.appendChild(mobileListKey);
+
+                mobileListBox = document.createElement("div");
+                mobileListBox.classList.add("mobile_list_view_info_box");
+                switch(feature.properties.status){
+                    case "Open": mobileListBox.style.backgroundColor = status_open_color;
+                    break;
+                    case "Defunct": mobileListBox.style.backgroundColor = status_defunct_color;
+                    break;
+                    case "Under Threat": mobileListBox.style.backgroundColor = status_under_threat_color;
+                    break;
+                    case "Unknown": mobileListBox.style.backgroundColor = unknown_color;
+                    break;
+                    default: mobileListBox.style.backgroundColor = "cyan";
+                  
+                }
+                mobileListRow.appendChild(mobileListBox);
+
+                mobileListValue = document.createElement("p");
+                mobileListBox.classList.add("mobile_list_view_value");
+                mobileListValue.innerHTML = feature.properties.status;
+                mobileListBox.appendChild(mobileListValue);
+
+                mobileListRow = document.createElement("div");
+                mobileListRow.classList.add("mobile_list_view_row");
+                mobileListParkInfoSection.appendChild(mobileListRow);
+
+                mobileListKey = document.createElement("p");
+                mobileListKey.classList.add("mobile_list_view_key");
+                mobileListKey.innerHTML = "Year Opened:";
+                mobileListRow.appendChild(mobileListKey);
+
+                mobileListBox = document.createElement("div");
+                mobileListBox.classList.add("mobile_list_view_info_box");
+                switch(feature.properties.period_opened){
+                    case "Before 1850": mobileListBox.style.backgroundColor = yo_before1850_color;
+                    break;
+                    case "1850-1874": mobileListBox.style.backgroundColor = yo_1850to1874_color;
+                    break;
+                    case "1875-1899": mobileListBox.style.backgroundColor = yo_1850to1874_color;
+                    break;
+                    case "1900-1924": mobileListBox.style.backgroundColor = yo_1900to1924_color;
+                    break;
+                    case "1925-1949": mobileListBox.style.backgroundColor = yo_1925to1949_color;
+                    break;
+                    case "1950-1974": mobileListBox.style.backgroundColor = yo_1950to1974_color;
+                    break;
+                    case "1975-1999": mobileListBox.style.backgroundColor = yo_1975to1999_color;
+                    break;
+                    case "2000-2024": mobileListBox.style.backgroundColor = yo_2000to2024_color;
+                    break;
+                    case "Unknown": mobileListBox.style.backgroundColor = unknown_color;
+                    break;
+                    default: mobileListBox.style.backgroundColor = "cyan";
+                    break;
+                }
+                mobileListRow.appendChild(mobileListBox);
+
+                mobileListValue = document.createElement("p");
+                mobileListBox.classList.add("mobile_list_view_value");
+                mobileListValue.innerHTML = feature.properties.period_opened;
+                mobileListBox.appendChild(mobileListValue);
+
+                mobileListRow = document.createElement("div");
+                mobileListRow.classList.add("mobile_list_view_row");
+                mobileListParkInfoSection.appendChild(mobileListRow);
+
+                mobileListKey = document.createElement("p");
+                mobileListKey.classList.add("mobile_list_view_key");
+                mobileListKey.innerHTML = "Alterations:";
+                mobileListRow.appendChild(mobileListKey);
+
+                mobileListBox = document.createElement("div");
+                mobileListBox.classList.add("mobile_list_view_info_box");
+                switch(feature.properties.alteration){
+                    case "Unchanged": mobileListBox.style.backgroundColor = status_open_color;
+                    break;
+                    case "Expanded": mobileListBox.style.backgroundColor = alterations_expanded_color;
+                    break;
+                    case "Shrank": mobileListBox.style.backgroundColor = status_defunct_color;
+                    break;
+                    case "Unknown": mobileListBox.style.backgroundColor = unknown_color;
+                }
+                mobileListRow.appendChild(mobileListBox);
+
+                mobileListValue = document.createElement("p");
+                mobileListBox.classList.add("mobile_list_view_value");
+                mobileListValue.innerHTML = feature.properties.alteration;
+                mobileListBox.appendChild(mobileListValue);
+                
+                var seperationLine = document.createElement("hr");
+                seperationLine.classList.add("mobile_list_view_line");
+                mobileListParkSection.appendChild(seperationLine);
+
+            });
+        };
+        generateMobileListView(parksShapes);
     };
 }
 else if(document.title === "London Parkive About"){
