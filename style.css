@@ -830,7 +830,10 @@ body{
 		align-items: center;
 		max-width: 90vw;
 	}
-
+  /*Photography Page 700px Media Queries*/
+  .photoProjectDescriptionSection{
+    width: 80vw;
+  }
 	/* About Page 700px Media Queries */
 	#aboutPage{
 		display: flex;
