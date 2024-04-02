@@ -36,7 +36,7 @@ function dropdownMenu(x) {
 };
 if(document.title ==="London Parkive List"){
     var parksShapes;
-
+    var list_view_deduplicated_park_data;
     //Color Variables//
     var unknown_color = "#C0C0C0";
 
@@ -62,9 +62,19 @@ if(document.title ==="London Parkive List"){
     .then(response => {
         parksShapes = response;
         console.log(parksShapes);
+        list_view_deduplicated_park_data = parksShapes.features.reduce((accumulator, current) =>{
+            if(!accumulator.find((item) => item.properties.name === current.properties.name)){
+                accumulator.push(current);
+            }
+            return accumulator;
+        }, []);
+        console.log(list_view_deduplicated_park_data);
         const tableProperties = ["name", "borough", "size", "status", "period_opened", "alteration"];
-        generateTable(parksShapes, tableProperties);
+        generateTable(list_view_deduplicated_park_data, tableProperties);
     });
+
+
+
     var headerMapping = {
         "name" : "Name",
         "borough" : "Borough",
@@ -81,7 +91,7 @@ if(document.title ==="London Parkive List"){
             headerRow.appendChild(th);
         }
         const tableBody = document.getElementById('list_view_table_body');
-        data.features.forEach(feature =>{
+        data.forEach(feature =>{
             const row = document.createElement('tr');
             propertiesToShow.forEach(key => {
 
@@ -179,7 +189,7 @@ if(document.title ==="London Parkive List"){
         // mobileListParkName.addEventListener("click", function navigateToMapPageWrapper(){ navigateToMapPage(feature) });
         function generateMobileListView(data){
             var mobileListContainer = document.getElementById("mobile_table_container");
-            data.features.forEach(feature =>{
+            data.forEach(feature =>{
 
                 var mobileListParkSection = document.createElement("div");
                 mobileListParkSection.classList.add("mobile_list_view_park_container");
@@ -334,14 +344,12 @@ if(document.title ==="London Parkive List"){
 
             });
         };
-        generateMobileListView(parksShapes);
+        generateMobileListView(list_view_deduplicated_park_data);
     };
 }
 else if(document.title === "London Parkive About"){
 
 }
-
-
 function navigateToMapPage(park_data){
     console.log(park_data);
     window.localStorage.setItem("list_view_clicked_park", JSON.stringify(park_data));
@@ -353,6 +361,24 @@ function navigateToMapPage(park_data){
     var targetHref = window.location.origin + targeturl;
     console.log(targetHref);
     window.open(targetHref, "_self");
+}
+function searchBarFilter(){
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("list_view_search_bar");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("london_parkive_list_view");
+    tr = table.getElementsByTagName("tr");
+    for(i = 0; i < tr.length; i++){
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td){
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1){
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
 }
 
 

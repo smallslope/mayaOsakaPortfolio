@@ -160,13 +160,13 @@ var expandedParksLayer = {
     },
     filter : ["==", ["get", "alteration"], "Expanded"]
 } 
-function openParkOverlayfromListView(){
-     let park_data_string = window.localStorage.getItem("list_view_clicked_park");
-    console.log(park_data_string);
-    if(park_data_string){
-        console.log(JSON.parse(park_data_string));    
-    }
-}
+// function openParkOverlayfromListView(){
+//      let park_data_string = window.localStorage.getItem("list_view_clicked_park");
+//     console.log(park_data_string);
+//     if(park_data_string){
+//         console.log(JSON.parse(park_data_string));    
+//     }
+// }
 function checkStorage(){
     var localStorageContent = window.localStorage.getItem("list_view_clicked_park");
     if(localStorageContent){
