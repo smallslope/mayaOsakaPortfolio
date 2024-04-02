@@ -173,12 +173,17 @@ body {
 .projectTypeBanner{
   background-color:#666666;
   width: 20rem;
-  height: 1.8rem;
+  height: 2rem;
+  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: right;
 }
 .projectTypeText{
   font-weight: 600;
   font-size: 1.2rem;
-  margin-left: 2rem;
+  margin-right: 1rem;
   color: white;
   text-align: center;
 }
@@ -307,18 +312,30 @@ body {
 body{
   max-width: 100vw;
 }
+.photoProjectSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+.photographyProjectSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
 .photoProjectPicsSection{
   display: flex;
-  overflow-y: scroll;
-  width: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
   height: auto;
-  max-height: 25rem;
 }
 .photoProjectDescriptionSection{
-  padding-left: 20rem;
-  padding-right: 20rem;
+  width: 60vw;
   padding-bottom: 20px;
-  justify-content: center;
+  margin: 1rem;
 }
 .photographyProjectTitle{
   font-family: 'avenir', sans-serif;
@@ -329,23 +346,19 @@ body{
   width: auto;
   height: auto;
   max-width: 40rem;
-  max-height: 32rem;
+  max-height: 30rem;
+  margin: 0.5rem;
   
 }
 .plantPicSec{
   display: flex;
-  overflow-y: scroll;
-  width: auto;
-  height: auto;
-  max-height: 40rem;
+  width: 90vw;
   justify-content: center;
   align-items: center;
 }
 .plantPics{
-  width: auto;
-  height: auto;
-  max-height: 40rem;
-  padding-right: 20px;
+  margin: 0.6rem;
+  height: 90vh;
  
 }
 .PhotoprojectVidSection{
@@ -649,6 +662,31 @@ body{
 		font-size: 1.5rem;
 		text-align: center;
 	}
+
+  /*Photography Page Media Queries 1000px*/
+
+	  .photographyPics{
+		max-width: 90vw;
+	  }
+	  .photoProjectDescriptionSection{
+	   width: 70vw;
+		padding: 0.1rem;
+		margin: auto;
+	  }
+    .photographyProjectTitle{
+      text-align: center;
+    }
+	  .plantPicSec{
+		flex-direction: column;
+		justify-content: center;
+	  }
+	  .plantPics{
+		max-width: 90vw;
+		padding: 0.5rem;
+	  }
+	  .picVid{
+		max-width: 90vw;
+	  }
 }
 
 @media screen and (max-width: 700px){
@@ -792,51 +830,6 @@ body{
 		align-items: center;
 		max-width: 90vw;
 	}
-
-	/* Photography Page 700px Media Queries */
-	.photoProjectPicsSection{
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		max-height:fit-content;
-		padding:1vw;
-		padding-bottom: 1rem;
-	  }
-	  .photographyPics{
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		max-width: 90vw;
-		padding: 0.5rem;
-	  }
-	  .photoProjectDescriptionSection{
-	   max-width: 90vw;
-		text-align: center;
-		padding: 0.1rem;
-		margin: auto;
-	  }
-	  #chardons{
-	   display: flex;
-	   flex-direction: column;
-	   justify-content: center;
-	   align-items: center;
-	   
-	  }
-	  .plantPicSec{
-		flex-direction: column;
-		justify-content: center;
-		max-height:fit-content;
-		padding: auto;
-	  }
-	  .plantPics{
-		max-width: 90vw;
-		padding: 0.5rem;
-	  }
-	  .picVid{
-		max-width: 90vw;
-	  }
 
 	/* About Page 700px Media Queries */
 	#aboutPage{
