@@ -160,7 +160,22 @@ var expandedParksLayer = {
     },
     filter : ["==", ["get", "alteration"], "Expanded"]
 } 
-
+function openParkOverlayfromListView(){
+     let park_data_string = window.localStorage.getItem("list_view_clicked_park");
+    console.log(park_data_string);
+    if(park_data_string){
+        console.log(JSON.parse(park_data_string));    
+    }
+}
+function checkStorage(){
+    var localStorageContent = window.localStorage.getItem("list_view_clicked_park");
+    if(localStorageContent){
+        var listViewParkData = JSON.parse(localStorageContent);
+        var park_data = getParkData(listViewParkData);
+        openParkOverlay(undefined, park_data);
+        window.localStorage.setItem("list_view_clicked_park", "");
+    }
+}
 map.on('load', () =>{
 
     // fetch('./data_files/london_parks_info.json')
@@ -204,6 +219,8 @@ map.on('load', () =>{
     map.addLayer(alterationParksLayer);
     map.addLayer(expandedParksLayer);
     map.addLayer(underThreatParksLayer);
+   checkStorage();
+  
 })
 
 //Functions that assign colours depending on different values. (Used for the colour coded boxes in the popups)//
@@ -470,7 +487,8 @@ function determineLatitudeDiscrepancy(parkArea){
 
 map.on('click', 'park_status_layer', (e) => {
     const clickedFeatures = map.queryRenderedFeatures(e.point, { layers : ['park_status_layer']})
-
+    let my_data = getParkData(clickedFeatures[0]);
+    console.log('data:', my_data);
     let clickedParkName = clickedFeatures[0].properties.name;
     let clickedParkLongitude = clickedFeatures[0].properties.longitude;
     let clickedParkLatitude = clickedFeatures[0].properties.latitude;
@@ -491,7 +509,13 @@ map.on('click', 'park_status_layer', (e) => {
     let statusColor = setStatusColor(clickedParkStatus);
     let alterationsColor = setAlterationColor(clickedParkAlterations);
   
-    
+    // let data = {
+    //     color: alterationsColor
+    // }
+
+    // document.dispatchEvent(new CustomEvent("kaneiscool", {
+    //     detail: data
+    // }));
     
     console.log(longitudeDiscrepancy);
    
@@ -525,53 +549,48 @@ map.on('click', 'park_status_layer', (e) => {
         
         `
     ).addTo(map)
-    let parkInfoOtherNames = document.getElementById("park_info_overlay_other_names");
-    let parkInfoHistory = document.getElementById("park_info_overlay_history_text");
-    function showHideOtherNames(clickedPark){
-        
-        if (clickedPark === ""){
-            parkInfoOtherNames.style.display = "none";
-        }
-        else{
-            parkInfoOtherNames.style.display = "flex";
-            parkInfoOtherNames.innerHTML = `Other Names: ${clickedParkOtherNames}`;
-        }
-    };
-    function historyDescription(clickedPark){
-        if (clickedPark === ""){
-            parkInfoHistory.innerHTML = `The history of ${clickedParkName} is yet to be discovered by the London Parkive!`
-        }
-        else{
-            parkInfoHistory.innerHTML = clickedParkHistory;
-        }
-    }
-    document.getElementById("tell_me_more_button").addEventListener("click",function(clickedFeature){
-        clickedFeature.stopPropagation();
-        popup.remove();
-        map.flyTo({
-            center: clickedParkCoordinates,
-            zoom: zoomLevel
-        })
-        console.log(clickedParkCoordinates)
-        document.getElementById("parks_information_overlay_container").style.display = "block";
-        document.getElementById("park_info_overlay_park_name").innerHTML = clickedParkName;
-        document.getElementById("park_info_overlay_coordinates").innerHTML = `${clickedParkLatitude}, ${clickedParkLongitude}`;
-        showHideOtherNames(clickedParkOtherNames);
-        document.getElementById("park_info_overlay_year_opened").innerHTML = clickedParkOpeningPeriod;
-        document.getElementById("park_info_overlay_year_opened_box").style = `background-color: ${openingPeriodColor}`;
-        document.getElementById("park_info_overlay_status").innerHTML = clickedParkStatus;
-        document.getElementById("park_info_overlay_status_box").style = `background-color: ${statusColor}`;
-        document.getElementById("park_info_overlay_alterations").innerHTML = clickedParkAlterations;
-        document.getElementById("park_info_overlay_alterations_box").style = `background-color: ${alterationsColor}`;
-        historyDescription(clickedParkHistory);
-        mapContainer.addEventListener("click", closeOverlay);
-    });
+    
+
+    document.getElementById("tell_me_more_button").addEventListener("click", (evt) => { openParkOverlay(evt, my_data) });
 });
-let parkInfoOverlay = document.getElementById("parks_information_overlay_container");
-function closeOverlay(){
-    if(parkInfoOverlay.style.display === "block"){
-        parkInfoOverlay.style.display = "none";
+
+function showHideOtherNames(clickedPark, clickedParkOtherNames){
+    let parkInfoOtherNames = document.getElementById("park_info_overlay_other_names");
+
+    if (clickedPark === ""){
+        parkInfoOtherNames.style.display = "none";
     }
+    else{
+        parkInfoOtherNames.style.display = "flex";
+        parkInfoOtherNames.innerHTML = `Other Names: ${clickedParkOtherNames}`;
+    }
+};
+function historyDescription(clickedPark, clickedParkName, clickedParkHistory){
+    let parkInfoHistory = document.getElementById("park_info_overlay_history_text");
+
+    if (clickedPark === ""){
+        parkInfoHistory.innerHTML = `The history of ${clickedParkName} is yet to be discovered by the London Parkive!`
+    }
+    else{
+        parkInfoHistory.innerHTML = clickedParkHistory;
+    }
+}
+
+let parkInfoOverlay = document.getElementById("parks_information_overlay_container");
+
+function closeOverlay(){
+    let accessMode = window.localStorage.getItem("map_access_mode");
+    if(accessMode === "from_list_view"){
+        var baseurl = window.location.pathname;
+        var spliturl = baseurl.split("london_parkive.html");
+        var targeturl = spliturl[0] + "lp_list_page.html";
+        console.log(targeturl);
+        var targetHref = window.location.origin + targeturl;
+        window.open(targetHref, "_self");
+        window.localStorage.setItem("map_access_mode", "");
+    } else if(parkInfoOverlay.style.display === "block"){
+            parkInfoOverlay.style.display = "none";
+    };
 }
 document.getElementById("parks_info_backButton").addEventListener("click",closeOverlay)
 
@@ -646,6 +665,70 @@ function roundToFiveDecimals(num){
         return num;
     }
 };
+
+function openParkOverlay(event, park_data){
+    if(event){
+        event.stopPropagation();
+    }
+    popup.remove();
+    map.flyTo({
+        center: park_data.clickedParkCoordinates,
+        zoom: park_data.zoomLevel
+    })
+    console.log(park_data.clickedParkCoordinates)
+    document.getElementById("parks_information_overlay_container").style.display = "block";
+    document.getElementById("park_info_overlay_park_name").innerHTML = park_data.clickedParkName;
+    document.getElementById("park_info_overlay_coordinates").innerHTML = `${park_data.clickedParkLatitude}, ${park_data.clickedParkLongitude}`;
+    showHideOtherNames(park_data.clickedPark,park_data.clickedParkOtherNames);
+    document.getElementById("park_info_overlay_year_opened").innerHTML = park_data.clickedParkOpeningPeriod;
+    document.getElementById("park_info_overlay_year_opened_box").style = `background-color: ${park_data.openingPeriodColor}`;
+    document.getElementById("park_info_overlay_status").innerHTML = park_data.clickedParkStatus;
+    document.getElementById("park_info_overlay_status_box").style = `background-color: ${park_data.statusColor}`;
+    document.getElementById("park_info_overlay_alterations").innerHTML = park_data.clickedParkAlterations;
+    document.getElementById("park_info_overlay_alterations_box").style = `background-color: ${park_data.alterationsColor}`;
+    historyDescription(park_data.clickedPark, park_data.clickedParkName, park_data.clickedParkHistory);
+    mapContainer.addEventListener("click", closeOverlay);
+}
+
+function getParkData(clickedFeature){
+    let clickedParkName = clickedFeature.properties.name;
+    let clickedParkLongitude = clickedFeature.properties.longitude;
+    let clickedParkLatitude = clickedFeature.properties.latitude;
+    let clickedParkOpeningPeriod = clickedFeature.properties.period_opened;
+    let clickedParkStatus = clickedFeature.properties.status;
+    let clickedParkAlterations = clickedFeature.properties.alteration;
+    let clickedParkOtherNames = clickedFeature.properties.other_names;
+    let clickedParkHistory = clickedFeature.properties.brief_history;
+    let clickedParkSize = clickedFeature.properties.size;
+    let zoomLevel = determineParkZoom(clickedParkSize);
+    let longitudeDiscrepancy = determineLongitudeDiscrepancy(clickedParkSize);
+    let latitudeDiscrepancy = determineLatitudeDiscrepancy(clickedParkSize);
+    let clickedParkCoordinates =  {lng: clickedFeature.properties.longitude + longitudeDiscrepancy, lat: clickedFeature.properties.latitude + latitudeDiscrepancy};
+    console.log(clickedParkSize);
+    console.log(latitudeDiscrepancy);
+   
+    let openingPeriodColor = setOpeningDateColor(clickedParkOpeningPeriod);
+    let statusColor = setStatusColor(clickedParkStatus);
+    let alterationsColor = setAlterationColor(clickedParkAlterations);
+
+    let park_data = {
+        clickedParkCoordinates: clickedParkCoordinates,
+        zoomLevel: zoomLevel,
+        clickedParkName: clickedParkName,
+        clickedParkLatitude: clickedParkLatitude,
+        clickedParkLongitude: clickedParkLongitude,
+        clickedParkOtherNames: clickedParkOtherNames,
+        clickedParkHistory: clickedParkHistory,
+        clickedParkStatus: clickedParkStatus,
+        statusColor: statusColor,
+        clickedParkAlterations: clickedParkAlterations,
+        alterationsColor: alterationsColor,
+        openingPeriodColor: openingPeriodColor,
+        clickedParkOpeningPeriod: clickedParkOpeningPeriod
+    }
+
+    return park_data;
+}
 //Find code that is currently not being used but could be useful later down the line here://
     //Function for merging park data.//
 

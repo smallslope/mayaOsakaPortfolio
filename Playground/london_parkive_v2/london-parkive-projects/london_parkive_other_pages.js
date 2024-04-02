@@ -1,5 +1,21 @@
 
 //Dropdown Menu Function//
+// function myCoolEventHandler(event){
+//     console.log('Event data:', event.detail);
+//     console.log('kane is cooler than maya');
+// }
+
+// document.addEventListener("kaneiscool", myCoolEventHandler);
+
+// // let any_data = {
+// //     name: 'dataname'
+// // }
+
+// // let myCoolCustomEvent = new CustomEvent("kaneiscool", {
+// //     detail: park_data
+// // });
+
+// // document.dispatchEvent(myCoolCustomEvent);
 
 function dropdownMenu(x) {
     let dropdownBackground = document.getElementById("dropdown_background");
@@ -144,6 +160,13 @@ if(document.title ==="London Parkive List"){
                     }
                     alterationsDivContainer.appendChild(alterationsDiv);
                 }
+                else if(key === "name"){
+                    const parkNameCell = document.createElement('td');
+                    row.appendChild(parkNameCell);
+                    parkNameCell.innerHTML = feature.properties[key];
+                    parkNameCell.addEventListener("click", function navigateToMapPageWrapper(){ navigateToMapPage(feature) });
+
+                }
                 else{
                     const cell = document.createElement('td');
                     row.appendChild(cell);
@@ -151,7 +174,9 @@ if(document.title ==="London Parkive List"){
                 }
             });
             tableBody.appendChild(row);
+          
         });
+        // mobileListParkName.addEventListener("click", function navigateToMapPageWrapper(){ navigateToMapPage(feature) });
         function generateMobileListView(data){
             var mobileListContainer = document.getElementById("mobile_table_container");
             data.features.forEach(feature =>{
@@ -164,6 +189,7 @@ if(document.title ==="London Parkive List"){
                 mobileListParkName.classList.add("mobile_list_view_park_name");
                 mobileListParkName.innerHTML = feature.properties.name;
                 mobileListParkSection.appendChild(mobileListParkName);
+                mobileListParkName.addEventListener("click", function navigateToMapPageWrapper(){ navigateToMapPage(feature) });
 
                 var mobileListParkInfoSection = document.createElement("div");
                 mobileListParkInfoSection.classList.add("mobile_list_view_park_info_container");
@@ -316,7 +342,18 @@ else if(document.title === "London Parkive About"){
 }
 
 
-
+function navigateToMapPage(park_data){
+    console.log(park_data);
+    window.localStorage.setItem("list_view_clicked_park", JSON.stringify(park_data));
+    window.localStorage.setItem("map_access_mode", "from_list_view");
+    var baseurl = window.location.pathname;
+    var spliturl = baseurl.split("lp_list_page.html");
+    var targeturl = spliturl[0] + "london_parkive.html";
+    console.log(targeturl);
+    var targetHref = window.location.origin + targeturl;
+    console.log(targetHref);
+    window.open(targetHref, "_self");
+}
 
 
 

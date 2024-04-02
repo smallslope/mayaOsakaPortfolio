@@ -490,6 +490,10 @@ html, body, #map {
 #london_parkive_list_view td:nth-child(1){
     text-align: left;
 }
+#london_parkive_list_view td:nth-child(1):hover{
+    color:#50B848;
+    cursor: pointer;
+}
 #london_parkive_list_view td:nth-child(6){
     border-right: none;
 }
