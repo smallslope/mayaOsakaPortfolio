@@ -5,7 +5,13 @@ body {
     }
 html, body, #map {
     z-index: 1;
-    height: 100vh; 
+    height: 100%; 
+}
+#mapContainer{
+    width: 100vw;
+    height: 93vh;
+    position: absolute;
+    bottom: 0;
 }
 
 /*Nav Bar*/
@@ -669,10 +675,11 @@ html, body, #map {
         margin-top: 0.4rem;
     }
     
-    /* Overlay Media Queries*/
+    /* Overlay 900px  Media Queries*/
     #parks_information_overlay_container{
         width: 100vw;
         max-height: 50vh;
+        position: absolute;
         top: 50%;
         border-style: none;
         box-shadow: 0px -10px 15px rgba(0,0,0,0.3);
