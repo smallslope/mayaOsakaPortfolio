@@ -85,10 +85,94 @@ if(document.title ==="London Parkive List"){
     };
     function generateTable(data, propertiesToShow){
         const headerRow = document.getElementById('list_view_table_header');
+        // If you did this instead
         for (var key in headerMapping){
             var th = document.createElement("th");
-            th.textContent = headerMapping[key];
             headerRow.appendChild(th);
+            var thContainerContainer = document.createElement("div");
+            thContainerContainer.classList.add("list_view_table_thContainerContainer");
+            th.appendChild(thContainerContainer);
+            var thContainer = document.createElement("div");
+            thContainer.classList.add("list_view_table_thContainer");
+            thContainerContainer.appendChild(thContainer);
+            thText = document.createElement("div");
+            thText.textContent = headerMapping[key];
+            thText.classList.add("list_view_table_header_cell_text");
+            thContainer.appendChild(thText);
+            var filterIconContainer = document.createElement("div");
+            filterIconContainer.classList.add("filterIconContainer");
+            thContainer.appendChild(filterIconContainer);
+            var filterIcon = document.createElement("div");
+            filterIcon.classList.add("filterIcon");
+            filterIconContainer.appendChild(filterIcon);
+            var filterIconLine1 = document.createElement("div");
+            filterIconLine1.classList.add("filterIconLine1");
+            filterIcon.appendChild(filterIconLine1);
+            var filterIconLine2 = document.createElement("div");
+            filterIconLine2.classList.add("filterIconLine2");
+            filterIcon.appendChild(filterIconLine2);
+            var filterIconLine3 = document.createElement("div");
+            filterIconLine3.classList.add("filterIconLine3");
+            filterIcon.appendChild(filterIconLine3);
+            var filterOptionsContainer = document.createElement("div");
+            filterOptionsContainer.classList.add("list_view_table_filter_options_container");
+            switch(thText.textContent){
+                case "Name":    filterOptionsContainer.classList.add("filter_type_sort");
+                                filterOptionsContainer.id = "name_Filter_Container";
+                break;
+                case "Borough":     filterOptionsContainer.classList.add("filter_type_sort_filter_with_search");
+                                    filterOptionsContainer.id = "borough_Filter_Container";
+                break;
+                case "Size (Acres)" :   filterOptionsContainer.classList.add("filter_type_sort_filter");
+                                        filterOptionsContainer.id = "size_Filter_Container";
+                break;
+                case "Status":  filterOptionsContainer.classList.add("filter_type_filter");
+                                filterOptionsContainer.id = "status_Filter_Container";
+                break;
+                case "Period Opened" :    filterOptionsContainer.classList.add("filter_type_filter");
+                                        filterOptionsContainer.id = "period_opened_Filter_Container";
+                break;
+                case "Alterations" :    filterOptionsContainer.classList.add("filter_type_filter");
+                                        filterOptionsContainer.id = "alterations_Filter_Container";
+                break;
+                default:
+                break;
+            }
+            filterIconContainer.appendChild(filterOptionsContainer);
+            var filterOptionsContent = document.createElement("div");
+            filterOptionsContent.classList.add("lvt_filter_options_content");
+            filterOptionsContainer.appendChild(filterOptionsContent);
+            let lvt_filter_content_row = document.createElement("div");
+            lvt_filter_content_row.classList.add("lvt_filter_content_row");
+            let lvt_filter_checkbox = document.createElement("div");
+            lvt_filter_checkbox.classList.add("lvt_filter_checkbox");
+            let lvt_filter_ascending_arrow = document.createElement("div");
+            lvt_filter_ascending_arrow.classList.add("lvt_filter_ascending_arrow");
+            let lvt_filter_descending_arrow = document.createElement("div");
+            lvt_filter_descending_arrow.classList.add("lvt_filter_descending_arrow");
+            let lvt_filter_key_ascending = document.createElement("div");
+            lvt_filter_key_ascending.classList.add("lvt_filter_key");
+            lvt_filter_key_ascending.innerHTML = "Sort Ascending";
+            let lvt_filter_key_descending = document.createElement("div");
+            lvt_filter_key_descending.classList.add("lvt_filter_key");
+            lvt_filter_key_descending.innerHTML = "Sort Dscending";
+            function sortGenerator(){
+                lvt_filter_content_row.appendChild(lvt_filter_checkbox);
+                lvt_filter_content_row.appendChild(lvt_filter_ascending_arrow);
+                lvt_filter_content_row.appendChild(lvt_filter_key_ascending);
+                filterOptionsContent.appendChild(lvt_filter_content_row);
+                lvt_filter_content_row = document.createElement("div");
+                lvt_filter_content_row.classList.add("lvt_filter_content_row");
+                lvt_filter_checkbox = document.createElement("div");
+                lvt_filter_checkbox.classList.add("lvt_filter_checkbox")
+                lvt_filter_content_row.appendChild(lvt_filter_checkbox);
+                lvt_filter_content_row.appendChild(lvt_filter_descending_arrow);
+                lvt_filter_content_row.appendChild(lvt_filter_key_descending);
+                filterOptionsContent.appendChild(lvt_filter_content_row);
+            }
+            if(filterOptionsContainer.classList.contains("filter_type_sort")){
+                sortGenerator();
+            }
         }
         const tableBody = document.getElementById('list_view_table_body');
         data.forEach(feature =>{
@@ -101,7 +185,7 @@ if(document.title ==="London Parkive List"){
                     var statusDivContainer = document.createElement("div");
                     statusDivContainer.classList.add("list_view_box_container")
                     statusCell.appendChild(statusDivContainer);
-                    var statusDiv = document.createElement("div");
+                    var statusDiv  = document.createElement("div");
                     statusDiv.innerHTML = feature.properties[key];
                     statusDiv.classList.add("list_view_box");
                     switch(feature.properties[key]){
@@ -364,22 +448,44 @@ function navigateToMapPage(park_data){
 }
 function searchBarFilter(){
     var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("list_view_search_bar");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("london_parkive_list_view");
-    tr = table.getElementsByTagName("tr");
-    for(i = 0; i < tr.length; i++){
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td){
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1){
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
+    if(screen.width < 900){
+        input = document.getElementById("list_view_search_bar");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("mobile_table_container");
+        tr = document.getElementsByClassName("mobile_list_view_park_container");
+        for(i = 0; i < tr.length; i++){
+            td = tr[i].getElementsByClassName("mobile_list_view_park_name")[0];
+            if (td){
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1){
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
             }
         }
     }
+    else{
+        input = document.getElementById("list_view_search_bar");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("london_parkive_list_view");
+        tr = table.getElementsByTagName("tr");
+        for(i = 0; i < tr.length; i++){
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td){
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1){
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+ 
 }
+
+
 
 
 
