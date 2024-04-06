@@ -37,6 +37,7 @@ function dropdownMenu(x) {
 if(document.title ==="London Parkive List"){
     var parksShapes;
     var list_view_deduplicated_park_data;
+    var lvt_filter_borough_keys;
     //Color Variables//
     var unknown_color = "#C0C0C0";
 
@@ -73,8 +74,6 @@ if(document.title ==="London Parkive List"){
         generateTable(list_view_deduplicated_park_data, tableProperties);
     });
 
-
-
     var headerMapping = {
         "name" : "Name",
         "borough" : "Borough",
@@ -83,9 +82,24 @@ if(document.title ==="London Parkive List"){
         "year_opened" : "Period Opened",
         "alteration" : "Alterations"
     };
+     
     function generateTable(data, propertiesToShow){
         const headerRow = document.getElementById('list_view_table_header');
         // If you did this instead
+        function headerFilterIconGenerator(){
+            var filterIcon = document.createElement("div");
+            filterIcon.classList.add("filterIcon");
+            var filterIconLine1 = document.createElement("div");
+            filterIconLine1.classList.add("filterIconLine1");
+            filterIcon.appendChild(filterIconLine1);
+            var filterIconLine2 = document.createElement("div");
+            filterIconLine2.classList.add("filterIconLine2");
+            filterIcon.appendChild(filterIconLine2);
+            var filterIconLine3 = document.createElement("div");
+            filterIconLine3.classList.add("filterIconLine3");
+            filterIcon.appendChild(filterIconLine3);
+            return filterIcon;
+        }
         for (var key in headerMapping){
             var th = document.createElement("th");
             headerRow.appendChild(th);
@@ -99,21 +113,12 @@ if(document.title ==="London Parkive List"){
             thText.textContent = headerMapping[key];
             thText.classList.add("list_view_table_header_cell_text");
             thContainer.appendChild(thText);
-            var filterIconContainer = document.createElement("div");
-            filterIconContainer.classList.add("filterIconContainer");
-            thContainer.appendChild(filterIconContainer);
-            var filterIcon = document.createElement("div");
-            filterIcon.classList.add("filterIcon");
-            filterIconContainer.appendChild(filterIcon);
-            var filterIconLine1 = document.createElement("div");
-            filterIconLine1.classList.add("filterIconLine1");
-            filterIcon.appendChild(filterIconLine1);
-            var filterIconLine2 = document.createElement("div");
-            filterIconLine2.classList.add("filterIconLine2");
-            filterIcon.appendChild(filterIconLine2);
-            var filterIconLine3 = document.createElement("div");
-            filterIconLine3.classList.add("filterIconLine3");
-            filterIcon.appendChild(filterIconLine3);
+            var lvt_filter_dropdown_container = document.createElement("div");
+            lvt_filter_dropdown_container.classList.add("lvt_filter_dropdown_container");
+            thContainer.appendChild(lvt_filter_dropdown_container);
+           let filterIcon = headerFilterIconGenerator();
+            lvt_filter_dropdown_container.appendChild(filterIcon);
+           
             var filterOptionsContainer = document.createElement("div");
             filterOptionsContainer.classList.add("list_view_table_filter_options_container");
             switch(thText.textContent){
@@ -125,6 +130,7 @@ if(document.title ==="London Parkive List"){
                 break;
                 case "Size (Acres)" :   filterOptionsContainer.classList.add("filter_type_sort_filter");
                                         filterOptionsContainer.id = "size_Filter_Container";
+                                        filterOptionsContainer.style.display = "none";
                 break;
                 case "Status":  filterOptionsContainer.classList.add("filter_type_filter");
                                 filterOptionsContainer.id = "status_Filter_Container";
@@ -138,40 +144,187 @@ if(document.title ==="London Parkive List"){
                 default:
                 break;
             }
-            filterIconContainer.appendChild(filterOptionsContainer);
-            var filterOptionsContent = document.createElement("div");
-            filterOptionsContent.classList.add("lvt_filter_options_content");
-            filterOptionsContainer.appendChild(filterOptionsContent);
-            let lvt_filter_content_row = document.createElement("div");
-            lvt_filter_content_row.classList.add("lvt_filter_content_row");
-            let lvt_filter_checkbox = document.createElement("div");
-            lvt_filter_checkbox.classList.add("lvt_filter_checkbox");
-            let lvt_filter_ascending_arrow = document.createElement("div");
-            lvt_filter_ascending_arrow.classList.add("lvt_filter_ascending_arrow");
-            let lvt_filter_descending_arrow = document.createElement("div");
-            lvt_filter_descending_arrow.classList.add("lvt_filter_descending_arrow");
-            let lvt_filter_key_ascending = document.createElement("div");
-            lvt_filter_key_ascending.classList.add("lvt_filter_key");
-            lvt_filter_key_ascending.innerHTML = "Sort Ascending";
-            let lvt_filter_key_descending = document.createElement("div");
-            lvt_filter_key_descending.classList.add("lvt_filter_key");
-            lvt_filter_key_descending.innerHTML = "Sort Dscending";
-            function sortGenerator(){
+            function filterRowGenerator(){
+                let row = document.createElement("div");
+                row.classList.add("lvt_filter_content_row");
+                return row;
+            }
+            function checkBoxGenerator(){
+                let checkbox = document.createElement("div");
+                checkbox.classList.add("lvt_filter_checkbox");
+                return checkbox;
+            }
+            function filterIconGenerator(){
+                let icon = document.createElement("img");
+                icon.classList.add("lvt_filter_icon");
+                icon.src = "Assets/Icons/filter_icon.svg";
+                icon.alt = "Filter Icon";
+                return icon;
+            }
+            function ascendingArrowGenerator(){
+                let ascendingArrow = document.createElement("div");
+                ascendingArrow.classList.add("lvt_filter_ascending_arrow");
+                return ascendingArrow;
+            }
+            function descendingArrowGenerator(){
+                let descendingArrow = document.createElement("div");
+                descendingArrow.classList.add("lvt_filter_descending_arrow");
+                return descendingArrow;
+            }
+            function sortAscendingGenerator(){
+                let sortAscending = document.createElement("div");
+                sortAscending.classList.add("lvt_filter_key");
+                sortAscending.innerHTML = "Sort Ascending";
+                return sortAscending;
+            }
+            function sortDescendingGenerator(){
+                let sortDescending = document.createElement("div");
+                sortDescending.classList.add("lvt_filter_key");
+                sortDescending.innerHTML = "Sort Dscending";
+                return sortDescending;
+            }
+            function filterHeaderGenerator(){
+                let filterHeader = document.createElement("div");
+                filterHeader .classList.add("lvt_filter_header");
+                filterHeader .innerHTML = "Filter";
+                return filterHeader;
+            }
+            function clearFilterGenerator(){
+                let clearFilter = document.createElement("div");
+                clearFilter.classList.add("lvt_filter_clear_filter");
+                clearFilter.innerHTML = "Clear Filter";
+                return clearFilter;
+            }
+            function filterSearchBarGenerator(){
+                let searchBar= document.createElement("input");
+                searchBar.classList.add("lvt_filter_search_bar");
+                searchBar.type = "search";
+                searchBar.placeholder = "Search borough...";
+                return searchBar;
+            }
+            function filterKeyNameGenerator(key){
+                let keyName = document.createElement("div");
+                keyName.classList.add("lvt_filter_key");
+                return keyName;
+            }
+            function filterDropdownContentSectionGenerator(){
+                let dropdownContent = document.createElement("div");
+                dropdownContent.classList.add("lvt_filter_dropdown_content");
+                return dropdownContent;
+            }
+            function sortSectionGenerator(){
+                let sortSection = document.createElement("div");
+                sortSection.classList.add("lvt_filter_sort_section");
+                return sortSection;
+            }
+            function filterWithSearchSectionGenerator(){
+                let filterWithSearchSection = document.createElement("div");
+                filterWithSearchSection.classList.add("lvt_filter_filter_with_search_section");
+                return filterWithSearchSection;
+            }
+            function filterFilterSectionGenerator(){
+                let filterSection = document.createElement("div");
+                filterSection.classList.add("lvt_filter_filter_section");
+                return filterSection;
+            }
+  
+            lvt_filter_dropdown_container.appendChild(filterOptionsContainer);
+            let lvt_filter_dropdown_content = filterDropdownContentSectionGenerator();
+            lvt_filter_dropdown_container.appendChild(filterOptionsContainer);
+        
+            let lvt_filter_content_row = filterRowGenerator();
+            let lvt_filter_checkbox = checkBoxGenerator();
+            let lvt_filter_icon = filterIconGenerator();
+            let lvt_filter_header = filterHeaderGenerator();
+            let lvt_filter_clear_filter = clearFilterGenerator();
+            let lvt_filter_search_bar = filterSearchBarGenerator();
+            let  lvt_filter_key_name;
+
+            let lvt_filter_ascending_arrow = ascendingArrowGenerator();
+            let lvt_filter_descending_arrow = descendingArrowGenerator();
+            let lvt_filter_sort_ascending = sortAscendingGenerator();
+            let lvt_filter_sort_descending = sortDescendingGenerator();
+
+            let lvt_filter_sort_section = sortSectionGenerator()
+            let lvt_filter_filter_section = filterFilterSectionGenerator();
+            let lvt_filter_filter_with_search_section = filterWithSearchSectionGenerator();
+
+            let lvt_filter_keys;
+            function createFilterwithSortFilterAndSearch(){
+                lvt_filter_filter_with_search_section = filterWithSearchSectionGenerator();
+                lvt_filter_content_row = filterRowGenerator();
+                lvt_filter_icon =  filterIconGenerator();
+                lvt_filter_header = filterHeaderGenerator();
+                lvt_filter_clear_filter = clearFilterGenerator();
+                lvt_filter_content_row.appendChild(lvt_filter_icon);
+                lvt_filter_content_row.appendChild(lvt_filter_header);
+                lvt_filter_content_row.appendChild(lvt_filter_clear_filter);
+                lvt_filter_filter_with_search_section.appendChild(lvt_filter_content_row);
+                lvt_filter_content_row = filterRowGenerator();
+                lvt_filter_search_bar = filterSearchBarGenerator();
+                lvt_filter_content_row.appendChild(lvt_filter_search_bar);
+                lvt_filter_filter_with_search_section.appendChild(lvt_filter_content_row);
+                lvt_filter_filter_section = filterFilterSectionGenerator();
+                lvt_filter_filter_with_search_section.appendChild(lvt_filter_filter_section);
+                filterOptionsContainer.appendChild(lvt_filter_filter_with_search_section);
+            };
+            function createFilterKeysData(key){
+                lvt_filter_keys = parksShapes.features.reduce((accumulator, current) =>{
+                    if(!accumulator.find((item) => item.properties[key] === current.properties[key])){
+                        accumulator.push(current);
+                    }
+                    return accumulator;
+                }, []);
+                console.log(lvt_filter_keys);
+                return lvt_filter_keys;
+            }
+            function createFilterKeysSection(keyData, key){
+                keyData.forEach(feature =>{
+                    lvt_filter_content_row = filterRowGenerator();
+                    lvt_filter_checkbox = checkBoxGenerator();
+                    lvt_filter_content_row.appendChild(lvt_filter_checkbox);
+                    lvt_filter_key_name = filterKeyNameGenerator(key);
+                    lvt_filter_key_name.innerHTML = feature.properties[key];
+                    lvt_filter_content_row.appendChild(lvt_filter_key_name);
+                    lvt_filter_filter_section.appendChild(lvt_filter_content_row);
+                })
+            }
+            function sortFilterGenerator(){
+                lvt_filter_dropdown_content = filterDropdownContentSectionGenerator();
+                lvt_filter_sort_section = sortSectionGenerator();
                 lvt_filter_content_row.appendChild(lvt_filter_checkbox);
                 lvt_filter_content_row.appendChild(lvt_filter_ascending_arrow);
-                lvt_filter_content_row.appendChild(lvt_filter_key_ascending);
-                filterOptionsContent.appendChild(lvt_filter_content_row);
-                lvt_filter_content_row = document.createElement("div");
-                lvt_filter_content_row.classList.add("lvt_filter_content_row");
-                lvt_filter_checkbox = document.createElement("div");
-                lvt_filter_checkbox.classList.add("lvt_filter_checkbox")
+                lvt_filter_content_row.appendChild(lvt_filter_sort_ascending);
+                lvt_filter_sort_section.appendChild(lvt_filter_content_row);
+                lvt_filter_content_row = filterRowGenerator();
+                lvt_filter_checkbox = checkBoxGenerator();
                 lvt_filter_content_row.appendChild(lvt_filter_checkbox);
                 lvt_filter_content_row.appendChild(lvt_filter_descending_arrow);
-                lvt_filter_content_row.appendChild(lvt_filter_key_descending);
-                filterOptionsContent.appendChild(lvt_filter_content_row);
+                lvt_filter_content_row.appendChild(lvt_filter_sort_descending);
+                lvt_filter_sort_section.appendChild(lvt_filter_content_row);
+                lvt_filter_dropdown_content.appendChild(lvt_filter_sort_section);
+                filterOptionsContainer.appendChild(lvt_filter_dropdown_content);
+            }
+            function filterFilterGenerator(){
+                let borough = "borough";
+                let status = "status";
+                let period_opened = "period_opened";
+                let alteration = "alteration";
+
+                if (filterOptionsContainer.classList.contains("filter_type_sort_filter_with_search")){
+                    let filterWithSearchSection = createFilterwithSortFilterAndSearch();
+                    let boroughData = createFilterKeysData(borough);
+                    let boroughKeySection = createFilterKeysSection(boroughData, borough);
+                    console.log(boroughData);
+                }
             }
             if(filterOptionsContainer.classList.contains("filter_type_sort")){
-                sortGenerator();
+                sortFilterGenerator();
+            }
+            if(filterOptionsContainer.classList.contains("filter_type_sort_filter_with_search")){
+                sortFilterGenerator();
+                filterFilterGenerator();
+                console.log(parksShapes);
             }
         }
         const tableBody = document.getElementById('list_view_table_body');
