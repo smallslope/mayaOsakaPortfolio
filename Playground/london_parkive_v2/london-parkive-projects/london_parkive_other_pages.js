@@ -82,68 +82,93 @@ if(document.title ==="London Parkive List"){
         "year_opened" : "Period Opened",
         "alteration" : "Alterations"
     };
-     
+    let thContainerContainer;
+    let thContainer;
+    let lvt_filter_dropdown_container;
+    let filterOptionsContainer;
+
+    let headerFilterIcon;
+
+    function headerFilterIconGenerator(){
+        var filterIcon = document.createElement("div");
+        filterIcon.classList.add("filterIcon");
+        var filterIconLine1 = document.createElement("div");
+        filterIconLine1.classList.add("filterIconLine1");
+        filterIcon.appendChild(filterIconLine1);
+        var filterIconLine2 = document.createElement("div");
+        filterIconLine2.classList.add("filterIconLine2");
+        filterIcon.appendChild(filterIconLine2);
+        var filterIconLine3 = document.createElement("div");
+        filterIconLine3.classList.add("filterIconLine3");
+        filterIcon.appendChild(filterIconLine3);
+        return filterIcon;
+    }
+
     function generateTable(data, propertiesToShow){
         const headerRow = document.getElementById('list_view_table_header');
-        // If you did this instead
-        function headerFilterIconGenerator(){
-            var filterIcon = document.createElement("div");
-            filterIcon.classList.add("filterIcon");
-            var filterIconLine1 = document.createElement("div");
-            filterIconLine1.classList.add("filterIconLine1");
-            filterIcon.appendChild(filterIconLine1);
-            var filterIconLine2 = document.createElement("div");
-            filterIconLine2.classList.add("filterIconLine2");
-            filterIcon.appendChild(filterIconLine2);
-            var filterIconLine3 = document.createElement("div");
-            filterIconLine3.classList.add("filterIconLine3");
-            filterIcon.appendChild(filterIconLine3);
-            return filterIcon;
-        }
+      
         for (var key in headerMapping){
             var th = document.createElement("th");
             headerRow.appendChild(th);
-            var thContainerContainer = document.createElement("div");
+            thContainerContainer = document.createElement("div");
             thContainerContainer.classList.add("list_view_table_thContainerContainer");
             th.appendChild(thContainerContainer);
-            var thContainer = document.createElement("div");
+            thContainer = document.createElement("div");
             thContainer.classList.add("list_view_table_thContainer");
             thContainerContainer.appendChild(thContainer);
             thText = document.createElement("div");
             thText.textContent = headerMapping[key];
             thText.classList.add("list_view_table_header_cell_text");
             thContainer.appendChild(thText);
-            var lvt_filter_dropdown_container = document.createElement("div");
+            lvt_filter_dropdown_container = document.createElement("div");
             lvt_filter_dropdown_container.classList.add("lvt_filter_dropdown_container");
             thContainer.appendChild(lvt_filter_dropdown_container);
-           let filterIcon = headerFilterIconGenerator();
-            lvt_filter_dropdown_container.appendChild(filterIcon);
-           
-            var filterOptionsContainer = document.createElement("div");
+            headerFilterIcon = headerFilterIconGenerator();
+
+            filterOptionsContainer = document.createElement("div");
             filterOptionsContainer.classList.add("list_view_table_filter_options_container");
             switch(thText.textContent){
-                case "Name":    filterOptionsContainer.classList.add("filter_type_sort");
-                                filterOptionsContainer.id = "name_Filter_Container";
+                case "Name":    
+                    filterOptionsContainer.classList.add("filter_type_sort");
+                    filterOptionsContainer.id = "name_Filter_Container";
+                    lvt_filter_dropdown_container.classList.add("id_name");
+                    headerFilterIcon.classList.add("id_name");
                 break;
-                case "Borough":     filterOptionsContainer.classList.add("filter_type_sort_filter_with_search");
-                                    filterOptionsContainer.id = "borough_Filter_Container";
+                case "Borough":     
+                    filterOptionsContainer.classList.add("filter_type_sort_filter_with_search");                    
+                    filterOptionsContainer.id = "borough_Filter_Container";
+                    filterOptionsContainer.classList.add("id_borough");
+                    headerFilterIcon.classList.add("id_borough");
                 break;
-                case "Size (Acres)" :   filterOptionsContainer.classList.add("filter_type_sort_filter");
-                                        filterOptionsContainer.id = "size_Filter_Container";
-                                        filterOptionsContainer.style.display = "none";
+                case "Size (Acres)" :   
+                    filterOptionsContainer.classList.add("filter_type_sort_filter");
+                    filterOptionsContainer.id = "size_Filter_Container";
+                    filterOptionsContainer.classList.add("id_size");
+                    headerFilterIcon.classList.add("id_size");
                 break;
-                case "Status":  filterOptionsContainer.classList.add("filter_type_filter");
-                                filterOptionsContainer.id = "status_Filter_Container";
+                case "Status":  
+                        filterOptionsContainer.classList.add("filter_type_filter");
+                        filterOptionsContainer.id = "status_Filter_Container";
+                        filterOptionsContainer.classList.add("id_status");
+                        headerFilterIcon.classList.add("id_status");    
                 break;
-                case "Period Opened" :    filterOptionsContainer.classList.add("filter_type_filter");
-                                        filterOptionsContainer.id = "period_opened_Filter_Container";
+                case "Period Opened" :    
+                    filterOptionsContainer.classList.add("filter_type_filter");
+                    filterOptionsContainer.id = "period_opened_Filter_Container";
+                    filterOptionsContainer.classList.add("id_period_opened");
+                    headerFilterIcon.classList.add("id_period_opened");
+                                        
                 break;
-                case "Alterations" :    filterOptionsContainer.classList.add("filter_type_filter");
-                                        filterOptionsContainer.id = "alterations_Filter_Container";
+                case "Alterations" :    
+                    filterOptionsContainer.classList.add("filter_type_filter");
+                    filterOptionsContainer.id = "alterations_Filter_Container";
+                    filterOptionsContainer.classList.add("id_alteration");
+                    headerFilterIcon.classList.add("id_alteration");
                 break;
                 default:
                 break;
             }
+            lvt_filter_dropdown_container.appendChild(headerFilterIcon);
             function filterRowGenerator(){
                 let row = document.createElement("div");
                 row.classList.add("lvt_filter_content_row");
@@ -227,7 +252,7 @@ if(document.title ==="London Parkive List"){
                 filterSection.classList.add("lvt_filter_filter_section");
                 return filterSection;
             }
-  
+    
             lvt_filter_dropdown_container.appendChild(filterOptionsContainer);
             let lvt_filter_dropdown_content = filterDropdownContentSectionGenerator();
             lvt_filter_dropdown_container.appendChild(filterOptionsContainer);
@@ -239,16 +264,16 @@ if(document.title ==="London Parkive List"){
             let lvt_filter_clear_filter = clearFilterGenerator();
             let lvt_filter_search_bar = filterSearchBarGenerator();
             let  lvt_filter_key_name;
-
+    
             let lvt_filter_ascending_arrow = ascendingArrowGenerator();
             let lvt_filter_descending_arrow = descendingArrowGenerator();
             let lvt_filter_sort_ascending = sortAscendingGenerator();
             let lvt_filter_sort_descending = sortDescendingGenerator();
-
+    
             let lvt_filter_sort_section = sortSectionGenerator()
             let lvt_filter_filter_section = filterFilterSectionGenerator();
             let lvt_filter_filter_with_search_section = filterWithSearchSectionGenerator();
-
+    
             let lvt_filter_keys;
             function createFilterwithSortFilterAndSearch(){
                 lvt_filter_filter_with_search_section = filterWithSearchSectionGenerator();
@@ -289,6 +314,8 @@ if(document.title ==="London Parkive List"){
                     lvt_filter_filter_section.appendChild(lvt_filter_content_row);
                 })
             }
+            let keySection;
+            let statusKeys;
             function sortFilterGenerator(){
                 lvt_filter_dropdown_content = filterDropdownContentSectionGenerator();
                 lvt_filter_sort_section = sortSectionGenerator();
@@ -305,28 +332,117 @@ if(document.title ==="London Parkive List"){
                 lvt_filter_dropdown_content.appendChild(lvt_filter_sort_section);
                 filterOptionsContainer.appendChild(lvt_filter_dropdown_content);
             }
-            function filterFilterGenerator(){
-                let borough = "borough";
-                let status = "status";
-                let period_opened = "period_opened";
-                let alteration = "alteration";
-
-                if (filterOptionsContainer.classList.contains("filter_type_sort_filter_with_search")){
+            function filterFilterGenerator(key){
+                lvt_filter_dropdown_content = filterDropdownContentSectionGenerator();
+                lvt_filter_filter_section = filterFilterSectionGenerator();
+                lvt_filter_content_row = filterRowGenerator();
+                lvt_filter_icon = filterIconGenerator();
+                lvt_filter_header = filterHeaderGenerator();
+                lvt_filter_clear_filter = clearFilterGenerator();
+                lvt_filter_content_row.appendChild(lvt_filter_icon);
+                lvt_filter_content_row.appendChild(lvt_filter_header);
+                lvt_filter_content_row.appendChild(lvt_filter_clear_filter);
+                lvt_filter_filter_section.appendChild(lvt_filter_content_row);
+                statusKeys = createFilterKeysData(key);
+                keySection = createFilterKeysSection(statusKeys, key);
+                lvt_filter_dropdown_content.appendChild(lvt_filter_filter_section);
+                filterOptionsContainer.appendChild( lvt_filter_dropdown_content);
+            }
+            let borough = "borough";
+            let status = "status";
+            let period_opened = "period_opened";
+            let alteration = "alteration";
+            switch(filterOptionsContainer.id){
+                case "name_Filter_Container":
+                   let nameDropdownContent = sortFilterGenerator();
+                break;
+                case "borough_Filter_Container": 
                     let filterWithSearchSection = createFilterwithSortFilterAndSearch();
                     let boroughData = createFilterKeysData(borough);
                     let boroughKeySection = createFilterKeysSection(boroughData, borough);
                     console.log(boroughData);
+                break;
+                case "size_Filter_Container":
+                break;
+                case "status_Filter_Container":
+                  let statusDropdownContent = filterFilterGenerator(status);
+                break;
+                case "period_opened_Filter_Container":
+                    let periodOpenedDropdownContent = filterFilterGenerator(period_opened);
+                break;
+                case "alterations_Filter_Container":
+                    let alterationDropdownContent = filterFilterGenerator(alteration);
+                break;
+                default:
+                break;
+            }
+            lvt_filter_dropdown_container.addEventListener("click", function(e){
+                console.log(e);
+                console.log(e.target.classList);
+
+                if (e.target.classList.contains("id_name")){
+                    console.log("Name Filter Clicked");
+                    let nameContainer = document.getElementById("name_Filter_Container");
+                    if(nameContainer.style.display == "none"){
+                        document.getElementById("name_Filter_Container").style.display = "block";
+                    }
+                    else{
+                        document.getElementById("name_Filter_Container").style.display = "none"; 
+                    }
                 }
-            }
-            if(filterOptionsContainer.classList.contains("filter_type_sort")){
-                sortFilterGenerator();
-            }
-            if(filterOptionsContainer.classList.contains("filter_type_sort_filter_with_search")){
-                sortFilterGenerator();
-                filterFilterGenerator();
-                console.log(parksShapes);
-            }
-        }
+                else if(e.target.classList.contains("id_borough")){
+                    console.log("Clicked");
+                    let nameContainer = document.getElementById("borough_Filter_Container");
+                    if(nameContainer.style.display == "none"){
+                        document.getElementById("borough_Filter_Container").style.display = "block";
+                    }
+                    else{
+                        document.getElementById("borough_Filter_Container").style.display = "none"; 
+                    }
+                }
+                else if(e.target.classList.contains("id_size")){
+                    console.log("Clicked");
+                    let nameContainer = document.getElementById("size_Filter_Container");
+                    if(nameContainer.style.display == "none"){
+                        document.getElementById("size_Filter_Container").style.display = "block";
+                    }
+                    else{
+                        document.getElementById("size_Filter_Container").style.display = "none"; 
+                    }
+                }
+                else if(e.target.classList.contains("id_status")){
+                    console.log("Clicked");
+                    let nameContainer = document.getElementById("status_Filter_Container");
+                    if(nameContainer.style.display == "none"){
+                        document.getElementById("status_Filter_Container").style.display = "block";
+                    }
+                    else{
+                        document.getElementById("status_Filter_Container").style.display = "none"; 
+                    }
+                }
+                else if(e.target.classList.contains("id_period_opened")){
+                    console.log("Clicked");
+                    let nameContainer = document.getElementById("period_opened_Filter_Container");
+                    if(nameContainer.style.display == "none"){
+                        document.getElementById("period_opened_Filter_Container").style.display = "block";
+                    }
+                    else{
+                        document.getElementById("period_opened_Filter_Container").style.display = "none"; 
+                    }
+                }
+                else if(e.target.classList.contains("id_alteration")){
+                    console.log("Clicked");
+                    let nameContainer = document.getElementById("alterations_Filter_Container");
+                    if(nameContainer.style.display == "none"){
+                        document.getElementById("alterations_Filter_Container").style.display = "block";
+                    }
+                    else{
+                        document.getElementById("alterations_Filter_Container").style.display = "none"; 
+                    }
+                }
+            })
+            
+    }
         const tableBody = document.getElementById('list_view_table_body');
         data.forEach(feature =>{
             const row = document.createElement('tr');
@@ -421,8 +537,14 @@ if(document.title ==="London Parkive List"){
                 }
             });
             tableBody.appendChild(row);
-          
         });
+
+       
+    
+      
+        
+          
+       
         // mobileListParkName.addEventListener("click", function navigateToMapPageWrapper(){ navigateToMapPage(feature) });
         function generateMobileListView(data){
             var mobileListContainer = document.getElementById("mobile_table_container");

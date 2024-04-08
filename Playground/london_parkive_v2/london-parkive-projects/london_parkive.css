@@ -544,6 +544,7 @@ html, body, #map {
 }
 .lvt_filter_dropdown_container{
     position: relative;
+    cursor: pointer;
 }
 .filterIcon{
     width: 1rem;
@@ -580,16 +581,17 @@ html, body, #map {
     transform: translate(0, 2px);
 }
 .list_view_table_filter_options_container{
+
     width: 11rem;
-    height: 6rem;
+    height: fit-content;
     border-radius: 1rem;
     border-style: solid;
-   
     background-color: white;
     position: absolute;
     right: -2.5rem;
     top: 2.2rem;
     box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+  
 }
 .list_view_table_filter_options_container:before{
     content: "";
@@ -616,18 +618,45 @@ html, body, #map {
     border-top-color: white;
 }
 #name_Filter_Container{
-    height: 4.5rem;
+    /* height: 4rem; */
+    display: none;
 }
 #name_Filter_Container:after{
-    transform: translate(130%, -360%) rotate(180deg);
+    transform: translate(130%, -320%) rotate(180deg);
 }
 #borough_Filter_Container{
-    height: 15rem;
+    /* height: 15rem; */
+    display: none;
 }
 #borough_Filter_Container:after{
     transform: translate(130%, -1200%) rotate(180deg);
 }
-
+#size_Filter_Container{
+    display: none;
+}
+#status_Filter_Container{
+    /* height: 7rem; */
+    display: none;
+}
+#status_Filter_Container:after{
+    transform: translate(130%, -560%) rotate(180deg);
+}
+#period_opened_Filter_Container{
+    /* height: 11rem; */
+    display: none;
+}
+#alterations_Filter_Container{
+    display: none;
+}
+#period_opened_Filter_Container:after{
+    transform: translate(130%, -880%) rotate(180deg);
+}
+#alterations_Filter_Container{
+    height: 7rem;
+}
+#alterations_Filter_Container:after{
+    transform: translate(130%, -560%) rotate(180deg);
+}
 .lvt_filter_dropdown_content{
     margin: 0.5rem;
     display: flex;
@@ -637,10 +666,11 @@ html, body, #map {
    margin-bottom: 0.3rem;
 }
 .lvt_filter_filter_with_search_section{
-
+    margin-top: 0.6rem;
+    margin-left: 0.4rem;
 }
 .lvt_filter_filter_section{
-    margin-top: 0.5em;
+   
 }
 .lvt_filter_content_row{
     display: flex;
