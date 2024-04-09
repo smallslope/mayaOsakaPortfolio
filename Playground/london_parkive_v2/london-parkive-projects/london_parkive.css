@@ -622,24 +622,27 @@ html, body, #map {
     display: none;
 }
 #name_Filter_Container:after{
-    transform: translate(130%, -320%) rotate(180deg);
+    transform: translate(130%, -265%) rotate(180deg);
 }
 #borough_Filter_Container{
     /* height: 15rem; */
     display: none;
 }
 #borough_Filter_Container:after{
-    transform: translate(130%, -1200%) rotate(180deg);
+    transform: translate(130%, -605%) rotate(180deg);
 }
 #size_Filter_Container{
     display: none;
+}
+#size_Filter_Container:after{
+    transform: translate(130%, -290%) rotate(180deg);
 }
 #status_Filter_Container{
     /* height: 7rem; */
     display: none;
 }
 #status_Filter_Container:after{
-    transform: translate(130%, -560%) rotate(180deg);
+    transform: translate(130%, -520%) rotate(180deg);
 }
 #period_opened_Filter_Container{
     /* height: 11rem; */
@@ -649,7 +652,7 @@ html, body, #map {
     display: none;
 }
 #period_opened_Filter_Container:after{
-    transform: translate(130%, -880%) rotate(180deg);
+    transform: translate(130%, -860%) rotate(180deg);
 }
 #alterations_Filter_Container{
     height: 7rem;
@@ -658,7 +661,7 @@ html, body, #map {
     transform: translate(130%, -560%) rotate(180deg);
 }
 .lvt_filter_dropdown_content{
-    margin: 0.5rem;
+    margin: 0.2rem;
     display: flex;
     flex-direction: column;
 }
@@ -666,8 +669,8 @@ html, body, #map {
    margin-bottom: 0.3rem;
 }
 .lvt_filter_filter_with_search_section{
-    margin-top: 0.6rem;
     margin-left: 0.4rem;
+    margin-bottom: 0.4rem;
 }
 .lvt_filter_filter_section{
    
@@ -685,6 +688,16 @@ html, body, #map {
     border: solid 0.12rem black;
     margin-left: 0.4rem;
     margin-right: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lvt_filter_checkbox_active{
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 0.2rem;
+    background-color:#50B848;
+    display: none;
 }
 
 .lvt_filter_ascending_arrow{
@@ -733,6 +746,7 @@ html, body, #map {
     padding: 0.6rem;
     margin-top: 0.5em;
     margin-left: 0.3rem;
+    margin-bottom: 0.4rem;
 }
 .lvt_filter_search_bar::placeholder{
     color: #C0C0C0;

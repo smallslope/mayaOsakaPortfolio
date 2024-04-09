@@ -35,7 +35,6 @@ function dropdownMenu(x) {
     x.classList.toggle("changeDropdown");
 };
 if(document.title ==="London Parkive List"){
-    var parksShapes;
     var list_view_deduplicated_park_data;
     var lvt_filter_borough_keys;
     //Color Variables//
@@ -55,9 +54,18 @@ if(document.title ==="London Parkive List"){
     var yo_2000to2024_color = "#AAA30D";
 
     var alterations_expanded_color = "#62d0fb";
-    
-     
-    
+
+    let borough_keys_data;
+    let status_keys_data;
+    let period_opened_keys_data;
+    let alterations_keys_data;
+    let parksShapes;
+
+    let borough_filter_dropdown_content = document.getElementById("borough_Filter_Content");
+    let status_filter_dropdown_content = document.getElementById("status_Filter_Content");
+    let period_opened_filter_dropdown_content = document.getElementById("period_opened_Filter_Content");
+    let alterations_filter_dropdown_content = document.getElementById("alterations_Filter_Content");
+
     fetch('./data_files/park_shapes_source.json')
     .then((response) => response.json())
     .then(response => {
@@ -72,103 +80,211 @@ if(document.title ==="London Parkive List"){
         console.log(list_view_deduplicated_park_data);
         const tableProperties = ["name", "borough", "size", "status", "period_opened", "alteration"];
         generateTable(list_view_deduplicated_park_data, tableProperties);
+
+
+        // let borough_filter_search_bar = createFilterwithSortFilterAndSearch(borough_filter_dropdown_content);
+        let borough = "borough";
+        borough_keys_data = createFilterKeysData(parksShapes,borough);
+        let borough_filter_keys_section = createFilterKeysSection(borough_keys_data, borough, borough_filter_dropdown_content);
+
+        let status = "status";
+        status_keys_data = createFilterKeysData(parksShapes,status);
+        let status_filter_keys_section = createFilterKeysSection(status_keys_data, status, status_filter_dropdown_content);
+        let period_opened = "period_opened";
+        period_opened_keys_data = createFilterKeysData(parksShapes,period_opened);
+        let period_opened_filter_keys_section = createFilterKeysSection(period_opened_keys_data, period_opened, period_opened_filter_dropdown_content);
+        let alterations = "alteration";
+        alterations_keys_data = createFilterKeysData(parksShapes,alterations);
+        let alterations_filter_keys_section = createFilterKeysSection(alterations_keys_data, alterations, alterations_filter_dropdown_content);
+       
+       
     });
+   
 
-    var headerMapping = {
-        "name" : "Name",
-        "borough" : "Borough",
-        "size" : "Size (Acres)",
-        "status" : "Status",
-        "year_opened" : "Period Opened",
-        "alteration" : "Alterations"
-    };
-    let thContainerContainer;
-    let thContainer;
-    let lvt_filter_dropdown_container;
-    let filterOptionsContainer;
+    // var headerMapping = {
+    //     "name" : "Name",
+    //     "borough" : "Borough",
+    //     "size" : "Size (Acres)",
+    //     "status" : "Status",
+    //     "year_opened" : "Period Opened",
+    //     "alteration" : "Alterations"
+    // };
+    // let thContainerContainer;
+    // let thContainer;
+    // let lvt_filter_dropdown_container;
+    // let filterOptionsContainer;
 
-    let headerFilterIcon;
+   
 
-    function headerFilterIconGenerator(){
-        var filterIcon = document.createElement("div");
-        filterIcon.classList.add("filterIcon");
-        var filterIconLine1 = document.createElement("div");
-        filterIconLine1.classList.add("filterIconLine1");
-        filterIcon.appendChild(filterIconLine1);
-        var filterIconLine2 = document.createElement("div");
-        filterIconLine2.classList.add("filterIconLine2");
-        filterIcon.appendChild(filterIconLine2);
-        var filterIconLine3 = document.createElement("div");
-        filterIconLine3.classList.add("filterIconLine3");
-        filterIcon.appendChild(filterIconLine3);
-        return filterIcon;
-    }
+    // function headerFilterIconGenerator(){
+    //     var filterIcon = document.createElement("div");
+    //     filterIcon.classList.add("filterIcon");
+    //     var filterIconLine1 = document.createElement("div");
+    //     filterIconLine1.classList.add("filterIconLine1");
+    //     filterIcon.appendChild(filterIconLine1);
+    //     var filterIconLine2 = document.createElement("div");
+    //     filterIconLine2.classList.add("filterIconLine2");
+    //     filterIcon.appendChild(filterIconLine2);
+    //     var filterIconLine3 = document.createElement("div");
+    //     filterIconLine3.classList.add("filterIconLine3");
+    //     filterIcon.appendChild(filterIconLine3);
+    //     return filterIcon;
+    // }
 
-    function generateTable(data, propertiesToShow){
-        const headerRow = document.getElementById('list_view_table_header');
+    
+    //     const headerRow = document.getElementById('list_view_table_header');
       
-        for (var key in headerMapping){
-            var th = document.createElement("th");
-            headerRow.appendChild(th);
-            thContainerContainer = document.createElement("div");
-            thContainerContainer.classList.add("list_view_table_thContainerContainer");
-            th.appendChild(thContainerContainer);
-            thContainer = document.createElement("div");
-            thContainer.classList.add("list_view_table_thContainer");
-            thContainerContainer.appendChild(thContainer);
-            thText = document.createElement("div");
-            thText.textContent = headerMapping[key];
-            thText.classList.add("list_view_table_header_cell_text");
-            thContainer.appendChild(thText);
-            lvt_filter_dropdown_container = document.createElement("div");
-            lvt_filter_dropdown_container.classList.add("lvt_filter_dropdown_container");
-            thContainer.appendChild(lvt_filter_dropdown_container);
-            headerFilterIcon = headerFilterIconGenerator();
+    //     for (var key in headerMapping){
+    //         var th = document.createElement("th");
+    //         headerRow.appendChild(th);
+    //         thContainerContainer = document.createElement("div");
+    //         thContainerContainer.classList.add("list_view_table_thContainerContainer");
+    //         th.appendChild(thContainerContainer);
+    //         thContainer = document.createElement("div");
+    //         thContainer.classList.add("list_view_table_thContainer");
+    //         thContainerContainer.appendChild(thContainer);
+    //         thText = document.createElement("div");
+    //         thText.textContent = headerMapping[key];
+    //         thText.classList.add("list_view_table_header_cell_text");
+    //         thContainer.appendChild(thText);
+    //         lvt_filter_dropdown_container = document.createElement("div");
+    //         lvt_filter_dropdown_container.classList.add("lvt_filter_dropdown_container");
+    //         thContainer.appendChild(lvt_filter_dropdown_container);
+    //         headerFilterIcon = headerFilterIconGenerator();
 
-            filterOptionsContainer = document.createElement("div");
-            filterOptionsContainer.classList.add("list_view_table_filter_options_container");
-            switch(thText.textContent){
-                case "Name":    
-                    filterOptionsContainer.classList.add("filter_type_sort");
-                    filterOptionsContainer.id = "name_Filter_Container";
-                    lvt_filter_dropdown_container.classList.add("id_name");
-                    headerFilterIcon.classList.add("id_name");
-                break;
-                case "Borough":     
-                    filterOptionsContainer.classList.add("filter_type_sort_filter_with_search");                    
-                    filterOptionsContainer.id = "borough_Filter_Container";
-                    filterOptionsContainer.classList.add("id_borough");
-                    headerFilterIcon.classList.add("id_borough");
-                break;
-                case "Size (Acres)" :   
-                    filterOptionsContainer.classList.add("filter_type_sort_filter");
-                    filterOptionsContainer.id = "size_Filter_Container";
-                    filterOptionsContainer.classList.add("id_size");
-                    headerFilterIcon.classList.add("id_size");
-                break;
-                case "Status":  
-                        filterOptionsContainer.classList.add("filter_type_filter");
-                        filterOptionsContainer.id = "status_Filter_Container";
-                        filterOptionsContainer.classList.add("id_status");
-                        headerFilterIcon.classList.add("id_status");    
-                break;
-                case "Period Opened" :    
-                    filterOptionsContainer.classList.add("filter_type_filter");
-                    filterOptionsContainer.id = "period_opened_Filter_Container";
-                    filterOptionsContainer.classList.add("id_period_opened");
-                    headerFilterIcon.classList.add("id_period_opened");
+    //         filterOptionsContainer = document.createElement("div");
+    //         filterOptionsContainer.classList.add("list_view_table_filter_options_container");
+    //         switch(thText.textContent){
+    //             case "Name":    
+    //                 filterOptionsContainer.classList.add("filter_type_sort");
+    //                 filterOptionsContainer.id = "name_Filter_Container";
+    //                 lvt_filter_dropdown_container.classList.add("id_name");
+    //                 headerFilterIcon.classList.add("id_name");
+    //             break;
+    //             case "Borough":     
+    //                 filterOptionsContainer.classList.add("filter_type_sort_filter_with_search");                    
+    //                 filterOptionsContainer.id = "borough_Filter_Container";
+    //                 filterOptionsContainer.classList.add("id_borough");
+    //                 headerFilterIcon.classList.add("id_borough");
+    //             break;
+    //             case "Size (Acres)" :   
+    //                 filterOptionsContainer.classList.add("filter_type_sort_filter");
+    //                 filterOptionsContainer.id = "size_Filter_Container";
+    //                 filterOptionsContainer.classList.add("id_size");
+    //                 headerFilterIcon.classList.add("id_size");
+    //             break;
+    //             case "Status":  
+    //                     filterOptionsContainer.classList.add("filter_type_filter");
+    //                     filterOptionsContainer.id = "status_Filter_Container";
+    //                     filterOptionsContainer.classList.add("id_status");
+    //                     headerFilterIcon.classList.add("id_status");    
+    //             break;
+    //             case "Period Opened" :    
+    //                 filterOptionsContainer.classList.add("filter_type_filter");
+    //                 filterOptionsContainer.id = "period_opened_Filter_Container";
+    //                 filterOptionsContainer.classList.add("id_period_opened");
+    //                 headerFilterIcon.classList.add("id_period_opened");
                                         
-                break;
-                case "Alterations" :    
-                    filterOptionsContainer.classList.add("filter_type_filter");
-                    filterOptionsContainer.id = "alterations_Filter_Container";
-                    filterOptionsContainer.classList.add("id_alteration");
-                    headerFilterIcon.classList.add("id_alteration");
-                break;
-                default:
-                break;
-            }
-            lvt_filter_dropdown_container.appendChild(headerFilterIcon);
+    //             break;
+    //             case "Alterations" :    
+    //                 filterOptionsContainer.classList.add("filter_type_filter");
+    //                 filterOptionsContainer.id = "alterations_Filter_Container";
+    //                 filterOptionsContainer.classList.add("id_alteration");
+    //                 headerFilterIcon.classList.add("id_alteration");
+    //             break;
+    //             default:
+    //             break;
+    //         }
+
+            // lvt_filter_dropdown_container.appendChild(headerFilterIcon);
+         
+            // function filterIconGenerator(){
+            //     let icon = document.createElement("img");
+            //     icon.classList.add("lvt_filter_icon");
+            //     icon.src = "Assets/Icons/filter_icon.svg";
+            //     icon.alt = "Filter Icon";
+            //     return icon;
+            // }
+            // function ascendingArrowGenerator(){
+            //     let ascendingArrow = document.createElement("div");
+            //     ascendingArrow.classList.add("lvt_filter_ascending_arrow");
+            //     return ascendingArrow;
+            // }
+            // function descendingArrowGenerator(){
+            //     let descendingArrow = document.createElement("div");
+            //     descendingArrow.classList.add("lvt_filter_descending_arrow");
+            //     return descendingArrow;
+            // }
+            // function sortAscendingGenerator(){
+            //     let sortAscending = document.createElement("div");
+            //     sortAscending.classList.add("lvt_filter_key");
+            //     sortAscending.innerHTML = "Sort Ascending";
+            //     return sortAscending;
+            // }
+            // function sortDescendingGenerator(){
+            //     let sortDescending = document.createElement("div");
+            //     sortDescending.classList.add("lvt_filter_key");
+            //     sortDescending.innerHTML = "Sort Dscending";
+            //     return sortDescending;
+            // }
+            // function filterHeaderGenerator(){
+            //     let filterHeader = document.createElement("div");
+            //     filterHeader .classList.add("lvt_filter_header");
+            //     filterHeader .innerHTML = "Filter";
+            //     return filterHeader;
+            // }
+            // function clearFilterGenerator(){
+            //     let clearFilter = document.createElement("div");
+            //     clearFilter.classList.add("lvt_filter_clear_filter");
+            //     clearFilter.innerHTML = "Clear Filter";
+            //     return clearFilter;
+            // }
+            // function filterSearchBarGenerator(){
+            //     let searchBar= document.createElement("input");
+            //     searchBar.classList.add("lvt_filter_search_bar");
+            //     searchBar.type = "search";
+            //     searchBar.placeholder = "Search borough...";
+            //     return searchBar;
+            // }
+         
+         
+            // function sortSectionGenerator(){
+            //     let sortSection = document.createElement("div");
+            //     sortSection.classList.add("lvt_filter_sort_section");
+            //     return sortSection;
+            // }
+            // function filterWithSearchSectionGenerator(){
+            //     let filterWithSearchSection = document.createElement("div");
+            //     filterWithSearchSection.classList.add("lvt_filter_filter_with_search_section");
+            //     return filterWithSearchSection;
+            // }
+            // function filterFilterSectionGenerator(){
+            //     let filterSection = document.createElement("div");
+            //     filterSection.classList.add("lvt_filter_filter_section");
+            //     return filterSection;
+            // }
+    
+            // lvt_filter_dropdown_container.appendChild(filterOptionsContainer);
+            // let lvt_filter_dropdown_content = filterDropdownContentSectionGenerator();
+            // lvt_filter_dropdown_container.appendChild(filterOptionsContainer);
+        
+        
+            // let lvt_filter_icon = filterIconGenerator();
+            // let lvt_filter_header = filterHeaderGenerator();
+            // let lvt_filter_clear_filter = clearFilterGenerator();
+            // let lvt_filter_search_bar = filterSearchBarGenerator();
+            // let  lvt_filter_key_name;
+    
+            // let lvt_filter_ascending_arrow = ascendingArrowGenerator();
+            // let lvt_filter_descending_arrow = descendingArrowGenerator();
+            // let lvt_filter_sort_ascending = sortAscendingGenerator();
+            // let lvt_filter_sort_descending = sortDescendingGenerator();
+    
+            // let lvt_filter_sort_section = sortSectionGenerator()
+            // let lvt_filter_filter_section = filterFilterSectionGenerator();
+            // let lvt_filter_filter_with_search_section = filterWithSearchSectionGenerator();
+
+            //STILL USING THE CODE BELOW!!!//
             function filterRowGenerator(){
                 let row = document.createElement("div");
                 row.classList.add("lvt_filter_content_row");
@@ -179,122 +295,18 @@ if(document.title ==="London Parkive List"){
                 checkbox.classList.add("lvt_filter_checkbox");
                 return checkbox;
             }
-            function filterIconGenerator(){
-                let icon = document.createElement("img");
-                icon.classList.add("lvt_filter_icon");
-                icon.src = "Assets/Icons/filter_icon.svg";
-                icon.alt = "Filter Icon";
-                return icon;
-            }
-            function ascendingArrowGenerator(){
-                let ascendingArrow = document.createElement("div");
-                ascendingArrow.classList.add("lvt_filter_ascending_arrow");
-                return ascendingArrow;
-            }
-            function descendingArrowGenerator(){
-                let descendingArrow = document.createElement("div");
-                descendingArrow.classList.add("lvt_filter_descending_arrow");
-                return descendingArrow;
-            }
-            function sortAscendingGenerator(){
-                let sortAscending = document.createElement("div");
-                sortAscending.classList.add("lvt_filter_key");
-                sortAscending.innerHTML = "Sort Ascending";
-                return sortAscending;
-            }
-            function sortDescendingGenerator(){
-                let sortDescending = document.createElement("div");
-                sortDescending.classList.add("lvt_filter_key");
-                sortDescending.innerHTML = "Sort Dscending";
-                return sortDescending;
-            }
-            function filterHeaderGenerator(){
-                let filterHeader = document.createElement("div");
-                filterHeader .classList.add("lvt_filter_header");
-                filterHeader .innerHTML = "Filter";
-                return filterHeader;
-            }
-            function clearFilterGenerator(){
-                let clearFilter = document.createElement("div");
-                clearFilter.classList.add("lvt_filter_clear_filter");
-                clearFilter.innerHTML = "Clear Filter";
-                return clearFilter;
-            }
-            function filterSearchBarGenerator(){
-                let searchBar= document.createElement("input");
-                searchBar.classList.add("lvt_filter_search_bar");
-                searchBar.type = "search";
-                searchBar.placeholder = "Search borough...";
-                return searchBar;
-            }
             function filterKeyNameGenerator(key){
                 let keyName = document.createElement("div");
                 keyName.classList.add("lvt_filter_key");
                 return keyName;
             }
-            function filterDropdownContentSectionGenerator(){
-                let dropdownContent = document.createElement("div");
-                dropdownContent.classList.add("lvt_filter_dropdown_content");
-                return dropdownContent;
-            }
-            function sortSectionGenerator(){
-                let sortSection = document.createElement("div");
-                sortSection.classList.add("lvt_filter_sort_section");
-                return sortSection;
-            }
-            function filterWithSearchSectionGenerator(){
-                let filterWithSearchSection = document.createElement("div");
-                filterWithSearchSection.classList.add("lvt_filter_filter_with_search_section");
-                return filterWithSearchSection;
-            }
-            function filterFilterSectionGenerator(){
-                let filterSection = document.createElement("div");
-                filterSection.classList.add("lvt_filter_filter_section");
-                return filterSection;
-            }
-    
-            lvt_filter_dropdown_container.appendChild(filterOptionsContainer);
-            let lvt_filter_dropdown_content = filterDropdownContentSectionGenerator();
-            lvt_filter_dropdown_container.appendChild(filterOptionsContainer);
-        
+
             let lvt_filter_content_row = filterRowGenerator();
             let lvt_filter_checkbox = checkBoxGenerator();
-            let lvt_filter_icon = filterIconGenerator();
-            let lvt_filter_header = filterHeaderGenerator();
-            let lvt_filter_clear_filter = clearFilterGenerator();
-            let lvt_filter_search_bar = filterSearchBarGenerator();
-            let  lvt_filter_key_name;
-    
-            let lvt_filter_ascending_arrow = ascendingArrowGenerator();
-            let lvt_filter_descending_arrow = descendingArrowGenerator();
-            let lvt_filter_sort_ascending = sortAscendingGenerator();
-            let lvt_filter_sort_descending = sortDescendingGenerator();
-    
-            let lvt_filter_sort_section = sortSectionGenerator()
-            let lvt_filter_filter_section = filterFilterSectionGenerator();
-            let lvt_filter_filter_with_search_section = filterWithSearchSectionGenerator();
-    
-            let lvt_filter_keys;
-            function createFilterwithSortFilterAndSearch(){
-                lvt_filter_filter_with_search_section = filterWithSearchSectionGenerator();
-                lvt_filter_content_row = filterRowGenerator();
-                lvt_filter_icon =  filterIconGenerator();
-                lvt_filter_header = filterHeaderGenerator();
-                lvt_filter_clear_filter = clearFilterGenerator();
-                lvt_filter_content_row.appendChild(lvt_filter_icon);
-                lvt_filter_content_row.appendChild(lvt_filter_header);
-                lvt_filter_content_row.appendChild(lvt_filter_clear_filter);
-                lvt_filter_filter_with_search_section.appendChild(lvt_filter_content_row);
-                lvt_filter_content_row = filterRowGenerator();
-                lvt_filter_search_bar = filterSearchBarGenerator();
-                lvt_filter_content_row.appendChild(lvt_filter_search_bar);
-                lvt_filter_filter_with_search_section.appendChild(lvt_filter_content_row);
-                lvt_filter_filter_section = filterFilterSectionGenerator();
-                lvt_filter_filter_with_search_section.appendChild(lvt_filter_filter_section);
-                filterOptionsContainer.appendChild(lvt_filter_filter_with_search_section);
-            };
-            function createFilterKeysData(key){
-                lvt_filter_keys = parksShapes.features.reduce((accumulator, current) =>{
+
+            function createFilterKeysData(dataSet,key){
+                let lvt_filter_keys;
+                lvt_filter_keys = dataSet.features.reduce((accumulator, current) =>{
                     if(!accumulator.find((item) => item.properties[key] === current.properties[key])){
                         accumulator.push(current);
                     }
@@ -303,7 +315,7 @@ if(document.title ==="London Parkive List"){
                 console.log(lvt_filter_keys);
                 return lvt_filter_keys;
             }
-            function createFilterKeysSection(keyData, key){
+            function createFilterKeysSection(keyData, key,container){
                 keyData.forEach(feature =>{
                     lvt_filter_content_row = filterRowGenerator();
                     lvt_filter_checkbox = checkBoxGenerator();
@@ -311,138 +323,209 @@ if(document.title ==="London Parkive List"){
                     lvt_filter_key_name = filterKeyNameGenerator(key);
                     lvt_filter_key_name.innerHTML = feature.properties[key];
                     lvt_filter_content_row.appendChild(lvt_filter_key_name);
-                    lvt_filter_filter_section.appendChild(lvt_filter_content_row);
+                    container.appendChild(lvt_filter_content_row);
                 })
             }
-            let keySection;
-            let statusKeys;
-            function sortFilterGenerator(){
-                lvt_filter_dropdown_content = filterDropdownContentSectionGenerator();
-                lvt_filter_sort_section = sortSectionGenerator();
-                lvt_filter_content_row.appendChild(lvt_filter_checkbox);
-                lvt_filter_content_row.appendChild(lvt_filter_ascending_arrow);
-                lvt_filter_content_row.appendChild(lvt_filter_sort_ascending);
-                lvt_filter_sort_section.appendChild(lvt_filter_content_row);
-                lvt_filter_content_row = filterRowGenerator();
-                lvt_filter_checkbox = checkBoxGenerator();
-                lvt_filter_content_row.appendChild(lvt_filter_checkbox);
-                lvt_filter_content_row.appendChild(lvt_filter_descending_arrow);
-                lvt_filter_content_row.appendChild(lvt_filter_sort_descending);
-                lvt_filter_sort_section.appendChild(lvt_filter_content_row);
-                lvt_filter_dropdown_content.appendChild(lvt_filter_sort_section);
-                filterOptionsContainer.appendChild(lvt_filter_dropdown_content);
-            }
-            function filterFilterGenerator(key){
-                lvt_filter_dropdown_content = filterDropdownContentSectionGenerator();
-                lvt_filter_filter_section = filterFilterSectionGenerator();
-                lvt_filter_content_row = filterRowGenerator();
-                lvt_filter_icon = filterIconGenerator();
-                lvt_filter_header = filterHeaderGenerator();
-                lvt_filter_clear_filter = clearFilterGenerator();
-                lvt_filter_content_row.appendChild(lvt_filter_icon);
-                lvt_filter_content_row.appendChild(lvt_filter_header);
-                lvt_filter_content_row.appendChild(lvt_filter_clear_filter);
-                lvt_filter_filter_section.appendChild(lvt_filter_content_row);
-                statusKeys = createFilterKeysData(key);
-                keySection = createFilterKeysSection(statusKeys, key);
-                lvt_filter_dropdown_content.appendChild(lvt_filter_filter_section);
-                filterOptionsContainer.appendChild( lvt_filter_dropdown_content);
-            }
-            let borough = "borough";
-            let status = "status";
-            let period_opened = "period_opened";
-            let alteration = "alteration";
-            switch(filterOptionsContainer.id){
-                case "name_Filter_Container":
-                   let nameDropdownContent = sortFilterGenerator();
-                break;
-                case "borough_Filter_Container": 
-                    let filterWithSearchSection = createFilterwithSortFilterAndSearch();
-                    let boroughData = createFilterKeysData(borough);
-                    let boroughKeySection = createFilterKeysSection(boroughData, borough);
-                    console.log(boroughData);
-                break;
-                case "size_Filter_Container":
-                break;
-                case "status_Filter_Container":
-                  let statusDropdownContent = filterFilterGenerator(status);
-                break;
-                case "period_opened_Filter_Container":
-                    let periodOpenedDropdownContent = filterFilterGenerator(period_opened);
-                break;
-                case "alterations_Filter_Container":
-                    let alterationDropdownContent = filterFilterGenerator(alteration);
-                break;
-                default:
-                break;
-            }
-            lvt_filter_dropdown_container.addEventListener("click", function(e){
-                console.log(e);
-                console.log(e.target.classList);
 
-                if (e.target.classList.contains("id_name")){
-                    console.log("Name Filter Clicked");
-                    let nameContainer = document.getElementById("name_Filter_Container");
-                    if(nameContainer.style.display == "none"){
-                        document.getElementById("name_Filter_Container").style.display = "block";
-                    }
-                    else{
-                        document.getElementById("name_Filter_Container").style.display = "none"; 
-                    }
+            let borough_filter_container = document.getElementById("borough_Filter_Container");
+            let name_filter_container = document.getElementById("name_Filter_Container");
+            let size_filter_container = document.getElementById("size_Filter_Container");
+            let status_filter_container = document.getElementById("status_Filter_Container");
+            let period_opened_filter_container = document.getElementById("period_opened_Filter_Container");
+            let alterations_filter_container = document.getElementById("alterations_Filter_Container");
+           function nameFilterDropdown(){
+               if(name_filter_container.style.display === "none"){
+                    name_filter_container.style.display = "block";
+               }
+               else{
+                    name_filter_container.style.display = "none";
+               }
+            }
+            function boroughFilterDropdown(){
+                if(borough_filter_container.style.display === "none"){
+                    borough_filter_container.style.display = "block";
                 }
-                else if(e.target.classList.contains("id_borough")){
-                    console.log("Clicked");
-                    let nameContainer = document.getElementById("borough_Filter_Container");
-                    if(nameContainer.style.display == "none"){
-                        document.getElementById("borough_Filter_Container").style.display = "block";
-                    }
-                    else{
-                        document.getElementById("borough_Filter_Container").style.display = "none"; 
-                    }
+                else{
+                    borough_filter_container.style.display = "none";
                 }
-                else if(e.target.classList.contains("id_size")){
-                    console.log("Clicked");
-                    let nameContainer = document.getElementById("size_Filter_Container");
-                    if(nameContainer.style.display == "none"){
-                        document.getElementById("size_Filter_Container").style.display = "block";
-                    }
-                    else{
-                        document.getElementById("size_Filter_Container").style.display = "none"; 
-                    }
+            }
+            function sizeFilterDropdown(){
+                if(size_filter_container.style.display === "none"){
+                    size_filter_container.style.display = "block";
                 }
-                else if(e.target.classList.contains("id_status")){
-                    console.log("Clicked");
-                    let nameContainer = document.getElementById("status_Filter_Container");
-                    if(nameContainer.style.display == "none"){
-                        document.getElementById("status_Filter_Container").style.display = "block";
-                    }
-                    else{
-                        document.getElementById("status_Filter_Container").style.display = "none"; 
-                    }
+                else{
+                    size_filter_container.style.display = "none";
                 }
-                else if(e.target.classList.contains("id_period_opened")){
-                    console.log("Clicked");
-                    let nameContainer = document.getElementById("period_opened_Filter_Container");
-                    if(nameContainer.style.display == "none"){
-                        document.getElementById("period_opened_Filter_Container").style.display = "block";
-                    }
-                    else{
-                        document.getElementById("period_opened_Filter_Container").style.display = "none"; 
-                    }
+            }
+            function statusFilterDropdown(){
+                if(status_filter_container.style.display === "none"){
+                    status_filter_container.style.display = "block";
                 }
-                else if(e.target.classList.contains("id_alteration")){
-                    console.log("Clicked");
-                    let nameContainer = document.getElementById("alterations_Filter_Container");
-                    if(nameContainer.style.display == "none"){
-                        document.getElementById("alterations_Filter_Container").style.display = "block";
-                    }
-                    else{
-                        document.getElementById("alterations_Filter_Container").style.display = "none"; 
-                    }
+                else{
+                    status_filter_container.style.display = "none";
                 }
-            })
-            
-    }
+            }
+            function periodOpenedFilterDropdown(){
+                if(period_opened_filter_container.style.display === "none"){
+                    period_opened_filter_container.style.display = "block";
+                }
+                else{
+                    period_opened_filter_container.style.display = "none";
+                }
+            }
+            function alterationsFilterDropdown(){
+                if(alterations_filter_container.style.display === "none"){
+                    alterations_filter_container.style.display = "block";
+                }
+                else{
+                    alterations_filter_container.style.display = "none";
+                }
+            }
+          
+        
+        
+            // function createFilterwithSortFilterAndSearch(filter_dropdown_content){
+            //     lvt_filter_filter_with_search_section = filterWithSearchSectionGenerator();
+            //     lvt_filter_content_row = filterRowGenerator();
+            //     lvt_filter_icon =  filterIconGenerator();
+            //     lvt_filter_header = filterHeaderGenerator();
+            //     lvt_filter_clear_filter = clearFilterGenerator();
+            //     lvt_filter_content_row.appendChild(lvt_filter_icon);
+            //     lvt_filter_content_row.appendChild(lvt_filter_header);
+            //     lvt_filter_content_row.appendChild(lvt_filter_clear_filter);
+            //     lvt_filter_filter_with_search_section.appendChild(lvt_filter_content_row);
+            //     lvt_filter_content_row = filterRowGenerator();
+            //     lvt_filter_search_bar = filterSearchBarGenerator();
+            //     lvt_filter_content_row.appendChild(lvt_filter_search_bar);
+            //     lvt_filter_filter_with_search_section.appendChild(lvt_filter_content_row);
+            //     lvt_filter_filter_section = filterFilterSectionGenerator();
+            //     lvt_filter_filter_with_search_section.appendChild(lvt_filter_filter_section);
+            //     filter_dropdown_content.appendChild(lvt_filter_filter_with_search_section);
+            // };
+         
+            // let keySection;
+            // let statusKeys;
+            // function sortFilterGenerator(filter_dropdown_content){
+            //     lvt_filter_sort_section = sortSectionGenerator();
+            //     lvt_filter_content_row.appendChild(lvt_filter_checkbox);
+            //     lvt_filter_content_row.appendChild(lvt_filter_ascending_arrow);
+            //     lvt_filter_content_row.appendChild(lvt_filter_sort_ascending);
+            //     lvt_filter_sort_section.appendChild(lvt_filter_content_row);
+            //     lvt_filter_content_row = filterRowGenerator();
+            //     lvt_filter_checkbox = checkBoxGenerator();
+            //     lvt_filter_content_row.appendChild(lvt_filter_checkbox);
+            //     lvt_filter_content_row.appendChild(lvt_filter_descending_arrow);
+            //     lvt_filter_content_row.appendChild(lvt_filter_sort_descending);
+            //     lvt_filter_sort_section.appendChild(lvt_filter_content_row);
+            //     filter_dropdown_content.appendChild(lvt_filter_sort_section);
+            // }
+            // function filterFilterGenerator(key){
+            //     lvt_filter_dropdown_content = filterDropdownContentSectionGenerator();
+            //     lvt_filter_filter_section = filterFilterSectionGenerator();
+            //     lvt_filter_content_row = filterRowGenerator();
+            //     lvt_filter_icon = filterIconGenerator();
+            //     lvt_filter_header = filterHeaderGenerator();
+            //     lvt_filter_clear_filter = clearFilterGenerator();
+            //     lvt_filter_content_row.appendChild(lvt_filter_icon);
+            //     lvt_filter_content_row.appendChild(lvt_filter_header);
+            //     lvt_filter_content_row.appendChild(lvt_filter_clear_filter);
+            //     lvt_filter_filter_section.appendChild(lvt_filter_content_row);
+            //     statusKeys = createFilterKeysData(key);
+            //     keySection = createFilterKeysSection(statusKeys, key);
+            //     lvt_filter_dropdown_content.appendChild(lvt_filter_filter_section);
+            // }
+          
+
+            // switch(filterOptionsContainer.id){
+            //     case "name_Filter_Container":
+            //        let nameDropdownContent = sortFilterGenerator();
+            //     break;
+            //     case "borough_Filter_Container": 
+            //         let filterWithSearchSection = createFilterwithSortFilterAndSearch();
+            //         let boroughData = createFilterKeysData(borough);
+            //         let boroughKeySection = createFilterKeysSection(boroughData, borough);
+            //         console.log(boroughData);
+            //     break;
+            //     case "size_Filter_Container":
+            //     break;
+            //     case "status_Filter_Container":
+            //       let statusDropdownContent = filterFilterGenerator(status);
+            //     break;
+            //     case "period_opened_Filter_Container":
+            //         let periodOpenedDropdownContent = filterFilterGenerator(period_opened);
+            //     break;
+            //     case "alterations_Filter_Container":
+            //         let alterationDropdownContent = filterFilterGenerator(alteration);
+            //     break;
+            //     default:
+            //     break;
+            // }
+            // lvt_filter_dropdown_container.addEventListener("click", function(e){
+            //     console.log(e);
+            //     console.log(e.target.classList);
+
+            //     if (e.target.classList.contains("id_name")){
+            //         console.log("Name Filter Clicked");
+            //         let nameContainer = document.getElementById("name_Filter_Container");
+            //         if(nameContainer.style.display == "none"){
+            //             document.getElementById("name_Filter_Container").style.display = "block";
+            //         }
+            //         else{
+            //             document.getElementById("name_Filter_Container").style.display = "none"; 
+            //         }
+            //     }
+            //     else if(e.target.classList.contains("id_borough")){
+            //         console.log("Clicked");
+            //         let nameContainer = document.getElementById("borough_Filter_Container");
+            //         if(nameContainer.style.display == "none"){
+            //             document.getElementById("borough_Filter_Container").style.display = "block";
+            //         }
+            //         else{
+            //             document.getElementById("borough_Filter_Container").style.display = "none"; 
+            //         }
+            //     }
+            //     else if(e.target.classList.contains("id_size")){
+            //         console.log("Clicked");
+            //         let nameContainer = document.getElementById("size_Filter_Container");
+            //         if(nameContainer.style.display == "none"){
+            //             document.getElementById("size_Filter_Container").style.display = "block";
+            //         }
+            //         else{
+            //             document.getElementById("size_Filter_Container").style.display = "none"; 
+            //         }
+            //     }
+            //     else if(e.target.classList.contains("id_status")){
+            //         console.log("Clicked");
+            //         let nameContainer = document.getElementById("status_Filter_Container");
+            //         if(nameContainer.style.display == "none"){
+            //             document.getElementById("status_Filter_Container").style.display = "block";
+            //         }
+            //         else{
+            //             document.getElementById("status_Filter_Container").style.display = "none"; 
+            //         }
+            //     }
+            //     else if(e.target.classList.contains("id_period_opened")){
+            //         console.log("Clicked");
+            //         let nameContainer = document.getElementById("period_opened_Filter_Container");
+            //         if(nameContainer.style.display == "none"){
+            //             document.getElementById("period_opened_Filter_Container").style.display = "block";
+            //         }
+            //         else{
+            //             document.getElementById("period_opened_Filter_Container").style.display = "none"; 
+            //         }
+            //     }
+            //     else if(e.target.classList.contains("id_alteration")){
+            //         console.log("Clicked");
+            //         let nameContainer = document.getElementById("alterations_Filter_Container");
+            //         if(nameContainer.style.display == "none"){
+            //             document.getElementById("alterations_Filter_Container").style.display = "block";
+            //         }
+            //         else{
+            //             document.getElementById("alterations_Filter_Container").style.display = "none"; 
+            //         }
+            //     }
+            // });
+    function generateTable(data, propertiesToShow){
         const tableBody = document.getElementById('list_view_table_body');
         data.forEach(feature =>{
             const row = document.createElement('tr');
@@ -705,10 +788,7 @@ if(document.title ==="London Parkive List"){
         };
         generateMobileListView(list_view_deduplicated_park_data);
     };
-}
-else if(document.title === "London Parkive About"){
-
-}
+};
 function navigateToMapPage(park_data){
     console.log(park_data);
     window.localStorage.setItem("list_view_clicked_park", JSON.stringify(park_data));
@@ -757,10 +837,4 @@ function searchBarFilter(){
             }
         }
     }
- 
 }
-
-
-
-
-

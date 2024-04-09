@@ -46,7 +46,163 @@
             <div id="table_container">
                 <table id="london_parkive_list_view">
                     <thead>
-                        <tr id="list_view_table_header"></tr>
+                        <tr id="list_view_table_header">
+                            <th>
+                                <div class="list_view_table_thContainerContainer">
+                                    <div class="list_view_table_thContainer">
+                                        <div class="list_view_table_header_cell_text">Name</div>
+                                        <div class="lvt_filter_dropdown_container">
+                                            <div class="filterIcon id_name" onclick="nameFilterDropdown()">
+                                                <div class="filterIconLine1"></div>
+                                                <div class="filterIconLine2"></div>
+                                                <div class="filterIconLine3"></div>
+                                            </div>
+                                            <div class="list_view_table_filter_options_container" id="name_Filter_Container">
+                                                <div class="lvt_filter_dropdown_content" id="name_Filter_Content">
+                                                    <div class="lvt_filter_content_row">
+                                                        <div class="lvt_filter_checkbox">
+                                                            <div class="lvt_filter_checkbox_active"></div>
+                                                        </div>
+                                                        <div class="lvt_filter_ascending_arrow"></div>
+                                                        <div class="lvt_filter_key">Sort Ascending</div>
+                                                    </div>
+                                                    <div class="lvt_filter_content_row">
+                                                        <div class="lvt_filter_checkbox"></div>
+                                                        <div class="lvt_filter_descending_arrow"></div>
+                                                        <div class="lvt_filter_key">Sort Descending</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="list_view_table_thContainerContainer">
+                                    <div class="list_view_table_thContainer">
+                                        <div class="list_view_table_header_cell_text">Borough</div>
+                                        <div class="lvt_filter_dropdown_container">
+                                            <div class="filterIcon id_borough" onclick="boroughFilterDropdown()">
+                                                <div class="filterIconLine1"></div>
+                                                <div class="filterIconLine2"></div>
+                                                <div class="filterIconLine3"></div>
+                                            </div>
+                                            <div class="list_view_table_filter_options_container" id="borough_Filter_Container">
+                                                <div class="lvt_filter_dropdown_content" id="borough_Filter_Content">
+                                                    <div class="lvt_filter_content_row">
+                                                        <img class="lvt_filter_icon" src="Assets/Icons/filter_icon.svg">
+                                                        <div class="lvt_filter_header">Filter</div>
+                                                        <div class="lvt_filter_clear_filter">Clear Filter</div>
+                                                    </div>
+                                                    <div class="lvt_filter_content_row">
+                                                        <input class="lvt_filter_search_bar" type="search" placeholder="Search borough..."
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="list_view_table_thContainerContainer">
+                                    <div class="list_view_table_thContainer">
+                                        <div class="list_view_table_header_cell_text">Size (Acres)</div>
+                                        <div class="lvt_filter_dropdown_container">
+                                            <div class="filterIcon id_size" onclick="sizeFilterDropdown()">
+                                                <div class="filterIconLine1"></div>
+                                                <div class="filterIconLine2"></div>
+                                                <div class="filterIconLine3"></div>
+                                            </div>
+                                            <div class="list_view_table_filter_options_container" id="size_Filter_Container">
+                                                <div class="lvt_filter_dropdown_content" id="size_Filter_Content">
+                                                    <div class="lvt_filter_dropdown_content" id="name_Filter_Content">
+                                                        <div class="lvt_filter_content_row">
+                                                            <div class="lvt_filter_checkbox"></div>
+                                                            <div class="lvt_filter_ascending_arrow"></div>
+                                                            <div class="lvt_filter_key">Sort Ascending</div>
+                                                        </div>
+                                                        <div class="lvt_filter_content_row">
+                                                            <div class="lvt_filter_checkbox"></div>
+                                                            <div class="lvt_filter_descending_arrow"></div>
+                                                            <div class="lvt_filter_key">Sort Descending</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="list_view_table_thContainerContainer">
+                                    <div class="list_view_table_thContainer">
+                                        <div class="list_view_table_header_cell_text">Status</div>
+                                        <div class="lvt_filter_dropdown_container">
+                                            <div class="filterIcon id_status" onclick="statusFilterDropdown()">
+                                                <div class="filterIconLine1"></div>
+                                                <div class="filterIconLine2"></div>
+                                                <div class="filterIconLine3"></div>
+                                            </div>
+                                            <div class="list_view_table_filter_options_container" id="status_Filter_Container">
+                                                <div class="lvt_filter_dropdown_content" id="status_Filter_Content">
+                                                    <div class="lvt_filter_content_row">
+                                                        <img class="lvt_filter_icon" src="Assets/Icons/filter_icon.svg">
+                                                        <div class="lvt_filter_header">Filter</div>
+                                                        <div class="lvt_filter_clear_filter">Clear Filter</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="list_view_table_thContainerContainer">
+                                    <div class="list_view_table_thContainer">
+                                        <div class="list_view_table_header_cell_text">Period Opened</div>
+                                        <div class="lvt_filter_dropdown_container">
+                                            <div class="filterIcon id_period_opened" onclick="periodOpenedFilterDropdown()">
+                                                <div class="filterIconLine1"></div>
+                                                <div class="filterIconLine2"></div>
+                                                <div class="filterIconLine3"></div>
+                                            </div>
+                                            <div class="list_view_table_filter_options_container" id="period_opened_Filter_Container">
+                                                <div class="lvt_filter_dropdown_content" id="period_opened_Filter_Content">
+                                                    <div class="lvt_filter_content_row">
+                                                        <img class="lvt_filter_icon" src="Assets/Icons/filter_icon.svg">
+                                                        <div class="lvt_filter_header">Filter</div>
+                                                        <div class="lvt_filter_clear_filter">Clear Filter</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="list_view_table_thContainerContainer">
+                                    <div class="list_view_table_thContainer">
+                                        <div class="list_view_table_header_cell_text">Alterations</div>
+                                        <div class="lvt_filter_dropdown_container">
+                                            <div class="filterIcon id_alteration" onclick="alterationsFilterDropdown()"">
+                                                <div class="filterIconLine1"></div>
+                                                <div class="filterIconLine2"></div>
+                                                <div class="filterIconLine3"></div>
+                                            </div>
+                                            <div class="list_view_table_filter_options_container" id="alterations_Filter_Container">
+                                                <div class="lvt_filter_dropdown_content" id="alterations_Filter_Content">
+                                                    <div class="lvt_filter_content_row">
+                                                        <img class="lvt_filter_icon" src="Assets/Icons/filter_icon.svg">
+                                                        <div class="lvt_filter_header">Filter</div>
+                                                        <div class="lvt_filter_clear_filter">Clear Filter</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
                     </thead>
                     <tbody id="list_view_table_body">
                     </tbody>
