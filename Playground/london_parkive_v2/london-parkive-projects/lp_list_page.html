@@ -60,14 +60,16 @@
                                             <div class="list_view_table_filter_options_container" id="name_Filter_Container">
                                                 <div class="lvt_filter_dropdown_content" id="name_Filter_Content">
                                                     <div class="lvt_filter_content_row">
-                                                        <div class="lvt_filter_checkbox">
-                                                            <div class="lvt_filter_checkbox_active"></div>
+                                                        <div class="lvt_filter_checkbox" id="name_filter_ascending_checkbox" onclick="activateNameAscendingFilter()">
+                                                            <div class="lvt_filter_checkbox_active" id="name_filter_ascending_checkbox_active_state"></div>
                                                         </div>
                                                         <div class="lvt_filter_ascending_arrow"></div>
                                                         <div class="lvt_filter_key">Sort Ascending</div>
                                                     </div>
                                                     <div class="lvt_filter_content_row">
-                                                        <div class="lvt_filter_checkbox"></div>
+                                                        <div class="lvt_filter_checkbox" id="name_filter_descending_checkbox" onclick="activateNameDescendingFilter()">
+                                                            <div class="lvt_filter_checkbox_active" id="name_filter_descending_checkbox_active_state"></div>
+                                                        </div>
                                                         <div class="lvt_filter_descending_arrow"></div>
                                                         <div class="lvt_filter_key">Sort Descending</div>
                                                     </div>
@@ -117,12 +119,16 @@
                                                 <div class="lvt_filter_dropdown_content" id="size_Filter_Content">
                                                     <div class="lvt_filter_dropdown_content" id="name_Filter_Content">
                                                         <div class="lvt_filter_content_row">
-                                                            <div class="lvt_filter_checkbox"></div>
+                                                            <div class="lvt_filter_checkbox" id="size_filter_ascending_checkbox" onclick="activateSizeAscendingFilter()">
+                                                                <div class="lvt_filter_checkbox_active" id="size_filter_ascending_checkbox_active_state"></div>
+                                                            </div>
                                                             <div class="lvt_filter_ascending_arrow"></div>
                                                             <div class="lvt_filter_key">Sort Ascending</div>
                                                         </div>
                                                         <div class="lvt_filter_content_row">
-                                                            <div class="lvt_filter_checkbox"></div>
+                                                            <div class="lvt_filter_checkbox" id="size_filter_descending_checkbox" onclick="activateSizeDescendingFilter()">
+                                                                <div class="lvt_filter_checkbox_active" id="size_filter_descending_checkbox_active_state"></div>
+                                                            </div>
                                                             <div class="lvt_filter_descending_arrow"></div>
                                                             <div class="lvt_filter_key">Sort Descending</div>
                                                         </div>
@@ -184,7 +190,7 @@
                                     <div class="list_view_table_thContainer">
                                         <div class="list_view_table_header_cell_text">Alterations</div>
                                         <div class="lvt_filter_dropdown_container">
-                                            <div class="filterIcon id_alteration" onclick="alterationsFilterDropdown()"">
+                                            <div class="filterIcon id_alteration" onclick="alterationsFilterDropdown()">
                                                 <div class="filterIconLine1"></div>
                                                 <div class="filterIconLine2"></div>
                                                 <div class="filterIconLine3"></div>

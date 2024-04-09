@@ -693,10 +693,21 @@ html, body, #map {
     justify-content: center;
 }
 .lvt_filter_checkbox_active{
-    width: 0.7rem;
-    height: 0.7rem;
+    width: 0.8rem;
+    height: 0.8rem;
     border-radius: 0.2rem;
     background-color:#50B848;
+}
+#name_filter_ascending_checkbox_active_state{
+    display: none;
+}
+#name_filter_ascending_checkbox_active_state{
+    display: none;
+}
+#size_filter_ascending_checkbox_active_state{
+    display: none;
+}
+#size_filter_descending_checkbox_active_state{
     display: none;
 }
 
