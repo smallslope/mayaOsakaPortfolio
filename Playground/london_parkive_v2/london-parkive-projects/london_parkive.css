@@ -912,7 +912,22 @@ html, body, #map {
     
     #map_view_search_bar{
         height: 2.5rem;
-        width: 92vw;;
+        width: 92vw;
+        z-index: 4;
+    }
+    #search_bar_results{
+        position: absolute;
+        top: 6.2rem;
+        left: 1rem;
+        width: 90.5vw;
+        max-height: 20rem;
+        overflow:scroll;
+        background-color: white;
+        border: 2.5px solid black;
+        border-bottom-left-radius: 0.7rem;
+        border-bottom-right-radius: 0.7rem;
+        display: none;
+        z-index: 3;
     }
     #list_view_search_bar{
         top: 5rem;
