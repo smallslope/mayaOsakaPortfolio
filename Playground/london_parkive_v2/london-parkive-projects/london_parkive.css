@@ -1113,7 +1113,7 @@ html, body, #map {
         top: 12rem;
         left: 1rem;
         width: 90vw;
-        display: block;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -1231,5 +1231,8 @@ html, body, #map {
     }
     #park_info_overlay_coordinates{
         font-size: 0.8rem;
+    }
+    #mobile_table_container{
+        display: flex;
     }
 }
