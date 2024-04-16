@@ -5,6 +5,7 @@ let parkNames;
 let deduplicatedParks;
 var southwarkParksShapes = false;
 var popup = new maplibregl.Popup({closeOnClick: false});
+let searchBar = document.getElementById("map_view_search_bar");
 
 //Dropdown Menu for Mobile//
 function dropdownMenu(x) {

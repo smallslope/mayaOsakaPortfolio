@@ -872,9 +872,10 @@ html, body, #map {
     }
     #nav_container{
         display: none;
+        z-index: 10;
     }
     #nav_options{
-        z-index: 5;
+        z-index: 10;
         flex-direction: column;
         position: absolute;
         justify-content: center;
@@ -899,7 +900,7 @@ html, body, #map {
        font-size: 1.5rem;
     }
     #dropdown_background{
-        z-index: 4;
+        z-index: 6;
         width: 100vw;
         height: 9.4rem;
         background-color:white;
