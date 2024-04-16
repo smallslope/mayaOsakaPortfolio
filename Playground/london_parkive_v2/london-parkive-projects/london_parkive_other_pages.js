@@ -55,10 +55,8 @@ if(document.title ==="London Parkive List"){
 
     var alterations_expanded_color = "#62d0fb";
 
-    let borough_keys_data;
-    let status_keys_data;
-    let period_opened_keys_data;
-    let alterations_keys_data;
+    
+   
     let parksShapes;
 
     let borough_filter_dropdown_content = document.getElementById("borough_Filter_Content");
@@ -70,9 +68,9 @@ if(document.title ==="London Parkive List"){
     let ascendingNames;
     let descendingNames;
     let tableBody = document.getElementById('list_view_table_body');
-
+    let borough_keys_data;
     const tableProperties = ["name", "borough", "size", "status", "period_opened", "alteration"];
-
+    
     fetch('./data_files/park_shapes_source.json')
     .then((response) => response.json())
     .then(response => {
@@ -83,48 +81,15 @@ if(document.title ==="London Parkive List"){
                 accumulator.push(current);
             }
             return accumulator;
-        }, []);
+        }, 
+        []);
         console.log(list_view_deduplicated_park_data);
         list_view_deduplicated_park_data.sort((a,b) => a.properties.name > b.properties.name ? 1 : -1 );
         generateTable(list_view_deduplicated_park_data, tableProperties, tableBody);
 
-        //Adding Filter Key Content to filter dropdowns//
-        let borough = "borough";
-        borough_keys_data = createFilterKeysData(parksShapes,borough);
-        let borough_filter_keys_section = createFilterKeysSection(borough_keys_data, borough, borough_filter_dropdown_content);
-
-        let status = "status";
-        status_keys_data = createFilterKeysData(parksShapes,status);
-        let status_filter_keys_section = createFilterKeysSection(status_keys_data, status, status_filter_dropdown_content);
-
-        let period_opened = "period_opened";
-        period_opened_keys_data = createFilterKeysData(parksShapes,period_opened);
-        let period_opened_filter_keys_section = createFilterKeysSection(period_opened_keys_data, period_opened, period_opened_filter_dropdown_content);
-
-        let alterations = "alteration";
-        alterations_keys_data = createFilterKeysData(parksShapes,alterations);
-        let alterations_filter_keys_section = createFilterKeysSection(alterations_keys_data, alterations, alterations_filter_dropdown_content);   
     });
+
    // Functions for generating components in Filter dropdown//
-    function filterRowGenerator(){
-        let row = document.createElement("div");
-        row.classList.add("lvt_filter_content_row");
-        return row;
-    }
-    function checkBoxGenerator(){
-        let checkbox = document.createElement("div");
-        checkbox.classList.add("lvt_filter_checkbox");
-        return checkbox;
-    }
-    function filterKeyNameGenerator(key){
-        let keyName = document.createElement("div");
-        keyName.classList.add("lvt_filter_key");
-        return keyName;
-    }
-
-    let lvt_filter_content_row = filterRowGenerator();
-    let lvt_filter_checkbox = checkBoxGenerator();
-
     function createFilterKeysData(dataSet,key){
         let lvt_filter_keys;
         lvt_filter_keys = dataSet.features.reduce((accumulator, current) =>{
@@ -135,17 +100,6 @@ if(document.title ==="London Parkive List"){
         }, []);
         console.log(lvt_filter_keys);
         return lvt_filter_keys;
-    }
-    function createFilterKeysSection(keyData, key,container){
-        keyData.forEach(feature =>{
-            lvt_filter_content_row = filterRowGenerator();
-            lvt_filter_checkbox = checkBoxGenerator();
-            lvt_filter_content_row.appendChild(lvt_filter_checkbox);
-            lvt_filter_key_name = filterKeyNameGenerator(key);
-            lvt_filter_key_name.innerHTML = feature.properties[key];
-            lvt_filter_content_row.appendChild(lvt_filter_key_name);
-            container.appendChild(lvt_filter_content_row);
-        })
     }
 
     // Functions for showing and hiding filter dropdown menus//
@@ -205,6 +159,29 @@ if(document.title ==="London Parkive List"){
     }
    
     //Functions for filter dropdown menu checkboxes//
+ 
+    function filterContent(key,keyName){
+        let filtered_data = list_view_deduplicated_park_data.filter((feature) => feature.properties[key] == keyName);
+        document.getElementById("list_view_table_body").remove();
+            newTable = document.createElement("tbody");
+            newTable.id = "list_view_table_body";
+            list_view_table.appendChild(newTable);
+            let newTableContent = generateTable(filtered_data, tableProperties, newTable);
+            return newTableContent;
+    }
+    function removeFilter(){
+        document.getElementById("list_view_table_body").remove();
+        newTable = document.createElement("tbody");
+        newTable.id = "list_view_table_body";
+        list_view_table.appendChild(newTable);
+        newTableContent = generateTable(list_view_deduplicated_park_data, tableProperties, newTable);
+        return newTableContent;
+    }
+    function deactivateCheckbox(checkboxClass){
+        for(var i = 0; i < checkboxClass.length; i++){
+            checkboxClass[i].style.display = "none";
+        }
+    }
 
     let name_filter_ascending_checkbox = document.getElementById("name_filter_ascending_checkbox");
     let name_filter_ascending_checkbox_active_state = document.getElementById("name_filter_ascending_checkbox_active_state");
@@ -234,7 +211,7 @@ if(document.title ==="London Parkive List"){
         else{
             name_filter_ascending_checkbox_active_state.style.display = "none";
         }
-    }
+    };
     function activateNameDescendingFilter(){
         if (name_filter_descending_checkbox_active_state.style.display === "none"){
             name_filter_descending_checkbox_active_state.style.display = "block";
@@ -250,6 +227,36 @@ if(document.title ==="London Parkive List"){
         }
         else{
             name_filter_descending_checkbox_active_state.style.display = "none";
+        }
+    };
+
+    let borough_filter_southwark_checkbox_active_state = document.getElementById("borough_filter_southwark_checkbox_active_state");
+    let borough_filter_lewisham_checkbox_active_state = document.getElementById("borough_filter_lewisham_checkbox_active_state");
+    let borough_filter_active = document.getElementsByClassName("borough_filter_active");
+    let borough = "borough";
+    function activateBoroughLewishamFilter(){
+        console.log("clicked");
+        if(borough_filter_lewisham_checkbox_active_state.style.display === "none"){
+            let lewisham = "Lewisham";
+            deactivateCheckbox(borough_filter_active);
+            borough_filter_lewisham_checkbox_active_state.style.display = "block";
+            filterContent(borough, lewisham);
+        }
+        else{
+            borough_filter_lewisham_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+    function activateBoroughSouthwarkFilter(){
+        if(borough_filter_southwark_checkbox_active_state.style.display === "none"){
+            let southwark = "Southwark";
+            deactivateCheckbox(borough_filter_active);
+            borough_filter_southwark_checkbox_active_state.style.display = "block";
+            filterContent(borough, southwark);
+        }
+        else{
+            borough_filter_southwark_checkbox_active_state.style.display = "none";
+            removeFilter();
         }
     }
 
@@ -279,7 +286,7 @@ if(document.title ==="London Parkive List"){
         else{
             size_filter_ascending_checkbox_active_state.style.display = "none";
         }
-    }
+    };
     function activateSizeDescendingFilter(){
         if(size_filter_descending_checkbox_active_state.style.display === "none"){
             size_filter_descending_checkbox_active_state.style.display = "block";
@@ -296,24 +303,250 @@ if(document.title ==="London Parkive List"){
         else{
             size_filter_descending_checkbox_active_state.style.display = "none";
         }
+    };
+
+    let status_filter_open_checkbox_active_state = document.getElementById("status_filter_open_checkbox_active_state");
+    let status_filter_defunct_checkbox_active_state = document.getElementById("status_filter_defunct_checkbox_active_state");
+    let status_filter_under_threat_checkbox_active_state = document.getElementById("status_filter_under_threat_checkbox_active_state");
+    let status = "status";
+    let periodOpened = "period_opened";
+
+   
+
+
+    let status_filter_active = document.getElementsByClassName("status_filter_active");
+        function activateStatusOpenFilter(){
+        if(status_filter_open_checkbox_active_state.style.display === "none"){
+            let open = "Open";
+            deactivateCheckbox(status_filter_active);
+            po_filter_before1850_checkbox_active_state.style.display = "block";
+            filterContent(status, open);
+        }
+        else{
+            status_filter_open_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
     }
+    function activateStatusDefunctFilter(){
+        if(status_filter_defunct_checkbox_active_state.style.display === "none"){
+            let defunct = "Defunct";
+            deactivateCheckbox(status_filter_active);
+            status_filter_defunct_checkbox_active_state.style.display = "block";
+            filterContent(status, defunct);
+        }
+        else{
+            status_filter_defunct_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+    function activateStatusUnderThreatFilter(){
+        if(status_filter_under_threat_checkbox_active_state.style.display === "none"){
+            deactivateCheckbox(status_filter_active);
+            let underThreat = "Under Threat";
+            status_filter_under_threat_checkbox_active_state.style.display = "block";
+            filterContent(status, underThreat);
+        }
+        else{
+            status_filter_under_threat_checkbox_active_state.style.display = "none";
+            status_filter_defunct_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+    function activateStatusUnknownFilter(){
+        if(status_filter_unknown_checkbox_active_state.style.display === "none"){
+            let unknown = "Unknown";
+            deactivateCheckbox(status_filter_active);
+            status_filter_unknown_checkbox_active_state.style.display = "block";
+            filterContent(status, unknown);
+        }
+        else{
+            status_filter_unknown_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+    let po_filter_before1850_checkbox_active_state = document.getElementById("po_filter_before1850_checkbox_active_state");
+    let po_filter_1850to1874_checkbox_active_state = document.getElementById("po_filter_1850to1874_checkbox_active_state");
+    let po_filter_1875to1899_checkbox_active_state = document.getElementById("po_filter_1875to1899_checkbox_active_state");
+    let po_filter_1900to1924_checkbox_active_state = document.getElementById("po_filter_1900to1924_checkbox_active_state");
+    let po_filter_1925to1949_checkbox_active_state = document.getElementById("po_filter_1925to1949_checkbox_active_state");
+    let po_filter_1950to1974_checkbox_active_state = document.getElementById("po_filter_1950to1974_checkbox_active_state");
+    let po_filter_1975to1999_checkbox_active_state = document.getElementById("po_filter_1975to1999_checkbox_active_state");
+    let po_filter_2000to2024_checkbox_active_state = document.getElementById("po_filter_2000to2024_checkbox_active_state");
+    let po_filter_unkown_checkbox_active_state = document.getElementById("po_filter_unkown_checkbox_active_state");
+    let poFilterActive = document.getElementsByClassName("po_filter_active");
+    let poBefore1850 = "Before 1850";
+    let po1850to1874 = "1850-1874";
+    let po1875to1899 = "1874-1899";
+    let po1900to1924 = "1900-1924";
+    let po1925to1949 = "1925-1949";
+    let po1950to1974 = "1950-1974";
+    let po1975to1999 = "1975-1999";
+    let po2000to2024 = "2000-2024";
+    let poUnknown = "Unknown";
+    
+    function activatePoBefore1850Filter(){
+        if(po_filter_before1850_checkbox_active_state.style.display === "none"){
+            console.log(poFilterActive);
+            deactivateCheckbox(poFilterActive);
+            po_filter_before1850_checkbox_active_state.style.display = "block";
+
+            filterContent(periodOpened, poBefore1850);
+        } else{
+            po_filter_before1850_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+    function activatePo1850to1874Filter(){
+        if(po_filter_1850to1874_checkbox_active_state.style.display === "none"){
+            deactivateCheckbox(poFilterActive);
+            po_filter_1850to1874_checkbox_active_state.style.display = "block";
+            filterContent(periodOpened, po1850to1874);
+        }else{
+            po_filter_1850to1874_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+    function activatePo1875to1899Filter(){
+        if(po_filter_1875to1899_checkbox_active_state.style.display === "none"){
+            deactivateCheckbox(poFilterActive);
+            po_filter_1875to1899_checkbox_active_state.style.display = "block";
+            filterContent(periodOpened, po1875to1899);
+        } else{
+            po_filter_1875to1899_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+    function activatePo1900to1924Filter(){
+        if(po_filter_1900to1924_checkbox_active_state.style.display === "none"){
+            deactivateCheckbox(poFilterActive);
+            po_filter_1900to1924_checkbox_active_state.style.display  = "block";
+            filterContent(periodOpened, po1900to1924);
+        } else{
+            po_filter_1900to1924_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+
+    }
+    function activatePo1925to1949Filter(){
+        if(po_filter_1925to1949_checkbox_active_state.style.display === "none"){
+            deactivateCheckbox(poFilterActive);
+            po_filter_1925to1949_checkbox_active_state.style.display = "block";
+            filterContent(periodOpened, po1925to1949);
+        } else{
+            po_filter_1925to1949_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+
+    }
+    function activatePo1950to1974Filter(){
+        if(po_filter_1950to1974_checkbox_active_state.style.display === "none"){
+            deactivateCheckbox(poFilterActive);
+            po_filter_1950to1974_checkbox_active_state.style.display = "block";
+            filterContent(periodOpened, po1950to1974);
+        } else{
+            po_filter_1950to1974_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+    function activatePo1975to1999Filter(){
+        if(po_filter_1975to1999_checkbox_active_state.style.display === "none"){
+            deactivateCheckbox(poFilterActive);
+            po_filter_1975to1999_checkbox_active_state.style.display = "block";
+            filterContent(periodOpened, po1975to1999);
+        } else{
+            po_filter_1975to1999_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+    function activatePo2000to2024Filter(){
+        if(po_filter_2000to2024_checkbox_active_state.style.display === "none"){
+            deactivateCheckbox(poFilterActive);
+            po_filter_2000to2024_checkbox_active_state.style.display = "block"; 
+            filterContent(periodOpened, po2000to2024);
+        } else{
+            po_filter_2000to2024_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+    function activatePoUnknownFilter(){
+        if(po_filter_unkown_checkbox_active_state.style.display === "none"){
+            deactivateCheckbox(poFilterActive);
+            po_filter_unkown_checkbox_active_state.style.display = "block"; 
+            filterContent(periodOpened, poUnknown);
+        } else{
+            po_filter_unkown_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+
+    let alterations_filter_active = document.getElementsByClassName("alterations_filter_active");
+    let alterations_filter_unchanged_checkbox_active_state = document.getElementById("alterations_filter_unchanged_checkbox_active_state");
+    let alteration = "alteration";
+
+    function activateAlterationsUnchangedFilter(){
+        if(alterations_filter_unchanged_checkbox_active_state.style.display === "none"){
+            let unchanged = "Unchanged"; 
+            deactivateCheckbox(alterations_filter_active);
+            alterations_filter_unchanged_checkbox_active_state.style.display = "block";
+            filterContent(alteration, unchanged);
+        } else{
+            alterations_filter_unchanged_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+
+    function activateAlterationsExpandedFilter(){
+        if(alterations_filter_expanded_checkbox_active_state.style.display === "none"){
+            let expanded = "Expanded"; 
+            deactivateCheckbox(alterations_filter_active);
+            alterations_filter_expanded_checkbox_active_state.style.display = "block";
+            filterContent(alteration, expanded);
+        } else{
+            alterations_filter_expanded_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+    function activateAlterationsShrankFilter(){
+        if(alterations_filter_shrank_checkbox_active_state.style.display === "none"){
+            let shrank = "Shrank"; 
+            deactivateCheckbox(alterations_filter_active);
+            alterations_filter_shrank_checkbox_active_state.style.display = "block";
+            filterContent(alteration, shrank);
+        } else{
+            alterations_filter_shrank_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+    function activateAlterationsUnknownFilter(){
+        if(alterations_filter_unknown_checkbox_active_state.style.display === "none"){
+            let unknown = "Unknown"; 
+            deactivateCheckbox(alterations_filter_active);
+            alterations_filter_unknown_checkbox_active_state.style.display = "block";
+            filterContent(alteration, unknown);
+        } else{
+            alterations_filter_unknown_checkbox_active_state.style.display = "none";
+            removeFilter();
+        }
+    }
+
     //Function for generating table content//
    
     function generateTable(data, propertiesToShow, tablebody){
-        
+       
         data.forEach(feature =>{
             const row = document.createElement('tr');
             propertiesToShow.forEach(key => {
-
+                
                 if(key === "status"){
                     const statusCell = document.createElement('td');
                     row.appendChild(statusCell);
                     var statusDivContainer = document.createElement("div");
-                    statusDivContainer.classList.add("list_view_box_container")
+                    statusDivContainer.classList.add("list_view_box_container");
                     statusCell.appendChild(statusDivContainer);
                     var statusDiv  = document.createElement("div");
                     statusDiv.innerHTML = feature.properties[key];
                     statusDiv.classList.add("list_view_box");
+                    statusDiv.classList.add("status_column");
                     switch(feature.properties[key]){
                         case "Open": statusDiv.style.backgroundColor = status_open_color;
                         break;
@@ -396,13 +629,6 @@ if(document.title ==="London Parkive List"){
             tablebody.appendChild(row);
         });
 
-       
-    
-      
-        
-          
-       
-        // mobileListParkName.addEventListener("click", function navigateToMapPageWrapper(){ navigateToMapPage(feature) });
         function generateMobileListView(data){
             var mobileListContainer = document.getElementById("mobile_table_container");
             data.forEach(feature =>{
@@ -611,4 +837,4 @@ function searchBarFilter(){
             }
         }
     }
-}
+};

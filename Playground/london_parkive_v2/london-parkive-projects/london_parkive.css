@@ -70,7 +70,7 @@ html, body, #map {
     color: #50B848;
 }
 .search_bar{
-    z-index: 2;
+    z-index: 3;
     height: 2.5rem;
     width: 20rem;
     border-radius: 0.75rem;
@@ -86,15 +86,37 @@ html, body, #map {
 .search_bar::-webkit-search-cancel-button{
     -webkit-appearance: none;
 }
+#map_search_bar_container{
+    position: relative;
+}
 #map_view_search_bar{
     position: absolute;
     top: 4.3rem;
     left: 1rem;
 }
-#list_view_search_bar{
+#search_bar_results{
     position: absolute;
-    top: 6rem;
-    left: 4rem;
+    top: 6.2rem;
+    left: 1rem;
+    width: 19.7rem;
+    max-height: 20rem;
+    overflow:scroll;
+    background-color: white;
+    border: 2.5px solid black;
+    border-bottom-left-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+    display: none;
+    z-index: 2;
+}
+.searchResultsRow{
+    padding: 1rem;
+    border-bottom: solid 1px black;
+}
+.searchResultsRow:nth-child(1){
+    padding-top: 1.5rem;
+}
+.searchResults{
+    font-weight: 700;
 }
 #view_mode_buttons_container{
     z-index: 2;
@@ -440,20 +462,32 @@ html, body, #map {
     display:none;
 }
 /* List Page */
+#list_view_search_bar{
+    position: absolute;
+    top: 6rem;
+    left: 3rem;
+}
+#clear_filter_text{
+    font-size: 1rem;
+    font-weight: 600;
+}
 #table_container{
     display: flex;
     justify-content: center;
+    position: absolute;
+    top: 13rem;
+    left: 1rem;
 }
 #london_parkive_list_view{
-    position: absolute;
-    top: 10rem;
     width: 90vw;
-    margin: 2rem;
+    margin-left: 2rem;
     font-size: 1rem;
     font-weight: 600;
     table-layout: fixed;
     border-collapse: collapse;
+    margin-bottom: 1.5rem;  
 }
+
 #list_view_table_header{
     text-align: center;
     border-bottom: 2px solid black;
@@ -622,14 +656,14 @@ html, body, #map {
     display: none;
 }
 #name_Filter_Container:after{
-    transform: translate(130%, -265%) rotate(180deg);
+    transform: translate(130%, -260%) rotate(180deg);
 }
 #borough_Filter_Container{
     /* height: 15rem; */
     display: none;
 }
 #borough_Filter_Container:after{
-    transform: translate(130%, -605%) rotate(180deg);
+    transform: translate(130%, -600%) rotate(180deg);
 }
 #size_Filter_Container{
     display: none;
@@ -642,7 +676,7 @@ html, body, #map {
     display: none;
 }
 #status_Filter_Container:after{
-    transform: translate(130%, -520%) rotate(180deg);
+    transform: translate(130%, -630%) rotate(180deg);
 }
 #period_opened_Filter_Container{
     /* height: 11rem; */
@@ -652,13 +686,10 @@ html, body, #map {
     display: none;
 }
 #period_opened_Filter_Container:after{
-    transform: translate(130%, -860%) rotate(180deg);
-}
-#alterations_Filter_Container{
-    height: 7rem;
+    transform: translate(130%, -1200%) rotate(180deg);
 }
 #alterations_Filter_Container:after{
-    transform: translate(130%, -560%) rotate(180deg);
+    transform: translate(130%, -630%) rotate(180deg);
 }
 .lvt_filter_dropdown_content{
     margin: 0.2rem;
@@ -672,9 +703,7 @@ html, body, #map {
     margin-left: 0.4rem;
     margin-bottom: 0.4rem;
 }
-.lvt_filter_filter_section{
-   
-}
+
 .lvt_filter_content_row{
     display: flex;
     align-items: center;
@@ -697,11 +726,18 @@ html, body, #map {
     height: 0.8rem;
     border-radius: 0.2rem;
     background-color:#50B848;
+    display:none;
 }
-#name_filter_ascending_checkbox_active_state{
+/* #name_filter_ascending_checkbox_active_state{
     display: none;
 }
-#name_filter_ascending_checkbox_active_state{
+#name_filter_descending_checkbox_active_state{
+    display: none;
+}
+#borough_filter_lewisham_checkbox_active_state{
+    display: none;
+}
+#borough_filter_southwark_checkbox_active_state{
     display: none;
 }
 #size_filter_ascending_checkbox_active_state{
@@ -710,6 +746,57 @@ html, body, #map {
 #size_filter_descending_checkbox_active_state{
     display: none;
 }
+#status_filter_open_checkbox_active_state{
+    display: none;
+}
+#status_filter_defunct_checkbox_active_state{
+    display: none;
+}
+#status_filter_under_threat_checkbox_active_state{
+    display: none;
+}
+#status_filter_unknown_checkbox_active_state{
+    display: none;
+}
+#po_filter_before1850_checkbox_active_state{
+    display: none;
+}
+#po_filter_1850to1874_checkbox_active_state{
+    display: none;
+}
+#po_filter_1875to1899_checkbox_active_state{
+    display: none;
+}
+#po_filter_1900to1924_checkbox_active_state{
+    display: none;
+}
+#po_filter_1925to1949_checkbox_active_state{
+    display: none;
+}
+#po_filter_1950to1974_checkbox_active_state{
+    display: none;
+}
+#po_filter_1975to1999_checkbox_active_state{
+    display: none;
+}
+#po_filter_2000to2024_checkbox_active_state{
+    display: none;
+}
+#po_filter_unkown_checkbox_active_state{
+    display: none;
+}
+#alterations_filter_unchanged_checkbox_active_state{
+    display: none;
+}
+#alterations_filter_expanded_checkbox_active_state{
+    display: none;
+}
+#alterations_filter_shrank_checkbox_active_state{
+    display: none;
+}
+#alterations_filter_unknown_checkbox_active_state{
+    display: none;
+} */
 
 .lvt_filter_ascending_arrow{
     width: 0;

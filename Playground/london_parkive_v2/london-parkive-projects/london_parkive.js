@@ -1,6 +1,8 @@
 //Global Variables//
 var parksInformation = false;
 var parksShapes = false;
+let parkNames;
+let deduplicatedParks;
 var southwarkParksShapes = false;
 var popup = new maplibregl.Popup({closeOnClick: false});
 
@@ -189,6 +191,16 @@ map.on('load', () =>{
     .then(response => {
         parksShapes = response;
         console.log(parksShapes);
+        deduplicatedParks = parksShapes.features.reduce((accumulator, current) =>{
+            if(!accumulator.find((item) => item.properties.name === current.properties.name)){
+                accumulator.push(current);
+            }
+            return accumulator;
+        }, 
+        []);
+        console.log(deduplicatedParks);
+        parkNames = deduplicatedParks.map(feature => feature.properties.name);
+        console.log(parkNames);
     });
     map.addSource("parkShapesSource",{
         type : "geojson",
@@ -729,6 +741,42 @@ function getParkData(clickedFeature){
 
     return park_data;
 }
+const searchInput = document.getElementById("map_view_search_bar");
+const searchResults = document.getElementById("search_bar_results");
+
+
+function filterParks(searchTerm){
+    return parkNames.filter(feature => feature.toUpperCase().includes(searchTerm.toUpperCase()));
+}
+function displaySearchResults(results){
+    const resultList = results.map(result => `<div class="searchResultsRow">${result}</div>`).join('');
+    searchResults.innerHTML = `<div class="searchResults">${resultList}</div>`;
+    searchResults.style.display = results.length ? "block" : "none";
+}
+searchInput.addEventListener("input", function(){
+       const searchTerm = this.value.trim();
+       console.log(searchTerm);
+       if(searchTerm !== ''){
+        const filteredParks = filterParks(searchTerm);
+        displaySearchResults(filteredParks);
+       } else{
+        searchResults.style.display = "none";
+       }  
+});
+document.addEventListener("click", function(event){
+    if(!searchInput.contains(event.target) && !searchResults.contains(event.target)){
+        displaySearchResults.style.display = "none";
+    }
+});
+searchResults.addEventListener("click", function(event){
+    if(event.target.className === "searchResultsRow"){
+        let searchParkName = event.target.textContent;
+        searchInput.value = searchParkName;
+        searchResults.style.display = "none";
+        
+       
+    }
+})
 //Find code that is currently not being used but could be useful later down the line here://
     //Function for merging park data.//
 
