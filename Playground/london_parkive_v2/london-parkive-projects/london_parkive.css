@@ -111,9 +111,14 @@ html, body, #map {
 .searchResultsRow{
     padding: 1rem;
     border-bottom: solid 1px black;
+    cursor: pointer;
 }
 .searchResultsRow:nth-child(1){
     padding-top: 1.5rem;
+}
+.searchResultsRow:hover{
+    color:#50B848;
+    background-color:#e8e8e8;
 }
 .searchResults{
     font-weight: 700;
@@ -663,7 +668,7 @@ html, body, #map {
     display: none;
 }
 #borough_Filter_Container:after{
-    transform: translate(130%, -600%) rotate(180deg);
+    transform: translate(130%, -400%) rotate(180deg);
 }
 #size_Filter_Container{
     display: none;
@@ -728,76 +733,6 @@ html, body, #map {
     background-color:#50B848;
     display:none;
 }
-/* #name_filter_ascending_checkbox_active_state{
-    display: none;
-}
-#name_filter_descending_checkbox_active_state{
-    display: none;
-}
-#borough_filter_lewisham_checkbox_active_state{
-    display: none;
-}
-#borough_filter_southwark_checkbox_active_state{
-    display: none;
-}
-#size_filter_ascending_checkbox_active_state{
-    display: none;
-}
-#size_filter_descending_checkbox_active_state{
-    display: none;
-}
-#status_filter_open_checkbox_active_state{
-    display: none;
-}
-#status_filter_defunct_checkbox_active_state{
-    display: none;
-}
-#status_filter_under_threat_checkbox_active_state{
-    display: none;
-}
-#status_filter_unknown_checkbox_active_state{
-    display: none;
-}
-#po_filter_before1850_checkbox_active_state{
-    display: none;
-}
-#po_filter_1850to1874_checkbox_active_state{
-    display: none;
-}
-#po_filter_1875to1899_checkbox_active_state{
-    display: none;
-}
-#po_filter_1900to1924_checkbox_active_state{
-    display: none;
-}
-#po_filter_1925to1949_checkbox_active_state{
-    display: none;
-}
-#po_filter_1950to1974_checkbox_active_state{
-    display: none;
-}
-#po_filter_1975to1999_checkbox_active_state{
-    display: none;
-}
-#po_filter_2000to2024_checkbox_active_state{
-    display: none;
-}
-#po_filter_unkown_checkbox_active_state{
-    display: none;
-}
-#alterations_filter_unchanged_checkbox_active_state{
-    display: none;
-}
-#alterations_filter_expanded_checkbox_active_state{
-    display: none;
-}
-#alterations_filter_shrank_checkbox_active_state{
-    display: none;
-}
-#alterations_filter_unknown_checkbox_active_state{
-    display: none;
-} */
-
 .lvt_filter_ascending_arrow{
     width: 0;
     height: 0;
@@ -849,6 +784,47 @@ html, body, #map {
 .lvt_filter_search_bar::placeholder{
     color: #C0C0C0;
 }
+
+/*About Page */
+#about_page_content{
+    position: absolute;
+    top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+.about_page_h1{
+    font-size: 2rem;
+    color:#50B848;
+    width: 50vw;
+    margin: 0.5rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.about_page_subheading{
+    width: 50vw;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0.5rem;
+}
+.about_page_bold_text{
+    font-weight: 650;
+    font-size: 1rem;
+    margin: 0.5rem;
+    width: 50vw;
+}
+.about_page_text{
+    width: 50vw;
+    margin: 0.5rem;
+    font-size: 1rem;
+}
+.about_page_intext_link{
+    color:#50B848;
+}
+
 /*Media Queries*/
 
 @media screen and (max-width: 900px){
@@ -1175,7 +1151,32 @@ html, body, #map {
         border-style: solid;
         color: black;
     }
+
+    /* About Page 900px Media Queries */
+    #about_page_content{
+        position: absolute;
+        top: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+    }
+    .about_page_h1{
+        width: 90vw;
+    }
+    .about_page_subheading{
+        width: 90vw;
+        font-size: 1rem;
+    }
+    .about_page_bold_text{
+        width: 90vw;
+    }
+    .about_page_text{
+        width: 90vw;
+    }
 }
+
 @media screen and (max-width: 400px){
     #parks_information_overlay_container{
         max-height: 40vh;

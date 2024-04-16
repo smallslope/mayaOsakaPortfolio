@@ -747,6 +747,7 @@ const searchResults = document.getElementById("search_bar_results");
 
 function filterParks(searchTerm){
     return parkNames.filter(feature => feature.toUpperCase().includes(searchTerm.toUpperCase()));
+    // return deduplicatedParks.filter(feature => feature.properties.name.toUpperCase().includes(searchTerm.toUpperCase()));
 }
 function displaySearchResults(results){
     const resultList = results.map(result => `<div class="searchResultsRow">${result}</div>`).join('');
@@ -773,8 +774,11 @@ searchResults.addEventListener("click", function(event){
         let searchParkName = event.target.textContent;
         searchInput.value = searchParkName;
         searchResults.style.display = "none";
-        
-       
+        let targetPark = deduplicatedParks.filter((park) => park.properties.name == searchParkName);
+        console.log(targetPark[0]);
+       let data = getParkData(targetPark[0]);
+       console.log(data);
+       openParkOverlay(undefined, data);
     }
 })
 //Find code that is currently not being used but could be useful later down the line here://
