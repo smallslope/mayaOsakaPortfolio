@@ -1113,7 +1113,7 @@ html, body, #map {
         top: 12rem;
         left: 1rem;
         width: 90vw;
-        display: flex;
+        display: block;
         flex-direction: column;
         justify-content: center;
         align-items: center;
