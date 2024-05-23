@@ -522,14 +522,6 @@ map.on('click', 'park_status_layer', (e) => {
     let statusColor = setStatusColor(clickedParkStatus);
     let alterationsColor = setAlterationColor(clickedParkAlterations);
   
-    // let data = {
-    //     color: alterationsColor
-    // }
-
-    // document.dispatchEvent(new CustomEvent("kaneiscool", {
-    //     detail: data
-    // }));
-    
     console.log(longitudeDiscrepancy);
    
     popup.setLngLat(e.lngLat).setHTML(
