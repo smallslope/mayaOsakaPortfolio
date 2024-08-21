@@ -291,6 +291,7 @@ body {
   width: 60vw;
   font-size: 0.9rem;
   font-style: italic;
+  text-align: center;
 }
 .tabsContent{
   display: flex;

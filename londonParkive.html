@@ -44,9 +44,6 @@
         <h3 class ="projectTags">
           Data Collection & Management/ Digital Product Design/ Web Development/ Data Visualisation
         </h3>
-        <p class ="wordsWidth description">
-          ⚠️ This is my final year project which I am currently working on. I have included a link to the website but please note it is still under construction. ⚠️
-        </p>
         <button id="viewParkiveButton">
           <a id="viewParkiveLink"href="https://londonparkive.com/" target="_blank">VIEW THE LONDON PARKIVE</a>
         </button>
@@ -61,7 +58,11 @@
           <br>
           <br>
           2. The Parkive aims to highlight parks that are currently under threat from development. With a decrease in protection over parks and open spaces in the past few decades and council budget cuts and an ever increasing demand for development, some of London’s parks and open spaces are in a precarious position and the Parkive aims to shine a light on these parks.  
+          <br>
+          <br>
+          You can read the Context Report (Dissertation) that accompanies the project <a href="/pdfs/london_parkive_context_report.pdf">here</a>! 
         </p>
+      
       </div>
       <div class="tab">
         <button  id="outcomesButton" class="tablinks active" onClick="openTab(event,'outcomes')">OUTCOMES</button>
@@ -83,6 +84,10 @@
           <p class="tabsPicDescription">When a park is clicked on a popup appears with information on the parks. This information correlates with the various view modes. The ‘Tell Me More’ button will bring up an overlay with more information on the park. This is being developed now. This screenshot depicts a park that is currently under threat from development. </p>
           <img class="outcomesPic modalPic" src="./Img/London Parkive/outcomes/london_parkive_outcomes_7.jpg">
           <p class="tabsPicDescription">An information overlay which pops up when the “Tell Me More” button on the pop up is clicked. This offers more detailed information on the park that has been clicked. </p>
+          <img class="outcomesPic modalPic" src="./Img/London Parkive/outcomes/london_parkive_outcomes_8.jpg">
+          <p class="tabsPicDescription">The list view page which shows the same information as the map but in table format. </p>
+          <img class="outcomesPic modalPic" src="./Img/London Parkive/outcomes/london_parkive_outcomes_9.jpg">
+          <p class="tabsPicDescription">Photograph from the Goldsmiths BA Degree Show 2024 where my work was exhibited.</p>
         </div>
       </div>
       <div id="process" class="tabcontent">
@@ -156,14 +161,14 @@
             <img class="processPic modalPic" src="./Img/London Parkive/process/london_parkive_process_10.jpg">
             <p class="tabsPicDescription">Screenshot of the master spreadsheet of parks and open spaces  on Notion.</p>
             <p class="description processDescription">
-              I have designed a form on Figma that could help streamline this process by allowing an administrative user to add park information through a form which will store the data directly into JSON format so this is a feature that may be implemented in the future. 
+              I have designed a high fidelity prototype of a form on Figma that could help streamline this process by allowing an administrative user to add park information through a form which will store the data directly into JSON format so this is a feature that may be implemented in the future. 
             </p>
             <img class="processPic modalPic" src="./Img/London Parkive/process/london_parkive_process_11.jpg">
             <p class="tabsPicDescription">A form I have designed using Figma which could help streamline the process of adding park data. If this form was built it could be directly linked to a JSON file. </p>
           </div>
           <h4 class="processSectionSubHeaders">Design</h4>
           <p class="description processDescription">
-            The current aesthetic design of the Parkive will probably change. The screenshots below depict the basic wireframes that I designed in Figma which I am currently translating into HTML, CSS and JavaScript.
+            The London Parkive has a simple aesthetic. In truth, the designs were originally just meant to be the wireframes design which were intentionally kept simple as I was still learning how to code the website as I was building it and therefore didn’t want to be distracted by a complex design aesthetics. However, the simple designs make it accessible and easy to navigate and as I spoke with various people who had used the website it became clear that people actually liked the minimal aesthetic so I decided to stick with it. I initially intended to create high fidelity prototypes of the Parkive, in part because I wanted to practise using Figma and get better at using it. However I soon found that, I wanted to spend more time on actually coding the components, rather than prototyping them. Because I am the only person working on the project it didn’t make sense to spend loads of time prototyping something to just build it again using code so instead I made static wireframes and spent more time coding the components instead. 
           </p>
           <img class="processPic modalPic" src="./Img/London Parkive/process/london_parkive_process_12.jpg">
           <p class="tabsPicDescription">Screenshot of the basic wireframes I have made using Figma. </p>
@@ -186,7 +191,7 @@
           <img class="processPic modalPic" src="./Img/London Parkive/process/london_parkive_process_14.jpg">
           <p class="tabsPicDescription">The websites colour palette on Figma.  </p>
           <p class="description processDescription">
-            While the current colour palette is  mostly monochrome a lot of thought was put into the colour palette of the map keys. Especially for the ‘Year Opened’ view mode. I considered assigning random colours to the 8 keys in this view mode or using different opacity levels of one colour. However, the former felt too random and the latter was difficult to distinguish on a map so instead I went for three different colours (pink, blue and yellow) to represent each century and a gradient of each colour for each 25 year period. The colours are easy enough to distinguish but have enough correlation that patterns can be picked out from the data. 
+            While the colour palette is  mostly monochrome a lot of thought was put into the colour palette of the map keys. Especially for the ‘Year Opened’ view mode. I considered assigning random colours to the 8 keys in this view mode or using different opacity levels of one colour. However, the former felt too random and the latter was difficult to distinguish on a map so instead I went for three different colours (pink, blue and yellow) to represent each century and a gradient of each colour for each 25 year period. The colours are easy enough to distinguish but have enough correlation that patterns can be picked out from the data. 
           </p>
           <img class="processPic modalPic" src="./Img/London Parkive/process/london_parkive_process_15.jpg">
           <p class="tabsPicDescription">Different colour pallets for the ‘Years Opened’ that I considered before settling for something similar to the left colour palette. </p>
@@ -200,10 +205,19 @@
             This project has also been my first time using CSVs, JSON and geoJSON and it has really blown my mind how simple it is to store large quantities of data and call upon specific elements. I had no idea how any of this worked before embarking on this project. In particular, the ability to create dynamic elements such as popups whose information appears different depending on the value of the various parks properties. 
             <br>
             <br>
-            There is still a long way to go before the website is complete. Some features I have yet to develop including a functioning search bar and list view that shows the park information in table form with toggles.  
+            Debugging was one of the biggest challenges and I had some help with debugging but as the project went on I got better at debugging, by using the developer tools on google and setting break points I got better at figuring out what went wrong where. 
             <br>
             <br>
-            I am excited to learn more to achieve these elements and to see how the website turns out!
+            I also learned that with programming there are many ways to achieve the same outcome and that trying to simplify things doesn’t necessarily always make something easier. I learned this when making the table page’s dropdown menus. Having learned how to dynamically generate content I tried to do this with the contents of each dropdown menu only to discover that adding functionality to dynamically generated content was a bit too complicated for the level I am at given the timeframe I had. Having spent a couple of weeks on this already I deleted hundreds of lines of code and manually inputted the data which made it easier to add the functionality too and this only took a day to achieve. 
+          </p>
+          <img class="processPic modalPic" src="./Img/London Parkive/process/london_parkive_process_18.jpg">
+          <p class="description processDescription">
+          <br>
+          <br>
+          If you are interested in reading the “Build Log” which I created, which goes into more detail on the build process as well as reflections and a couple of emotional tantrums along the way click <a href="/pdfs/london_parkive_build_log.pdf">here</a>😜 
+          <br>
+          <br>
+            The project is now over but my interest in programming is still there. In future project I would like to learn more about using frameworks, which is something that I didn’t use in this project, and learning how to write more efficient code. 
           </p>
         </div>
       </div>
