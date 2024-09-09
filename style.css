@@ -318,8 +318,11 @@ body {
   justify-content: center;
 }
 .projectPicsSmall{
-  max-width: 33vw;
+  max-width: 28vw;
   margin: 0.5rem;
+}
+.projectPageUl{
+  width: 100%;
 }
 /*Photography Page */
 body{
@@ -437,6 +440,7 @@ body{
 /** footer */
 .footer{
   width:100%;
+  height: 2rem;
   display: flex;
   flex-direction:row;
   align-items: center;
@@ -724,7 +728,8 @@ body{
 		display: flex;
 		flex-direction:column;
 		justify-content: center;
-		max-width: 90vw;
+		max-width: 454px;
+    max-height: 256px;
 		margin:0.1rem;
 	}
 	.project_tile_title{
