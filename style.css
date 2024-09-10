@@ -148,6 +148,7 @@ body {
 }
 .boldDescription{
   font-size: 1.3rem;
+  margin: 0.5rem;
 }
 .description{
   font-family: 'avenir', sans-serif;
@@ -159,6 +160,7 @@ body {
   font-family: "avenir";
   font-weight:600;
   color:black;
+  margin: 0.5rem;
 } 
 
 /** Project Pages */
