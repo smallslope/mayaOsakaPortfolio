@@ -283,7 +283,7 @@ body {
   background-color: black;
 }
 .tabsDescription{
-  width: 65vw;
+  width: 100%;
 }
 .outcomesPic{
   max-width:65vw;
@@ -563,7 +563,7 @@ body{
 }
 
 .slideshow-container{
-  max-width: 70vw;
+  max-width: 60vw;
   position: relative;
   margin: auto;
 }
@@ -813,7 +813,7 @@ body{
       text-align: center;
     }
     .tabsDescription{
-      width: 88vw;
+      width: 60vw;
     }
     .processPic{
       max-width: 90vw;
