@@ -84,7 +84,7 @@ function slideshow(){
             slides[0].classList.add('active-slide');
           }
       
-          if (links[i].classList.contains('prev')){
+          if (links[i].classList.contains('slideshowImg')){
             if(currentSlide.previousElementSibling){
               currentSlide.previousElementSibling.classList.add('active-slide');
             } else{
