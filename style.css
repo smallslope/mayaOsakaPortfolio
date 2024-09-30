@@ -287,8 +287,8 @@ body {
   width: 100%;
 }
 .outcomesPic{
-  max-width:65vw;
-  max-height: 90vh;
+  max-width:100%;
+  
 }
 .tabsPicDescription{
   width: 60vw;
