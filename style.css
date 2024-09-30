@@ -371,12 +371,13 @@ body{
 .plantPicSec{
   display: flex;
   width: 90vw;
+  max-height: 80vh;
   justify-content: center;
   align-items: center;
 }
 .plantPics{
   margin: 0.6rem;
-  height: 90vh;
+  width: 20vw;
  
 }
 .PhotoprojectVidSection{
