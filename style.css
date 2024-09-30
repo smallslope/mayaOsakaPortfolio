@@ -393,7 +393,9 @@ body{
 	max-width:fit-content;
 	align-self: center;
 }
-
+#wildThings{
+  padding-bottom: 2rem;
+}
 /* Illustration Page*/
 .illustrationProjectSection{
   display:flex;
