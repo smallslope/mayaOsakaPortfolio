@@ -563,14 +563,19 @@ body{
 }
 
 .slideshow-container{
-  max-width: 60vw;
+  max-width: 100%;
   position: relative;
   margin: auto;
 }
 .slideshowImg{
   display: none;
 }
-
+#lbog_prev_button{
+  left: -1rem;
+}
+#lbog_next_button{
+  right: -1rem;
+}
 .prev, .next{
   cursor: pointer;
   position: absolute;
@@ -579,18 +584,19 @@ body{
   width: auto;
   color: black;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.5rem;
   transition:0.4s ease;
-  border-radius: 0 3px 3px 0;
+  border-radius: 3px 3px 3px 3px;
   user-select: none;
 }
 .next{
   right: 0;
-  border-radius: 3px 0 0 3px;
+  border-radius: 3px 3px 3px 3px;
 }
 .prev:hover, .next:hover{
   background-color:#E3B16D;
 }
+
 .slideshowCaption{
   color: black;
   font-size: 0.9rem;
