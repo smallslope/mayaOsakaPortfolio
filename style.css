@@ -371,7 +371,6 @@ body{
 .plantPicSec{
   display: flex;
   width: 90vw;
-  max-height: 80vh;
   justify-content: center;
   align-items: center;
 }
@@ -697,7 +696,6 @@ body{
 	  .photoProjectDescriptionSection{
 	   width: 70vw;
 		padding: 0.1rem;
-		margin: auto;
 	  }
     .photographyProjectTitle{
       text-align: center;
@@ -705,11 +703,11 @@ body{
 	  .plantPicSec{
 		flex-direction: column;
 		justify-content: center;
+    width: 100%;
 	  }
 	  .plantPics{
-    width: auto;
-		max-width: 90vw;
-		padding: 0.5rem;
+	  width: 90%;
+    max-width: 90vw;
 	  }
 	  .picVid{
 		max-width: 90vw;
