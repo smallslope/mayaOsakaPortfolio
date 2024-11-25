@@ -823,8 +823,11 @@ body{
       font-style: italic;
       text-align: center;
     }
+    .tabsContent{
+      width: 90vw;
+    }
     .tabsDescription{
-      width: 60vw;
+      width: 100%;
     }
     .processPic{
       max-width: 90vw;
