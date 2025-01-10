@@ -156,6 +156,7 @@ body {
 }
 .description{
   font-family: 'avenir', sans-serif;
+  text-align: center;
   font-size: 16px;
   color: black;
   margin: 0.5rem;
@@ -906,6 +907,15 @@ body{
 		width: 100vw;
 		text-align: center;
 	  }
+    .mobile_ui_vid{
+      width: 90%;
+      height: auto;
+      margin: 1rem;
+    }
+    .mobile_ui_vid_section{
+      display: flex;
+      flex-direction: column;
+    }
 	/* Modal 700px Media Queries */
 	.modal-content {
 		width: 100%;
