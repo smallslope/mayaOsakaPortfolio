@@ -638,6 +638,15 @@ body{
 }
 .tiledProjectPic:hover{opacity:0.7}
 
+.mobile_ui_vid{
+  width: 17rem;
+  height: auto;
+  margin: 1rem;
+}
+.mobile_ui_vid_section{
+  display: flex;
+}
+
 @media screen and (max-width: 1000px) {
 	.topnav{
 			padding-top: 1rem;
