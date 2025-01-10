@@ -12,6 +12,7 @@ body {
 	align-items: center;
 	flex-wrap: wrap;
 	padding:0.5vw;
+  padding-top: 1rem;
 }
 #topMenu{
   display: flex;
@@ -91,7 +92,8 @@ body {
 .project_tile{
   flex: 1;
   max-width: 30vw;
-  margin: 0.5rem;;
+  margin: 0.5rem;
+  margin-top: 3rem;
   text-align:center;  
 }
 .project_link{
@@ -650,7 +652,7 @@ body{
 
 @media screen and (max-width: 1000px) {
 	.topnav{
-			padding-top: 1rem;
+			padding-top: 2rem;
 			padding-bottom: 1rem;
 	}
 	#websiteTitle{
@@ -751,8 +753,8 @@ body{
 		display: flex;
 		flex-direction:column;
 		justify-content: center;
-		max-width: 454px;
-    max-height: 256px;
+		max-width: 31vw;
+    max-height: 40vh;
 		margin:0.1rem;
 	}
 	.project_tile_title{
