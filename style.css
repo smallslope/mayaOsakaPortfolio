@@ -841,7 +841,7 @@ body{
       max-height: 90vh;
     }
     .tabsPicDescription{
-      width: 90vw;
+      width: 100%;
       font-size: 0.9rem;
       font-style: italic;
       text-align: center;
@@ -851,6 +851,9 @@ body{
     }
     .tabsDescription{
       width: 100%;
+    }
+    .processDescription{
+      width: 90vw;
     }
     .processPic{
       max-width: 90vw;
